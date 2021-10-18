@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(["middleware" => "auth"], function () {
+    Route::get("/", "MainController@home")->name("home");
 });
+
+
+
+//--------------------------Dasboard start---------------------------
+Route::group(["middleware" => "auth"], function() {
+    Route::get("/dashboard", "DashboardController@index")->name("dashboard.index");
+});
+//---------------------------Dasboard end---------------------------
+
+require __DIR__.'/auth.php';
