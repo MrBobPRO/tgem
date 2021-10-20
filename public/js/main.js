@@ -15,3 +15,14 @@ if (home__carousel) home__carousel.owlCarousel({
     dots: false
 });
 //--------------Home main Owl Carousel end----------------
+
+//--------------Home Services Owl Carousel start----------------
+var services__carousel = $('#services__carousel');
+if (services__carousel) services__carousel.owlCarousel({
+    loop: true,
+    margin: 20,
+    nav: false,
+    items: 3,
+    dots: false
+});
+//--------------Home main Owl Carousel end----------------
