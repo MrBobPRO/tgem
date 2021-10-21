@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="{{ asset('js/owl-carousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/owl-carousel/owl.theme.default.min.css') }}">
 
+    {{-- Simple components library --}}
+    <link rel="stylesheet" href="{{ asset('js/components-library/styles.css') }}">
+    
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
@@ -41,6 +44,8 @@
     {{-- Owl Carousel --}}
     <script src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
 
+    {{-- Simple components library --}}
+    <script src="{{ asset('js/components-library/scripts.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
 </body>

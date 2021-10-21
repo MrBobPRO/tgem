@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>Dropdown</h1>
+    <div style="width: max-content;">
+        <li class="dropdown">
+            <a href="javascript::void(0)" class="dropdown__btn">Dropdown button</a>
+            <ul class="dropdown__list">
+                <li class="dropdown__item">
+                    <a class="dropdown__link" href="#">Dropdown item 1</a>
+                </li>
+    
+                <li class="dropdown__item navbar__dropdown-item">
+                    <a class="dropdown__link" href="#">Dropdown item 2</a>
+                </li>
+            </ul>
+        </li>
+    </div>
+    <br><br><br>
+
+
+    <h1>Horizontal Tab</h1>
+    <div class="horizontal-tab" data-content="my-tab-content">
+        <button class="horizontal-tab__button horizontal-tab__button--active" data-pane="content1">Tab1</button>
+        <button class="horizontal-tab__button" data-pane="content2">Tab2</button>
+        <button class="horizontal-tab__button" data-pane="content3">Tab3</button>
+    </div>
+
+    <div class="horizontal-tab__content" id="my-tab-content">
+        <div class="horizontal-tab__pane horizontal-tab__pane--active" id="content1">Content1</div>
+        <div class="horizontal-tab__pane" id="content2">Content2</div>
+        <div class="horizontal-tab__pane" id="content3">Content3</div>
+    </div>
+    <br><br><br>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -16,11 +16,16 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        $u = new User;
+        //-----------Create Users----------
+        $u = new User();
         $u->name = "admin";
         $u->email = "admin@mail.ru";
         $u->password = bcrypt("12345");
         $u->save();
-        
+
+
+        //-----------Call Other Seeders----------
+        $this->call(ProjecstSeeder::class);
+
     }
 }

@@ -117,6 +117,7 @@
         </div>
     </section>    {{-- Services end --}}
 
+    {{-- Statistics start --}}
     <section class="statistics" style="background-image: url({{ asset('img/home/statistics/background.jpg') }})">
         <div class="main-container statistics__inner">
             <h2 class="title--styled title--styled-left title--styled-right"><span class="seperator--left seperator--light"></span>Статистика<span class="seperator--right seperator--light"></span></h2>
@@ -148,7 +149,72 @@
                 </div>
             </div>
         </div>
+    </section>    {{-- Statistics end --}}
+
+
+    {{-- Projects start --}}
+    <section class="home__projects">
+        <div class="main-container home__projects-inner">
+            <h2 class="title--styled title--styled-left title--styled-right home__projects-title"><span class="seperator--left"></span>Наши проекты<span class="seperator--right"></span></h2>
+
+            <div class="horizontal-tab home__projects-tab" data-content="projects-tab-content">
+                <button class="horizontal-tab__button horizontal-tab__button--active home__projects-tab-button" data-pane="pj-content0">Все проекты</button>
+                @foreach ($project_groups as $group)
+                    <button class="horizontal-tab__button home__projects-tab-button" data-pane="pj-content{{$group->id}}">{{$group->name}}</button>
+                @endforeach
+            </div>
+        
+            <div class="horizontal-tab__content home__projects-tab-content" id="projects-tab-content">
+                <div class="horizontal-tab__pane horizontal-tab__pane--active home__projects-tab-pane" id="pj-content0">
+                    <div class="projects-list">
+                        @foreach ($projects as $project)
+                            <div class="projects-list__item">
+                                <div class="project-list__imgage-container">
+                                    <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
+                                </div>
+                                <a class="projects-list__link" href="#">
+                                    <p class="projects-list__group">{{$project->group->name}}</p>
+                                    <h3 class="projects-list__title">{{$project->title}}</h3>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                @foreach ($project_groups as $group)
+                    <div class="horizontal-tab__pane home__projects-tab-pane" id="pj-content{{$group->id}}">
+                        <div class="projects-list">
+                            @foreach ($group->projects as $project)
+                                <div class="projects-list__item">
+                                    <div class="project-list__imgage-container">
+                                        <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
+                                    </div>
+                                    <a class="projects-list__link" href="#">
+                                        <p class="projects-list__group">{{$project->group->name}}</p>
+                                        <h3 class="projects-list__title">{{$project->title}}</h3>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <button class="button main-btn home__projects-btn"><span class="main-btn__text">Посмотреть все проекты</span></button>
+            <img class="home__projects-aside-img" src="{{ asset('img/home/projects/aside.png') }}">
+        </div>
+    </section>  {{-- Projects end --}}
+    
+
+    <section class="home__news" style="background-image: url({{ asset('img/home/news/background.png') }})">
+        <div class="main-container home__news-inner">
+            <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>Наши проекты<span class="seperator--right"></span></h2>
+
+            <h1 class="main-title home__news-desc">Следите За Нашими<br>Последними Новостями</h1>
+        </div>
     </section>
+
+
 
 </main>
 

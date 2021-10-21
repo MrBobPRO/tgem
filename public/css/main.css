@@ -96,51 +96,20 @@ button {
 /* Buttons end */
 
 /* Dropdown start */
-.dropdown {
-    position: relative;
-}
 .dropdown__btn {
-    padding-right: 20px;
-    position: relative;
     color: var(--secondary-color);
     font-weight: 500;
-    display: block;
-    position: relative;
-}
-.dropdown__btn::after {
-    position: absolute;
-    font-family: "Material Icons";
-    content: '\e5cf';
-    right: 0px;
-    font-size: 20px;
-    color: grey;
 }
 .dropdown__list {
-    visibility: hidden;
-    transition: all 0.3s;
-    position: absolute;
-    width: 260px;
-    z-index: 100;
-    padding: 20px 15px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
     border-radius: 10px;
-    opacity: 0;
-}
-.dropdown:hover .dropdown__list {
-    visibility: visible;
-    opacity: 1;
 }
 .dropdown__link {
-    position: relative;
-    display: block;
     padding: 6px 18px 6px 10px;
     line-height: 24px;
     font-weight: 500;
     font-size: 15px;
     text-transform: capitalize;
     color: var(--secondary-color);
-    transition: all 0.3s;
 }
 /* Dropdown end */
 
@@ -310,7 +279,7 @@ button {
     display: block;
     position: relative;
 }
-.home-navbar__link:hover::before, .home-navbar__dropdown-btn:hover::before {
+.home-navbar__link:hover::before, .navbar__dropdown:hover .home-navbar__dropdown-btn::before {
     opacity: 1;
     transform: scale(1,1);
 }
@@ -412,5 +381,58 @@ button {
     70% {box-shadow: 0 0 0 70px rgba(253, 167, 0, 0);}
     100% {box-shadow: 0 0 0 0 rgba(253, 167, 0, 0);}
 }
-
 /* Animations утв */
+
+
+/* Projects list start */
+.projects-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.projects-list__item {
+    width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+.project-list__imgage-container {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+}
+.projects-list__image {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.projects-list__item:hover .projects-list__image {
+    transform: scale(1.2);
+}
+.projects-list__link {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+	margin-right: 50px;
+	margin-top: -60px;
+	background-color:#ffffff;
+	padding: 28px 30px 28px 30px;
+	border-left: 4px solid var(--main-color);
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.10);
+    flex-grow: 1;
+}
+.projects-list__group {
+    color: #555555;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.projects-list__title {
+	text-transform: uppercase;
+    font-size: 19px;
+	color: var(--secondary-color);
+	font-weight: 700;
+	line-height: 1.3em;
+}
+/* Projects list end */
