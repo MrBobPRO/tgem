@@ -6,7 +6,7 @@ use App\Models\Project;
 use App\Models\ProjectGroup;
 use Illuminate\Database\Seeder;
 
-class ProjecstSeeder extends Seeder
+class ProjectsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -156,5 +156,4 @@ class ProjecstSeeder extends Seeder
         //return lowercased url
         return strtolower($transilation);
     }
-
 }

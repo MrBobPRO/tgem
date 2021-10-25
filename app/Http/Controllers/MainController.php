@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use App\Models\Project;
 use App\Models\ProjectGroup;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ class MainController extends Controller
         $projects = Project::latest()->take(6)->get();
         $project_groups = ProjectGroup::all();
 
-        return view("home.index", compact("projects", "project_groups"));
+        $news = News::latest()->take(3)->get();
+
+        return view("home.index", compact("projects", "project_groups", "news"));
     }
 }

@@ -208,9 +208,30 @@
 
     <section class="home__news" style="background-image: url({{ asset('img/home/news/background.png') }})">
         <div class="main-container home__news-inner">
-            <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>Наши проекты<span class="seperator--right"></span></h2>
-
+            <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>Последние новости<span class="seperator--right"></span></h2>
             <h1 class="main-title home__news-desc">Следите За Нашими<br>Последними Новостями</h1>
+
+            <div class="news-list">
+                @foreach ($news as $new)
+                    <a class="news-list__item" href="#">
+                        <div class="news-list__image-container">
+                            <img class="news-list__image" src="{{ asset('img/news/thumbs/' . $new->image) }}">
+                            <?php $formatted = Carbon\Carbon::create($new->created_at)->locale("ru"); ?>   
+                            <div class="news-list__date">{{$formatted->isoFormat('DD')}}<span class="news-list__date-span">
+                                {{$formatted->isoFormat("MMM")}}/{{$formatted->isoFormat("YY")}}
+                            </div>
+                        </div>
+
+                        <div class="news-list__desc">
+                            <h3 class="news-list__title">{{$new->title}}</h3>
+                            <button class="button secondary-btn news-list__button">Полробнее</button>
+                        </div>
+                    </a>
+                @endforeach
+
+            </div>
+
+
         </div>
     </section>
 
