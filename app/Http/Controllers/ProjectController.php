@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    //
+    public function completed()
+    {
+        dd("PROJECTS CONTROLLER!");
+    }
 }

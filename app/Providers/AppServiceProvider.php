@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Dropdown;
+use App\Models\News;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
@@ -32,6 +34,14 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer(["templates.master"], function ($view) {
             $view->with("route", Route::currentRouteName());
+        });
+
+        View::composer(["templates.header", "pages.default_template"], function($view) {
+            $view->with("dropdowns", Dropdown::orderBy("priority", "asc")->get());
+        });
+
+        View::composer(["templates.footer"], function($view) {
+            $view->with("footer_news", News::latest()->take(2)->get());
         });
 
     }

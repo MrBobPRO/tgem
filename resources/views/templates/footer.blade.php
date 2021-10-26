@@ -22,31 +22,18 @@
             <h4 class="main-title footer__inner-title">Новости</h4>
             
             <div class="footer__news">
-                @if(count($news) > 0)
+                @foreach ($footer_news as $fn)
                     <a href="#" class="footer__news-item">
-                        <img src="{{ asset('img/news/thumbs/' . $news[0]->image) }}" class="footer__news-image">
+                        <img src="{{ asset('img/news/thumbs/' . $fn->image) }}" class="footer__news-image">
                         <div class="footer__news-desc">
-                            <h4 class="footer__news-title" title="{{$news[0]->title}}">{{$news[0]->title}}</h4>
+                            <h4 class="footer__news-title" title="{{$fn->title}}">{{$fn->title}}</h4>
                             <?php 
-                                $formatted = Carbon\Carbon::create($news[0]->created_at)->locale("ru");
+                                $formatted = Carbon\Carbon::create($fn->created_at)->locale("ru");
                             ?>
                             <p class="footer__news-date">{{$formatted->isoFormat("MMMM DD, YYYY")}}</p>
                         </div>
                     </a>
-                @endif
-
-                @if(count($news) > 1)
-                    <a href="#" class="footer__news-item">
-                        <img src="{{ asset('img/news/thumbs/' . $news[1]->image) }}" class="footer__news-image">
-                        <div class="footer__news-desc">
-                            <h4 class="footer__news-title" title="{{$news[1]->title}}">{{$news[1]->title}}</h4>
-                            <?php 
-                                $formatted = Carbon\Carbon::create($news[1]->created_at)->locale("ru");
-                            ?>
-                            <p class="footer__news-date">{{$formatted->isoFormat("MMMM DD, YYYY")}}</p>
-                        </div>
-                    </a>
-                @endif
+                @endforeach
             </div>
         </div>  {{-- Footer news end --}}
 

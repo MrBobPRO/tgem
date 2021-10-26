@@ -5,6 +5,31 @@ $.ajaxSetup({
     }
 });
 
+
+// Set navbar position fixed on scroll
+let fixed_navbar = document.getElementById("fixed_navbar_container");
+let home_page = fixed_navbar.classList.contains("home-navbar-container--fixed");
+    
+window.onscroll = function () {
+    // If it is HOME PAGE
+    if (home_page) {
+        if (document.body.scrollTop > 177 || document.documentElement.scrollTop > 177) {
+            fixed_navbar.classList.add("navbar-container--visible");
+        } else {
+            fixed_navbar.classList.remove("navbar-container--visible");
+        }
+    }
+    // Else if its not HOME PAGE
+    else {
+        if (document.body.scrollTop > 91 || document.documentElement.scrollTop > 91) {
+            fixed_navbar.classList.add("navbar-container--visible");
+        } else {
+            fixed_navbar.classList.remove("navbar-container--visible");
+        }
+    }
+}
+
+
 //--------------Home main Owl Carousel start----------------
 var home__carousel = $('#home__carousel');
 if (home__carousel) home__carousel.owlCarousel({

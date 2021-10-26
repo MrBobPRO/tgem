@@ -24,122 +24,119 @@
             </div>
         </div>  {{-- Header contacts end --}}
 
-        {{-- Home navbar start --}}
-        <nav class="main-container navbar home-navbar">
-            <span class="material-icons aside-toogler">menu_open</span>
+        {{-- Home Secondary Navbar start --}}
+        <nav class="main-container navbar secondary-navbar">
+            <span class="material-icons aside-toogler secondary-navbar__aside-toogler">menu_open</span>
+            {{-- Home econdary Navbar start end --}}
+            <ul class="navbar__list secondary-navbar__list">
 
-            <ul class="navbar__list home-navbar__list">
-                <li class="navbar__item home-navbar__item">
-                    <a class="navbar__link home-navbar__link" href="#">Главная</a>
-                </li>
-
-                <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn home-navbar__dropdown-btn">О Компании</a>
-
-                    <ul class="dropdown__list navbar__dropdown-list">
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">О Нас</a>
+                @foreach($dropdowns as $dropdown)
+                    @if($dropdown->no_childs)
+                        <li class="navbar__item secondary-navbar__item">
+                            <a class="navbar__link secondary-navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
                         </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">История</a>
+                    @else
+                        <li class="dropdown navbar__dropdown">
+                            <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">{{$dropdown->title}}</a>
+        
+                            <ul class="dropdown__list navbar__dropdown-list">
+                                @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
+                                    <li class="dropdown__item navbar__dropdown-item">
+                                        <a class="dropdown__link navbar__dropdown-link" href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg->title}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </li>
+                    @endif
 
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Корпоративная культура</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Социальная ответственность</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Сертификаты</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn home-navbar__dropdown-btn">Деятельность</a>
-
-                    <ul class="dropdown__list navbar__dropdown-list">
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Строительство</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Энергетика</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn home-navbar__dropdown-btn">Проекты</a>
-
-                    <ul class="dropdown__list navbar__dropdown-list">
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Выполненные проекты</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Текущие проекты</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn home-navbar__dropdown-btn">Медиа</a>
-
-                    <ul class="dropdown__list navbar__dropdown-list">
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Новости компании</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Отраслевые новости</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Галерея</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn home-navbar__dropdown-btn">Карьера</a>
-
-                    <ul class="dropdown__list navbar__dropdown-list">
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Карьера в ТГЭМ</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Вакансии</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn home-navbar__dropdown-btn">Контакты</a>
-
-                    <ul class="dropdown__list navbar__dropdown-list">
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Контакты</a>
-                        </li>
-
-                        <li class="dropdown__item navbar__dropdown-item">
-                            <a class="dropdown__link navbar__dropdown-link" href="#">Онлайн запись</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>  {{-- Home navbar list end --}}
+                @endforeach
+            </ul>   {{-- Home econdary Navbar List end --}}
 
             <div class="search-toogler">
                 <span class="material-icons search-toogler__icon">search</span>
             </div>
+        </nav>  {{-- Home Secondary Navbar end --}}
 
-        </nav> {{-- Home navbar end --}}
+    
+    @else {{-- if its NOT HOME PAGE --}}
+        {{-- Main navbar start --}}
+        <div class="navbar-container">
+            <nav class="main-container navbar">
 
+                <a href="/" class="logo">
+                    <img class="logo__img" src="{{ asset('img/main/logo.png') }}" alt="ТГЕМ лого">
+                </a>
+            
+                <ul class="navbar__list">
+                    @foreach($dropdowns as $dropdown)
+                        @if($dropdown->no_childs)
+                            <li class="navbar__item">
+                                <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
+                            </li>
+                        @else
+                            <li class="dropdown navbar__dropdown">
+                                <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn">{{$dropdown->title}}</a>
+            
+                                <ul class="dropdown__list navbar__dropdown-list">
+                                    @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
+                                        <li class="dropdown__item navbar__dropdown-item">
+                                            <a class="dropdown__link navbar__dropdown-link" href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg->title}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>  {{-- Home navbar list end --}}
+            
+                <span class="material-icons aside-toogler">menu_open</span>
 
+                <div class="search-toogler">
+                    <span class="material-icons search-toogler__icon">search</span>
+                </div>
+            
+            </nav> {{-- Main navbar end --}}
+        </div>
     @endif
+
+
+    {{-- Fixed navbar start. Fixed on scroll --}}
+    <div class="navbar-container navbar-container--fixed @if($route == 'home') home-navbar-container--fixed @endif " id="fixed_navbar_container">
+        <nav class="main-container navbar">
+
+            <a href="/" class="logo">
+                <img class="logo__img" src="{{ asset('img/main/logo.png') }}" alt="ТГЕМ лого">
+            </a>
+        
+            <ul class="navbar__list">
+                @foreach($dropdowns as $dropdown)
+                    @if($dropdown->no_childs)
+                        <li class="navbar__item">
+                            <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
+                        </li>
+                    @else
+                        <li class="dropdown navbar__dropdown">
+                            <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn">{{$dropdown->title}}</a>
+        
+                            <ul class="dropdown__list navbar__dropdown-list">
+                                @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
+                                    <li class="dropdown__item navbar__dropdown-item">
+                                        <a class="dropdown__link navbar__dropdown-link" href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg->title}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endif
+                @endforeach
+            </ul>  {{-- Home navbar list end --}}
+        
+            <span class="material-icons aside-toogler">menu_open</span>
+
+            <div class="search-toogler">
+                <span class="material-icons search-toogler__icon">search</span>
+            </div>
+        
+        </nav> {{-- Main navbar end --}}
+    </div>  {{-- Fixed navbar end. Fixed on scroll --}}
+
 </header>
