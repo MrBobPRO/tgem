@@ -41,7 +41,35 @@ ul {
     user-select: none;
 }
 
-/* Buttons start */
+/* --------------------------margins and Paddings start-------------------------- */
+.mb-0 {
+    margin-bottom: 0;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+.pb-0 {
+    padding-bottom: 0;
+}
+.pt-10 {
+    padding-top: 10px;
+}
+.pt-30 {
+    padding-top: 30px;
+}
+.pb-10 {
+    padding-bottom: 10px;
+}
+/* --------------------------margins and Paddings end-------------------------- */
+
+
+/* --------------------------Buttons start-------------------------- */
 button {
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
@@ -94,9 +122,9 @@ button {
 .secondary-btn:hover {
     background: var(--main-color);
 }
-/* Buttons end */
+/* --------------------------Buttons end-------------------------- */
 
-/* Dropdown start */
+/* --------------------------Dropdown start-------------------------- */
 .dropdown__btn {
     color: var(--secondary-color);
     font-weight: 500;
@@ -112,9 +140,9 @@ button {
     text-transform: capitalize;
     color: var(--secondary-color);
 }
-/* Dropdown end */
+/* --------------------------Dropdown end-------------------------- */
 
-/* Titles start */
+/* --------------------------Titles start-------------------------- */
 .main-title {
     font-weight: 700;
     line-height: 1.3em;
@@ -138,9 +166,9 @@ button {
 .title--styled-right {
     padding-right: 45px;
 }
-/* Titles end */
+/* --------------------------Titles end-------------------------- */
 
-/* Seperators start */
+/* --------------------------Seperators start-------------------------- */
 .seperator--left {
     position: absolute;
     width: 30px;
@@ -194,9 +222,9 @@ button {
 .seperator--light::before, .seperator--light::after {
     background-color: white;
 }
-/* Seperators end */
+/* --------------------------Seperators end-------------------------- */
 
-/* Content start */
+/* --------------------------Content start-------------------------- */
 .content {
     flex-grow: 1; /* USED TO PUSH FOOTER TO THE BOTTOM */
 }
@@ -213,9 +241,9 @@ button {
 .logo__img {
     width: 200px;
 }
-/* Content end */
+/* --------------------------Content end-------------------------- */
 
-/* Header styles start */
+/* --------------------------Header start-------------------------- */
 .header__contacts-wrapper {
     border-top: 6px solid var(--secondary-color);
     position: relative;
@@ -250,6 +278,7 @@ button {
     border-left: 1px solid rgba(0,0,0,0.10);
     border-right: 1px solid rgba(0,0,0,0.10);
 }
+/* --------------------------Navbar start---------------------------- */
 /* Main Navbar start */
 .navbar-container {
     border-bottom: 1px solid #e6e6e6;
@@ -364,7 +393,7 @@ button {
     z-index: 999;
     opacity: 1;
     visibility: visible;
-    animation-name: fadeInDown;
+    animation-name: fadeInDown; /* declared on components styles.css */
     animation-duration: 500ms;
     animation-timing-function: linear;
     animation-iteration-count: 1;
@@ -402,10 +431,11 @@ button {
     transform: scale(0.5,1);
 }
 /* Home Secondary Navbar end */
-/* Header styles end*/
+/* --------------------------Navbar end---------------------------- */
+/* --------------------------Header end--------------------------*/
 
 
-/* Footer start */
+/* --------------------------Footer start-------------------------- */
 .footer {
     color: white;
 }
@@ -485,10 +515,10 @@ button {
 .footer__button:hover .footer__button-text {
     color: var(--main-color);
 }
-/* Footer end */
+/* --------------------------Footer end-------------------------- */
 
 
-/* Animations start */
+/* --------------------------Animations start-------------------------- */
 .ripple-container {
 	position: relative;
 	width:60px;
@@ -527,10 +557,15 @@ button {
     70% {box-shadow: 0 0 0 70px rgba(253, 167, 0, 0);}
     100% {box-shadow: 0 0 0 0 rgba(253, 167, 0, 0);}
 }
-/* Animations утв */
+/* --------------------------Animations end-------------------------- */
 
 
-/* Projects list start */
+/* --------------------------Projects list start-------------------------- */
+.projects-page__inner {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-direction: column;
+}
 .projects-list {
     display: flex;
     flex-wrap: wrap;
@@ -579,10 +614,11 @@ button {
 	color: var(--secondary-color);
 	font-weight: 700;
 	line-height: 1.3em;
+    margin-bottom: 0;
 }
-/* Projects list end */
+/* --------------------------Projects list end-------------------------- */
 
-/* News list start */
+/* --------------------------News list start-------------------------- */
 .news-list {
     display: flex;
     flex-wrap: wrap;
@@ -661,4 +697,144 @@ button {
 .news-list__item:hover .news-list__button {
     background: var(--main-color);
 }
-/* News list end */
+/* --------------------------News list end-------------------------- */
+
+
+/* --------------------------Crumbs template start-------------------------- */
+.crumbs {
+    padding: 127px 0;
+    text-align: center;
+}
+.crumbs__text {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.crumbs__seperator {
+    padding: 0 8px;
+    font-size: 16px;
+}
+.crumbs__link {
+    color: white;
+    font-size: 18px;
+}
+.crumbs__title {
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+/* --------------------------Crumbs temlate end-------------------------- */
+
+
+/* --------------------------Page Template start-------------------------- */
+.default-page__main {
+    padding-top: 100px;
+    padding-bottom: 70px;
+    align-items: flex-start;
+}
+.default-page__main-body {
+    width: 58%;
+    padding-right: 8%;
+}
+.default-page__main-title {
+    margin-bottom: 10px;
+}
+.default-page__main-text {
+    line-height: 1.8;
+}
+.default-page__main-text ul {
+    list-style: disc;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+.default-page__main-text h1, .default-page__main-text h2 {
+    font-weight: 700;
+    line-height: 1.3em;
+    text-transform: capitalize;
+    color: var(--secondary-color);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 18px;
+    font-size: 36px;
+}
+.default-page__main-image {
+    width: 42%;
+    border-radius: 15px;
+}
+.default-page__additional {
+    flex-direction: column;
+    padding-bottom: 60px;
+}
+.default-page__additional-title:empty {
+    display: none;
+}
+.default-page__additional-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.default-page__additional-body:empty {
+    display: none;
+}
+.default-page__additional-body ul {
+    list-style: disc;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+.default-page__additional-body h1, .default-page__additional-body h2, .default-page__additional-body h3, .default-page__additional-body h4, .default-page__additional-body h1,.default-page__additional-body h5, .default-page__additional-body h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+/* --------------------------Page Template end-------------------------- */
+
+
+/* --------------------------Pagination start-------------------------- */
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: 30px 0 0;
+    gap: 10px;
+    justify-content: center;
+}
+.page-link {
+    position: relative;
+    display: block;
+    color: black;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    min-height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.375rem 0.75rem;
+}
+.page-item:first-child .page-link {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.page-item:not(:first-child) .page-link {
+    margin-left: -1px;
+}
+.page-item.disabled .page-link {
+    color: black;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #cccccc;
+}
+.page-item.active .page-link {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+.page-link:hover {
+    z-index: 2;
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+/* --------------------------Pagination end-------------------------- */

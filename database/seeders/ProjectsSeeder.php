@@ -68,7 +68,7 @@ class ProjectsSeeder extends Seeder
             $project->title = $titles[$i];
             $project->body = $bodies[$i];
             $project->image = $images[$i];
-            $project->finished = 1;
+            $project->completed = 1;
             $project->project_group_id = 1;
             $project->url = $this->transliterateIntoLatin($titles[$i]);
             $project->save();
@@ -123,7 +123,7 @@ class ProjectsSeeder extends Seeder
             $project->title = $titles[$i];
             $project->body = $bodies[$i];
             $project->image = $images[$i];
-            $project->finished = 0;
+            $project->completed = 0;
             $project->project_group_id = 2;
             $project->url = $this->transliterateIntoLatin($titles[$i]);
             $project->save();

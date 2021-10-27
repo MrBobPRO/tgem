@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('title', 300);
             $table->text('body');
             $table->string('image');
-            $table->boolean('finished');
+            $table->boolean('completed');
             $table->integer('project_group_id');
             $table->string('url', 300);
             $table->timestamps();

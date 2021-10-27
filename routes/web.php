@@ -18,6 +18,7 @@ Route::group(["middleware" => "auth"], function () {
 
     // Projects routes    
     Route::get("/projects/completed_projects", "ProjectController@completed")->name("projects.completed");
+    Route::get("/projects/current_projects", "ProjectController@current")->name("projects.current");
 
     //Route for default templated pages. ---IMPORTANT--- MUST BE ON THE BOTTOM
     Route::get("/{dropdown}/{page}", "PageController@default")->name("default_page");
