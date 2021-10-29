@@ -44,10 +44,42 @@ if (home__carousel) home__carousel.owlCarousel({
 //--------------Home Services Owl Carousel start----------------
 var services__carousel = $('#services__carousel');
 if (services__carousel) services__carousel.owlCarousel({
-    loop: true,
-    margin: 20,
-    nav: false,
-    items: 3,
-    dots: false
+  loop: true,
+  autoplay: true,
+  autoplaySpeed: 3500,
+  margin: 20,
+  nav: false,
+  items: 3,
+  dots: false
 });
 //--------------Home main Owl Carousel end----------------
+
+
+//--------------Google Maps start----------------
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 38.550527, lng: 68.736801},
+    zoom: 16,
+    mapTypeControl: false,
+    streetViewControl: false
+  });
+
+  marker = new google.maps.Marker({
+    map: map,
+    draggable: false,
+    animation: google.maps.Animation.BOUNCE,
+    position: {lat: 38.550527, lng: 68.736801},
+    //  icon: '/img/main/marker.png'
+  });
+  marker.addListener('click', toggleBounce);
+}
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+//--------------Google Maps end----------------

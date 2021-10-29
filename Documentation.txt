@@ -2,3 +2,10 @@
 Route named "default_page" responses For pages with default_template = true
 
 You must manually create route & views etc and declare functions to response for pages with default_template = false  ---important
+
+
+-------------------Custom Bootstrap Pagination-------------------
+1) Used below command to copy custom bootstrap template from vendor folder
+    php artisan vendor:publish --tag=laravel-pagination
+2) Created new pagination template and used in blade
+    {{ $users->links('vendor.pagination.custom') }}

@@ -40,6 +40,18 @@ ul {
     -ms-user-select: none; 
     user-select: none;
 }
+.input-text, .textarea {
+    font-size: 15px;
+    padding: 8px 22px;
+    color: #777777;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    transition: all 500ms ease;
+}
+.input-text:focus, .textarea:focus {
+    border-color: var(--main-color);
+    outline: none;
+}
 
 /* --------------------------margins and Paddings start-------------------------- */
 .mb-0 {
@@ -444,6 +456,10 @@ button {
     gap: 30px;
     padding-top: 90px;
     padding-bottom: 80px;
+    flex-direction: row-reverse;
+}
+.footer__inner--home {
+    flex-direction: row;
 }
 .footer__inner-item {
     width: calc(25% - 22.5px);
@@ -475,7 +491,7 @@ button {
     color: white;
 }
 .footer__news-image {
-    height: 90px;
+    height: 80px;
     object-fit: cover;
     width: 80px;
 }
@@ -514,6 +530,13 @@ button {
 }
 .footer__button:hover .footer__button-text {
     color: var(--main-color);
+}
+.footer__inner-about-text {
+    color: #ffffff;
+    opacity: 0.80;
+    line-height: 1.9em;
+    font-size: 13.5px;
+    margin-top: 30px;
 }
 /* --------------------------Footer end-------------------------- */
 
@@ -576,7 +599,7 @@ button {
     display: flex;
     flex-direction: column;
 }
-.project-list__imgage-container {
+.project-list__image-container {
     height: 350px;
     width: 100%;
     overflow: hidden;
@@ -619,6 +642,11 @@ button {
 /* --------------------------Projects list end-------------------------- */
 
 /* --------------------------News list start-------------------------- */
+.news-page__inner {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-direction: column;
+}
 .news-list {
     display: flex;
     flex-wrap: wrap;
@@ -698,6 +726,133 @@ button {
     background: var(--main-color);
 }
 /* --------------------------News list end-------------------------- */
+
+
+/* --------------------------Galleries list start-------------------------- */
+.galleries-page__inner {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-direction: column;
+}
+.galleries-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.galleries-list__item {
+    width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+    background: white;
+}
+.galleries-list__image-container {
+    position: relative;
+    background: var(--main-color);
+    display: flex;
+}
+.galleries-list__image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.galleries-list__item:hover .galleries-list__image {
+    opacity: 0.6;
+}
+.galleries-list__date {
+    position: absolute;
+    left: 25px;
+    bottom: -15px;
+    color: #ffffff;
+    font-size: 36px;
+    padding: 16px;
+    font-weight: 800;
+    text-align: center;
+    background: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 1;
+}
+.galleries-list__date-span {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.galleries-list__desc {
+    position: relative;
+    padding: 40px 30px 65px;
+    flex-grow: 1;
+}
+.galleries-list__title {
+    margin-bottom: 0;
+    font-weight: 600;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #dddddd;
+    color: var(--secondary-color);
+    height: 100%;
+    position: relative;
+}
+.galleries-list__title::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    bottom: -2px;
+    width: 50px;
+    height: 4px;
+    background: var(--main-color);
+}
+/* --------------------------Galleries list end-------------------------- */
+
+
+
+/* --------------------------Vacancies list start-------------------------- */
+.vacancies-page__inner {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-direction: column;
+}
+.vacancies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.vacancies-list__item {
+    width: calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+.vacancies-list__image {
+    width: 100%;
+}
+.vacancies-list__link {
+    padding: 28px 30px 28px 30px;
+    border-left: 4px solid #001085;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.vacancy-list__span {
+    color: #555555;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.vacancy-list__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3em;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    transition: all 300ms ease;
+    font-family: 'Montserrat', sans-serif;
+}
+.vacancies-list__link:hover .vacancy-list__title {
+    color: var(--main-color);
+}
+/* --------------------------Vacancies list end-------------------------- */
 
 
 /* --------------------------Crumbs template start-------------------------- */
@@ -817,13 +972,16 @@ button {
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
 }
+.page-item:first-child .page-link, .page-item:last-child .page-link {
+    padding-left: 25px;
+    padding-right: 25px;
+}
 .page-item:not(:first-child) .page-link {
     margin-left: -1px;
 }
 .page-item.disabled .page-link {
-    color: black;
+    color: #b5b5b5;
     pointer-events: none;
-    background-color: #fff;
     border-color: #cccccc;
 }
 .page-item.active .page-link {
@@ -838,3 +996,99 @@ button {
     color: white;
 }
 /* --------------------------Pagination end-------------------------- */
+
+
+/* --------------------------Contacts page start-------------------------- */
+.contacts__list {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+}
+.contacts__list-item {
+    width: 33.3%;
+    padding-left: 70px;
+}
+.contacts__list-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+.contacts__list-text {
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.7em;
+    margin: 0;
+}
+.contacts__list-link {
+    display: flex;
+    color: #555555;
+    width: max-content;
+}
+.contacts__map {
+    width: 100%;
+    height: 450px;
+}
+/* --------------------------Contacts page end-------------------------- */
+
+
+/* --------------------------Online Booking start-------------------------- */
+.online-booking__inner {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.online-booking__form {
+    padding: 70px;
+    margin-top: 100px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+    width: 100%;
+    position: relative;
+}
+.online-booking__cap {
+    position: absolute;
+    left: 0px;
+    top: -150px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+}
+.online-booking__form-about {
+    display: flex;
+    padding-top: 15px;
+}
+.online-booking__form-title {
+    width: 50%;
+    margin: 0;
+    font-size: 24px;
+    color: var(--secondary-color);
+    line-height: 1.3em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.online-booking__form-text {
+    width: 50%;
+    margin: 0;
+    padding-left: 15px;
+}
+.online-booking__form-body {
+    display: flex;
+    padding-top: 40px;
+}
+.online-booking__form-left, .online-booking__form-right {
+    width: 50%;
+    padding: 0 15px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.online-booking__input {
+    padding: 18px 22px;
+}
+.online-booking__button {
+    width: max-content;
+}
+/* --------------------------Online Booking end-------------------------- */

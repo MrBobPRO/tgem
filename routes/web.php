@@ -16,9 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::group(["middleware" => "auth"], function () {
     Route::get("/", "MainController@home")->name("home");
 
-    // Projects routes    
+    // Projects    
     Route::get("/projects/completed_projects", "ProjectController@completed")->name("projects.completed");
     Route::get("/projects/current_projects", "ProjectController@current")->name("projects.current");
+
+    //News
+    Route::get("/media/company_news", "NewsController@company")->name("news.company");
+    Route::get("/media/industry_news", "NewsController@industry")->name("news.industry");
+
+    //gallery
+    Route::get("/media/gallery", "GalleryController@index")->name("galleries.index");
+
+    //Vacancies
+    Route::get("/career/vacancies", "VacancyController@index")->name("vacancies.index");
+
+    //contacts
+    Route::get("/contacts/our_contacts", "ContactController@index")->name("contacts.index");
+    Route::get("/contacts/online_booking", "ContactController@booking")->name("contacts.booking");
 
     //Route for default templated pages. ---IMPORTANT--- MUST BE ON THE BOTTOM
     Route::get("/{dropdown}/{page}", "PageController@default")->name("default_page");

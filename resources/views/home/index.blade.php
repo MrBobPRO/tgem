@@ -169,7 +169,7 @@
                     <div class="projects-list">
                         @foreach ($projects as $project)
                             <div class="projects-list__item">
-                                <div class="project-list__imgage-container">
+                                <div class="project-list__image-container">
                                     <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
                                 </div>
                                 <a class="projects-list__link" href="#">
@@ -186,7 +186,7 @@
                         <div class="projects-list">
                             @foreach ($group->projects as $project)
                                 <div class="projects-list__item">
-                                    <div class="project-list__imgage-container">
+                                    <div class="project-list__image-container">
                                         <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
                                     </div>
                                     <a class="projects-list__link" href="#">
@@ -206,8 +206,10 @@
     </section>  {{-- Projects end --}}
     
 
+    {{-- News start --}}
     <section class="home__news" style="background-image: url({{ asset('img/home/news/background.png') }})">
-        <div class="main-container home__news-inner">
+        {{-- News inner start --}}
+        <div class="main-container home__news-inner"> 
             <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>Последние новости<span class="seperator--right"></span></h2>
             <h1 class="main-title home__news-desc">Следите За Нашими<br>Последними Новостями</h1>
 
@@ -228,14 +230,9 @@
                         </div>
                     </a>
                 @endforeach
-
             </div>
-
-
-        </div>
-    </section>
-
-
+        </div>  {{-- News inners end --}}
+    </section>    {{-- News end --}}
 
 </main>
 

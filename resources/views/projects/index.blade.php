@@ -8,7 +8,7 @@
         <div class="projects-list">
             @foreach ($projects as $project)
                 <div class="projects-list__item">
-                    <div class="project-list__imgage-container">
+                    <div class="project-list__image-container">
                         <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
                     </div>
                     <a class="projects-list__link" href="#">
@@ -19,7 +19,7 @@
             @endforeach
         </div>
 
-        {{ $projects->links() }}
+        {{ $projects->links('vendor.pagination.custom') }}
     </div>
 
 </main>

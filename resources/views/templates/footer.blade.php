@@ -1,5 +1,6 @@
-<footer class="footer" style="background-image: url({{ asset('img/main/footer.jpg') }})">
-    <div class="main-container footer__inner">
+{{-- Main pages Footer is different from other pages footer --}}
+<footer class="footer" style="background-image: url({{ asset( $route == 'home' ? 'img/main/footer.jpg' : 'img/main/footer2.jpg') }})">
+    <div class="main-container footer__inner @if($route == 'home') footer__inner--home @endif">
         {{-- Footer contacts start --}}
         <div class="footer__inner-item">
             <h4 class="main-title footer__inner-title">Контакты</h4>
@@ -49,12 +50,23 @@
             </a>
         </div>
 
-        <div class="footer__inner-item">
-            <h4 class="main-title footer__inner-title">Онлайн запись</h4>
-            <p>Онлайн-приемная Генерального директора</p>
+        @if($route == "home")
+            <div class="footer__inner-item">
+                <h4 class="main-title footer__inner-title">Онлайн запись</h4>
+                <p>Онлайн-приемная Генерального директора</p>
 
-            <a href="#" class="button main-btn footer__button"><span class="main-btn__text footer__button-text">Записатсья</span></a>
-        </div>
+                <a href="#" class="button main-btn footer__button"><span class="main-btn__text footer__button-text">Записатсья</span></a>
+            </div>
+        @else
+            <div class="footer__inner-item footer__inner-about">
+                <a href="/" class="logo footer__logo">
+                    <img class="logo__img" src="{{ asset('img/main/logo-white.png') }}" alt="ТГЕМ лого">
+                </a>
+
+                <p class="footer__inner-about-text">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов.</p>
+            </div>
+        @endif
+
     </div>
 
     <div class="footer__copyright">

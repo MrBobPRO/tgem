@@ -44,6 +44,10 @@
     {{-- Owl Carousel --}}
     <script src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
 
+    @if($route == "contacts.index")
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAneCOkP0fjY3gOXV9DYFTdA59yWXDvNLw&callback=initMap" async defer></script>
+    @endif
+
     {{-- Simple components library --}}
     <script src="{{ asset('js/components-library/scripts.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
