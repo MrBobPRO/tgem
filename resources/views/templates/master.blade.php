@@ -26,6 +26,9 @@
 
     {{-- Simple components library --}}
     <link rel="stylesheet" href="{{ asset('js/components-library/styles.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('js/lc-lightbox-lite/css/lc_lightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/lc-lightbox-lite/skins/dark.css') }}">
     
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -36,6 +39,7 @@
     @include('templates.header')
     <div class="content">
         @yield('content')
+        <div class="scroll-top" id="scroll_top">Вверх</div>
     </div>
     @include('templates.footer')
     
@@ -47,6 +51,8 @@
     @if($route == "contacts.index")
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAneCOkP0fjY3gOXV9DYFTdA59yWXDvNLw&callback=initMap" async defer></script>
     @endif
+
+    <script src="{{ asset('js/lc-lightbox-lite/js/lc_lightbox.lite.min.js') }}"></script>
 
     {{-- Simple components library --}}
     <script src="{{ asset('js/components-library/scripts.js') }}"></script>

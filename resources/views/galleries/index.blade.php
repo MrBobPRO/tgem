@@ -7,7 +7,7 @@
     <div class="main-container galleries-page__inner">
         <div class="galleries-list">
             @foreach ($galleries as $gallery)
-                <a class="galleries-list__item" href="#">
+                <a class="galleries-list__item" href="{{ route('galleries.single', $gallery->url) }}">
                     <div class="galleries-list__image-container">
                         <img class="galleries-list__image" src="{{ asset('img/galleries/' . $gallery->thumbnail) }}">
                         <?php $formatted = Carbon\Carbon::create($gallery->created_at)->locale("ru"); ?>   

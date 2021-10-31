@@ -47,13 +47,69 @@ ul {
     border-radius: 5px;
     border: 1px solid #cccccc;
     transition: all 500ms ease;
+    font-family: 'Roboto', sans-serif;
 }
 .input-text:focus, .textarea:focus {
     border-color: var(--main-color);
     outline: none;
 }
 
-/* --------------------------margins and Paddings start-------------------------- */
+
+/* --------------------------Scroll Top start-------------------------- */
+.scroll-top {
+    position: fixed;
+    right: 1.5%;
+    bottom: 1.25%;
+    visibility: visible;
+    height: 15px;
+    cursor: pointer;
+    width: 40px;
+    padding: 3px 5px;
+    font-size: 10px;
+    font-weight: bold;
+    color: transparent;
+    text-align: center;
+    z-index: 3;
+    outline: 0 !important;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    background-color: #434343;
+    text-transform: uppercase;
+}
+.scroll-top::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top: 0;
+    top: -20px;
+    z-index: 4;
+    border-bottom: 20px solid #434343;
+}
+.scroll-top::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top: 0;
+    bottom: 0;
+    z-index: 5;
+    border-bottom: 20px solid var(--main-color);
+}
+.scroll-top:hover, .scroll-top:focus {
+    opacity: 1;
+    text-decoration: none;
+    height: 40px;
+    color: #ffffff;
+}
+/* --------------------------Scroll Top end-------------------------- */
+
+
+/* --------------------------Margins and Paddings start-------------------------- */
 .mb-0 {
     margin-bottom: 0;
 }
@@ -78,7 +134,7 @@ ul {
 .pb-10 {
     padding-bottom: 10px;
 }
-/* --------------------------margins and Paddings end-------------------------- */
+/* --------------------------Margins and Paddings end-------------------------- */
 
 
 /* --------------------------Buttons start-------------------------- */
@@ -583,7 +639,7 @@ button {
 /* --------------------------Animations end-------------------------- */
 
 
-/* --------------------------Projects list start-------------------------- */
+/* --------------------------Projects start-------------------------- */
 .projects-page__inner {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -639,9 +695,9 @@ button {
 	line-height: 1.3em;
     margin-bottom: 0;
 }
-/* --------------------------Projects list end-------------------------- */
+/* --------------------------Projects end-------------------------- */
 
-/* --------------------------News list start-------------------------- */
+/* --------------------------News start-------------------------- */
 .news-page__inner {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -725,10 +781,11 @@ button {
 .news-list__item:hover .news-list__button {
     background: var(--main-color);
 }
-/* --------------------------News list end-------------------------- */
+/* --------------------------News end-------------------------- */
 
 
-/* --------------------------Galleries list start-------------------------- */
+/* --------------------------Galleries start-------------------------- */
+/* Galleries index page start */
 .galleries-page__inner {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -804,6 +861,47 @@ button {
     height: 4px;
     background: var(--main-color);
 }
+/* Galleries index page end */
+
+/* Single Gallery start */
+.gallery {
+    display: flex;
+    gap: 40px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    flex-wrap: wrap;
+}
+.gallery__element {
+    display: flex;
+    width: calc(25% - 30px);
+    cursor: zoom-in;
+    flex-direction: column;
+}
+.gallery__element-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.gallery__element-title:empty {
+    display: none;
+}
+.gallery__element-title {
+    padding: 20px;
+    border-left: 4px solid var(--main-color);
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
+    font-size: 18px;
+    color: var(--secondary-color);
+    font-weight: 700;
+    line-height: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 40px;
+    margin-top: -60px;
+    background: white;
+    flex-grow: 1;
+}
+/* Single Gallery end */
+
 /* --------------------------Galleries list end-------------------------- */
 
 
@@ -833,6 +931,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    background: #f5f5f5;
+    flex-grow: 1;
 }
 .vacancy-list__span {
     color: #555555;
@@ -864,6 +964,12 @@ button {
     color: white;
     margin-bottom: 10px;
     font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    padding: 0 8%;
 }
 .crumbs__seperator {
     padding: 0 8px;
@@ -881,14 +987,22 @@ button {
     font-weight: 700;
     line-height: 1.5em;
     font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    padding: 0 8%;
 }
 /* --------------------------Crumbs temlate end-------------------------- */
 
 
 /* --------------------------Page Template start-------------------------- */
-.default-page__main {
-    padding-top: 100px;
+.default-page {
     padding-bottom: 70px;
+}
+.default-page__main {
+    margin-top: 100px;
     align-items: flex-start;
 }
 .default-page__main-body {
@@ -921,7 +1035,7 @@ button {
 }
 .default-page__additional {
     flex-direction: column;
-    padding-bottom: 60px;
+    margin-top: 60px;
 }
 .default-page__additional-title:empty {
     display: none;
@@ -941,6 +1055,12 @@ button {
 .default-page__additional-body h1, .default-page__additional-body h2, .default-page__additional-body h3, .default-page__additional-body h4, .default-page__additional-body h1,.default-page__additional-body h5, .default-page__additional-body h6 {
     font-family: 'Montserrat', sans-serif;
 }
+.default-page__gallery {
+    margin-top: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 /* --------------------------Page Template end-------------------------- */
 
 

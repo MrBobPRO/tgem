@@ -14,5 +14,9 @@ class Page extends Model
         return $this->belongsTo(Dropdown::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 
 }

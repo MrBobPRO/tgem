@@ -9,3 +9,8 @@ You must manually create route & views etc and declare functions to response for
     php artisan vendor:publish --tag=laravel-pagination
 2) Created new pagination template and used in blade
     {{ $users->links('vendor.pagination.custom') }}
+
+
+
+---------------------Installed plugins & libraries-----------------------
+LC Lightbox gallery plugin -> used as Gallery Lightbox. More at https://www.jqueryscript.net/gallery/Gallery-Popup-With-jQuery-LC-Lightbox.html

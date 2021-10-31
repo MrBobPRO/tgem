@@ -29,6 +29,16 @@ window.onscroll = function () {
     }
 }
 
+//--------------Scroll Top start----------------
+function scroll_top() {
+  let body = document.body;
+  body.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+let scroll_top_btn = document.getElementById("scroll_top");
+scroll_top_btn.addEventListener("click", scroll_top);
+//--------------Scroll Top end----------------
+
 
 //--------------Home main Owl Carousel start----------------
 var home__carousel = $('#home__carousel');
@@ -83,3 +93,14 @@ function toggleBounce() {
   }
 }
 //--------------Google Maps end----------------
+
+
+//--------------Gallery plugin start----------------
+lc_lightbox('.gallery__element', {
+  wrap_class: 'lcl_fade_oc',
+  gallery : true, 
+  thumb_attr: 'data-lcl-thumb', 
+  skin: 'dark',
+  // more options here
+}); 
+//--------------Gallery plugin end----------------

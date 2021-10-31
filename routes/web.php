@@ -26,6 +26,7 @@ Route::group(["middleware" => "auth"], function () {
 
     //gallery
     Route::get("/media/gallery", "GalleryController@index")->name("galleries.index");
+    Route::get("/media/gallery/{url}", "GalleryController@single")->name("galleries.single");
 
     //Vacancies
     Route::get("/career/vacancies", "VacancyController@index")->name("vacancies.index");

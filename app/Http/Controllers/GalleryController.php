@@ -14,4 +14,12 @@ class GalleryController extends Controller
 
         return view("galleries.index", compact("galleries", "page_title"));
     }
+
+    public function single($url)
+    {
+        $gallery = Gallery::where("url", $url)->first();
+
+        return view("galleries.single", compact("gallery"));
+    }
+
 }
