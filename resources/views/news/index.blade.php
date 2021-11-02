@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('news.master')
 @section('content')
 
 <main class="news-page">
@@ -7,7 +7,7 @@
     <div class="main-container news-page__inner">
         <div class="news-list">
             @foreach ($news as $new)
-                <a class="news-list__item" href="#">
+                <a class="news-list__item" href="{{ route('news.single', $new->url) }}">
                     <div class="news-list__image-container">
                         <img class="news-list__image" src="{{ asset('img/news/thumbs/' . $new->image) }}">
                         <?php $formatted = Carbon\Carbon::create($new->created_at)->locale("ru"); ?>   

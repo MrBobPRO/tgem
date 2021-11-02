@@ -23,4 +23,11 @@ class NewsController extends Controller
         return view("news.index", compact("news", "page_title"));
     }
 
+    public function single($url)
+    {
+        $news = News::where("url", $url)->first();
+
+        return view("news.single", compact("news"));
+    }
+
 }

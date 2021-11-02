@@ -10,7 +10,7 @@ $.ajaxSetup({
 //--------------Set navbar position fixed on scroll start--------------
 let fixed_navbar = document.getElementById("fixed_navbar_container");
 let home_page = fixed_navbar.classList.contains("home-navbar-container--fixed");
-    
+
 window.onscroll = function () {
     // If it is HOME PAGEaside-toggler
     if (home_page) {
@@ -81,8 +81,8 @@ scroll_top_btn.addEventListener("click", scroll_top);
 
 
 //--------------Home main Owl Carousel start----------------
-var home__carousel = $('#home__carousel');
-if (home__carousel) home__carousel.owlCarousel({
+let home__carousel = $("#home__carousel");
+if (home__carousel[0]) home__carousel.owlCarousel({
     loop: true,
     margin: 0,
     nav: false,
@@ -93,8 +93,8 @@ if (home__carousel) home__carousel.owlCarousel({
 
 
 //--------------Home Services Owl Carousel start----------------
-var services__carousel = $('#services__carousel');
-if (services__carousel) services__carousel.owlCarousel({
+let services__carousel = $("#services__carousel");
+if (services__carousel[0]) services__carousel.owlCarousel({
   loop: true,
   autoplay: true,
   autoplaySpeed: 3500,
@@ -107,7 +107,7 @@ if (services__carousel) services__carousel.owlCarousel({
 
 
 //--------------Google Maps start----------------
-var map;
+let map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 38.550527, lng: 68.736801},

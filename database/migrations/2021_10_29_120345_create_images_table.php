@@ -19,6 +19,8 @@ class CreateImagesTable extends Migration
             $table->string("filename");
             $table->integer("gallery_id")->nullable();
             $table->integer("page_id")->nullable();
+            $table->integer("project_id")->nullable();
+            $table->integer("news_id")->nullable();
             $table->timestamps();
         });
     }

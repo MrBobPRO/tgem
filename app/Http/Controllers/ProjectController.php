@@ -23,5 +23,12 @@ class ProjectController extends Controller
         return view("projects.index", compact("projects", "page_title"));
     }
 
+    public function single($url)
+    {
+        $project = Project::where("url", $url)->first();
+
+        return view("projects.single", compact("project"));
+    }
+
 
 }

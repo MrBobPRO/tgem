@@ -19,10 +19,12 @@ Route::group(["middleware" => "auth"], function () {
     // Projects    
     Route::get("/projects/completed_projects", "ProjectController@completed")->name("projects.completed");
     Route::get("/projects/current_projects", "ProjectController@current")->name("projects.current");
+    Route::get("/project/{url}", "ProjectController@single")->name("projects.single");
 
     //News
     Route::get("/media/company_news", "NewsController@company")->name("news.company");
     Route::get("/media/industry_news", "NewsController@industry")->name("news.industry");
+    Route::get("/news/{url}", "NewsController@single")->name("news.single");
 
     //gallery
     Route::get("/media/gallery", "GalleryController@index")->name("galleries.index");

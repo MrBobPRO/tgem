@@ -20,9 +20,6 @@
 
     {{-- Material Icons --}}
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
-    {{-- Owl Carousel --}}
-    <link rel="stylesheet" href="{{ asset('js/owl-carousel/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/owl-carousel/owl.theme.default.min.css') }}">
     {{-- Simple components library --}}
     <link rel="stylesheet" href="{{ asset('js/components-library/styles.css') }}">
     {{-- Lightbox Gallery --}}
@@ -44,12 +41,6 @@
     
     {{-- JQuery --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    {{-- Owl Carousel --}}
-    <script src="{{ asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
-    {{-- Google Maps --}}
-    @if($route == "contacts.index")
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAneCOkP0fjY3gOXV9DYFTdA59yWXDvNLw&callback=initMap" async defer></script>
-    @endif
     {{-- Lightbox Gallery --}}
     <script src="{{ asset('js/lc-lightbox-lite/js/lc_lightbox.lite.min.js') }}"></script>
     {{-- Simple components library --}}

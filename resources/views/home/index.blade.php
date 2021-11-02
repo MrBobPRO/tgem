@@ -168,15 +168,15 @@
                 <div class="horizontal-tab__pane horizontal-tab__pane--active home__projects-tab-pane" id="pj-content0">
                     <div class="projects-list">
                         @foreach ($projects as $project)
-                            <div class="projects-list__item">
+                            <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                                 <div class="project-list__image-container">
                                     <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
                                 </div>
-                                <a class="projects-list__link" href="#">
+                                <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
                                     <p class="projects-list__group">{{$project->group->name}}</p>
                                     <h3 class="projects-list__title">{{$project->title}}</h3>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -185,15 +185,15 @@
                     <div class="horizontal-tab__pane home__projects-tab-pane" id="pj-content{{$group->id}}">
                         <div class="projects-list">
                             @foreach ($group->projects as $project)
-                                <div class="projects-list__item">
+                                <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                                     <div class="project-list__image-container">
                                         <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
                                     </div>
-                                    <a class="projects-list__link" href="#">
+                                    <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
                                         <p class="projects-list__group">{{$project->group->name}}</p>
                                         <h3 class="projects-list__title">{{$project->title}}</h3>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -215,7 +215,7 @@
 
             <div class="news-list">
                 @foreach ($news as $new)
-                    <a class="news-list__item" href="#">
+                    <a class="news-list__item" href="{{ route('news.single', $new->url) }}">
                         <div class="news-list__image-container">
                             <img class="news-list__image" src="{{ asset('img/news/thumbs/' . $new->image) }}">
                             <?php $formatted = Carbon\Carbon::create($new->created_at)->locale("ru"); ?>   

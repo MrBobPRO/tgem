@@ -23,14 +23,7 @@
     @endif
 
     @if($page->images()->count() > 0)
-        <div class="main-container gallery default-page__gallery">
-            @foreach($page->images as $img)
-                <a class="gallery__element" href="{{ asset('img/images/' . $img->filename) }}">
-                    <img class="gallery__element-image" src="{{ asset('img/images/' . $img->filename) }}">
-                    <p class="gallery__element-title">{{$img->title}}</p>
-                </a>
-            @endforeach
-        </div>
+        @include("templates.gallery", ["gallery_class" => "default-page__gallery", "query" => $page])
     @endif
 
 </main>

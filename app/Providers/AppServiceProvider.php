@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
 
-        View::composer(["templates.master"], function ($view) {
+        View::composer(["templates.master", "projects.master", "news.master"], function ($view) {
             $view->with("route", Route::currentRouteName());
         });
 
