@@ -1,17 +1,18 @@
-//AJAX request setup
+//--------------AJAX request setup start--------------
 $.ajaxSetup({
     headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+//--------------AJAX request setup end--------------
 
 
-// Set navbar position fixed on scroll
+//--------------Set navbar position fixed on scroll start--------------
 let fixed_navbar = document.getElementById("fixed_navbar_container");
 let home_page = fixed_navbar.classList.contains("home-navbar-container--fixed");
     
 window.onscroll = function () {
-    // If it is HOME PAGE
+    // If it is HOME PAGEaside-toggler
     if (home_page) {
         if (document.body.scrollTop > 177 || document.documentElement.scrollTop > 177) {
             fixed_navbar.classList.add("navbar-container--visible");
@@ -28,6 +29,45 @@ window.onscroll = function () {
         }
     }
 }
+//--------------Set navbar position fixed on scroll end--------------
+
+
+//--------------Aside start--------------
+let aside = document.getElementById("aside");
+
+// Show Aside
+document.querySelectorAll(".aside-toggler").forEach(item => {
+  item.addEventListener("click", event => {
+    aside.classList.add("aside--visible");
+  })
+})
+
+// Hide Aside
+document.querySelectorAll("*[data-action='hide-aside']").forEach(item => {
+  item.addEventListener("click", event => {
+    aside.classList.remove("aside--visible");
+  })
+})
+//----------------Aside end----------------
+
+
+//----------------Search Popup start----------------
+let search_popup = document.getElementById("search_popup");
+document.querySelectorAll(".search-toggler").forEach(item => {
+  item.addEventListener("click", event => {
+    search_popup.classList.add("search-popup--visible");
+  })
+})
+
+//hide Search Popup
+let search_hide_btn = document.getElementById("hide_search_btn");
+search_hide_btn.addEventListener("click", event => {
+  search_popup.classList.remove("search-popup--visible");
+})
+
+
+//----------------Search Popup утв----------------
+
 
 //--------------Scroll Top start----------------
 function scroll_top() {
@@ -50,6 +90,7 @@ if (home__carousel) home__carousel.owlCarousel({
     dots: false
 });
 //--------------Home main Owl Carousel end----------------
+
 
 //--------------Home Services Owl Carousel start----------------
 var services__carousel = $('#services__carousel');

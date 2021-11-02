@@ -1,4 +1,4 @@
-document.querySelectorAll(".horizontal-tab__button").forEach(item => {
+document.querySelectorAll(".horizontal-tab__button").forEach(item => {  
     item.addEventListener("click", event => {
         let target = event.target;
         // get buttons parent -- Horizontal Tab

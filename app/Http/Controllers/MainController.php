@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dropdown;
 use App\Models\News;
-use App\Models\Page;
 use App\Models\Project;
 use App\Models\ProjectGroup;
 use Illuminate\Http\Request;

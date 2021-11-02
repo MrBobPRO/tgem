@@ -357,7 +357,7 @@ button {
 .navbar {
     align-items: center;
 }
-.aside-toogler {
+.aside-toggler {
     cursor: pointer;
     font-size: 30px;
     margin-right: 15px;
@@ -420,7 +420,7 @@ button {
 .navbar__dropdown-item:hover .navbar__dropdown-link {
     padding-left: 30px;
 }
-.search-toogler {
+.search-toggler {
     display: flex;
     width: 40px;
     height: 40px;
@@ -429,7 +429,7 @@ button {
     cursor: pointer;
     position: relative;
 }
-.search-toogler::after {
+.search-toggler::after {
     position: absolute;
     content: '';
     width: 38px;
@@ -438,10 +438,10 @@ button {
     transform: skewX(-10deg);
     background: black;
 }
-.search-toogler:hover::after {
+.search-toggler:hover::after {
     transform: skewX(10deg);
 }
-.search-toogler__icon {
+.search-toggler__icon {
     color: white;
     z-index: 1;
 }
@@ -458,7 +458,7 @@ button {
     transition: all 500ms ease;
 }
 .navbar-container--fixed.navbar-container--visible {
-    z-index: 999;
+    z-index: 100;
     opacity: 1;
     visibility: visible;
     animation-name: fadeInDown; /* declared on components styles.css */
@@ -473,7 +473,7 @@ button {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.navbar-container--fixed .aside-toogler {
+.navbar-container--fixed .aside-toggler {
     display: none;
 }
 /* Main Navbar Fixed on scroll end */
@@ -501,6 +501,208 @@ button {
 /* Home Secondary Navbar end */
 /* --------------------------Navbar end---------------------------- */
 /* --------------------------Header end--------------------------*/
+
+
+/* --------------------------Aside start-------------------------- */
+.aside__overlay {
+    left: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 101;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    visibility: hidden;
+    transition: all .4s ease-in .8s;
+    background: black;
+}
+.aside--visible .aside__overlay {
+    opacity: .9;
+    visibility: visible;
+    transition: all .8s ease-out 0s;
+    left: 0;
+    cursor: url(/img//main/cross-out.png), pointer;
+}
+.aside__widget {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 360px;
+    z-index: 102;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #272727;
+    transition: all 0.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.2s;
+    visibility: hidden;
+    opacity: 0; 
+    padding: 40px;
+}
+.aside--visible .aside__widget {
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+    transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s;
+}
+.aside__widget-hide-btn {
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 25px;
+    font-size: 24px;
+    border: none;
+    background: transparent;
+}
+.aside__widget-logo {
+    width: 150px;
+    margin-bottom: 30px;
+}
+.aside__widget-title {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+.aside__widget-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.90);
+    margin-bottom: 40px;
+}
+.aside__widget-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    font-size: 14px;
+}
+.aside__widget-list-item {
+    display: flex;
+    gap: 15px;
+}
+.aside__widget-icon {
+    font-size: 20px;
+    padding-top: 2px;
+}
+/* --------------------------Aside end-------------------------- */
+
+
+/* --------------------------Search Popup start-------------------------- */
+.search-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 101;
+    transform: scale(0,1);
+    transition: all 1500ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+.search-popup--visible {
+    transform: scale(1,1);
+    margin-top: 0;
+}
+.search-popup__overlay {
+    position: absolute;
+    left: 0px;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    content: "";
+    transform: scale(0,1);
+    background-color: rgba(0,0,0,0.85);
+    transition: all 900ms ease;
+    -moz-transition: all 900ms ease;
+    -webkit-transition: all 900ms ease;
+    -ms-transition: all 900ms ease;
+    -o-transition: all 900ms ease;
+}
+.search-popup--visible .search-popup__overlay {
+    transform: scale(1,1);
+}
+.search-popup__hide-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 75%;
+    margin: 0 auto;
+    margin-top: -200px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #001085;
+    width: 70px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(0 0 0 / 5%);
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    border: none;
+    border-bottom: 3px solid #ffffff;
+    padding: 0;
+}
+.search-popup--visible .search-popup__hide-btn {
+    visibility: visible;
+    opacity: 1;
+    top: 50%;
+    transition-delay: 1500ms;
+}
+.search-popup__hide-btn-icon {
+    position: relative;
+    display: block;
+    height: 70px;
+    width: 70px;
+    font-size: 26px;
+    line-height: 70px;
+    color: #ffffff;
+}
+.search-popup__form {
+    display: flex;
+    position: absolute;
+    max-width: 700px;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    margin: -35px auto 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    background-color: #111111;
+    transition: all 300ms ease;
+}
+.search-popup--visible .search-popup__form {
+    transform: scaleX(1);
+    transition-delay: 1200ms;
+}
+.search-popup__input {
+    position: relative;
+    display: block;
+    font-size: 18px;
+    line-height: 50px;
+    color: #000000;
+    height: 70px;
+    width: 100%;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    transition: all 500ms ease;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: none;
+    padding-right: 0;
+}
+.search-popup__input:focus {
+    border: none;
+    outline: none;
+}
+.search-popup__form-btn {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+}
+/* --------------------------Search Popup end-------------------------- */
 
 
 /* --------------------------Footer start-------------------------- */

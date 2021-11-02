@@ -26,7 +26,7 @@
 
         {{-- Home Secondary Navbar start --}}
         <nav class="main-container navbar secondary-navbar">
-            <span class="material-icons aside-toogler secondary-navbar__aside-toogler">menu_open</span>
+            <span class="material-icons aside-toggler secondary-navbar__aside-toggler">menu_open</span>
             {{-- Home econdary Navbar start end --}}
             <ul class="navbar__list secondary-navbar__list">
 
@@ -52,8 +52,8 @@
                 @endforeach
             </ul>   {{-- Home econdary Navbar List end --}}
 
-            <div class="search-toogler">
-                <span class="material-icons search-toogler__icon">search</span>
+            <div class="search-toggler">
+                <span class="material-icons search-toggler__icon">search</span>
             </div>
         </nav>  {{-- Home Secondary Navbar end --}}
 
@@ -89,10 +89,10 @@
                     @endforeach
                 </ul>  {{-- Home navbar list end --}}
             
-                <span class="material-icons aside-toogler">menu_open</span>
+                <span class="material-icons aside-toggler">menu_open</span>
 
-                <div class="search-toogler">
-                    <span class="material-icons search-toogler__icon">search</span>
+                <div class="search-toggler">
+                    <span class="material-icons search-toggler__icon">search</span>
                 </div>
             
             </nav> {{-- Main navbar end --}}
@@ -130,13 +130,51 @@
                 @endforeach
             </ul>  {{-- Home navbar list end --}}
         
-            <span class="material-icons aside-toogler">menu_open</span>
+            <span class="material-icons aside-toggler">menu_open</span>
 
-            <div class="search-toogler">
-                <span class="material-icons search-toogler__icon">search</span>
+            <div class="search-toggler">
+                <span class="material-icons search-toggler__icon">search</span>
             </div>
         
         </nav> {{-- Main navbar end --}}
     </div>  {{-- Fixed navbar end. Fixed on scroll --}}
 
 </header>
+
+
+{{-- Aside start --}}
+<aside class="aside" id="aside">
+    <div class="aside__overlay" data-action="hide-aside"></div>
+    <div class="aside__widget">
+        <button class="aside__widget-hide-btn" data-action="hide-aside">X</button>
+        <img class="logo aside__widget-logo" src="{{ asset('img/main/logo-white.png') }}" alt="ТГЕМ лого" class="aside__widget-logo">
+        <h1 class="aside__widget-title">О компании</h1>
+        <p class="aside__widget-desc">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
+        <h1 class="aside__widget-title">Контакты</h1>
+
+        <ul class="aside__widget-list">
+            <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">home</span> 734060 г. Душанбе, ул. Н. Хувайдуллоева 377/1</li>
+            <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">phone</span> (+992 37) 2381111, 2381313</li>
+            <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">email</span> info@tgem.tj</li>
+            <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">schedule</span> Будние дни: 09.00 - 18.00 Воскресенье: Закрыто</li>
+        </ul>
+    </div>
+</aside>
+{{-- Aside end --}}
+
+{{-- Search Popup start --}}
+<div class="search-popup" id="search_popup">
+    <div class="search-popup__overlay"></div>
+    <button class="search-popup__hide-btn" id="hide_search_btn">
+        <span class="material-icons-outlined search-popup__hide-btn-icon">close</span>
+    </button>
+
+    <form action="#" class="search-popup__form">
+        <input type="text" placeholder="Поиск..." class="search-popup__input">
+        <button class="search-popup__form-btn">
+            <span class="material-icons-outlined">search</span>
+        </button>
+    </form>
+
+</div>
+{{-- Search Popup end --}}
