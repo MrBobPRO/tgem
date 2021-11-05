@@ -24,7 +24,7 @@
             @endforeach
         </div>
 
-        {{ $news->links('vendor.pagination.custom') }}
+        {{ $news->links('templates.pagination') }}
     </div>
 
 </main>

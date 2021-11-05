@@ -9,17 +9,17 @@
 
                 <div class="header__contacts-item">
                     <p class="header__contacts-title">Телефон:</p>
-                    <a href="#" class="header__contacts-link">(+992 37) 238 1111, 238 1313</a>
+                    <a href="tel:+9922381111" class="header__contacts-link">(+992 37) 238 1111, 238 1313</a>
                 </div>
 
                 <div class="header__contacts-item header__contacts-item--seperator">
                     <p class="header__contacts-title">ПН - ПТ:</p>
-                    <a href="javascript:void(0)" class="header__contacts-link">08:00 - 18:00</a>
+                    <a class="header__contacts-link">08:00 - 18:00</a>
                 </div>
 
                 <div class="header__contacts-item">
                     <p class="header__contacts-title">Ул. Н. Хувайдуллоева 377/1</p>
-                    <a href="#" class="header__contacts-link">734060 Г. Душанбе</a>
+                    <a href="/contacts/our_contacts" class="header__contacts-link">734060 Г. Душанбе</a>
                 </div>
             </div>
         </div>  {{-- Header contacts end --}}

@@ -19,7 +19,7 @@
             @endforeach
         </div>
 
-        {{ $projects->links('vendor.pagination.custom') }}
+        {{ $projects->links('templates.pagination') }}
     </div>
 
 </main>

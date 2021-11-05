@@ -23,7 +23,7 @@
             @endforeach
         </div>
 
-        {{ $galleries->links('vendor.pagination.custom') }}
+        {{ $galleries->links('templates.pagination') }}
     </div>
 
 </main>

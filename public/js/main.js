@@ -40,14 +40,14 @@ document.querySelectorAll(".aside-toggler").forEach(item => {
   item.addEventListener("click", event => {
     aside.classList.add("aside--visible");
   })
-})
+});
 
 // Hide Aside
 document.querySelectorAll("*[data-action='hide-aside']").forEach(item => {
   item.addEventListener("click", event => {
     aside.classList.remove("aside--visible");
   })
-})
+});
 //----------------Aside end----------------
 
 
@@ -57,13 +57,13 @@ document.querySelectorAll(".search-toggler").forEach(item => {
   item.addEventListener("click", event => {
     search_popup.classList.add("search-popup--visible");
   })
-})
+});
 
 //hide Search Popup
 let search_hide_btn = document.getElementById("hide_search_btn");
 search_hide_btn.addEventListener("click", event => {
   search_popup.classList.remove("search-popup--visible");
-})
+});
 
 
 //----------------Search Popup утв----------------

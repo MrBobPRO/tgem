@@ -13,7 +13,7 @@
                         <p class="home__carousel-desc">Ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
                         <div class="home__carousel-actions">
                             <a href="#" class="home__carousel-more"><span class="home__carousel-more-text">Подробнее</span></a>
-                            <a href="#" class="home__carousel-play">
+                            <a href="https://www.youtube.com/" target="_blank" class="home__carousel-play">
                                 <div class="ripple-container">
                                     <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
                                 </div>
@@ -32,7 +32,7 @@
                         <p class="home__carousel-desc">Ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
                         <div class="home__carousel-actions">
                             <a href="#" class="home__carousel-more"><span class="home__carousel-more-text">Подробнее</span></a>
-                            <a href="#" class="home__carousel-play">
+                            <a href="https://www.youtube.com/" target="_blank" class="home__carousel-play">
                                 <div class="ripple-container">
                                     <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
                                 </div>
@@ -53,7 +53,7 @@
                 <h1 class="main-title home__about-title">Строительство  <br>и гидроэнергетика</h1>
                 <p class="home__about-desc">За более чем полувековую историю своего существования наша компания выполнила и продолжает выполнять строительные, электромонтажные и пусконаладочные работы на большиства крупных объектах Республики Таджикистан и за ее пределами.</p>
                 <div class="home__about-more">
-                    <a href="#" class="button main-btn"><span class="main-btn__text">Подробнее</span></a>
+                    <a href="about/about_us" class="button main-btn"><span class="main-btn__text">Подробнее</span></a>
                     <img class="home__about-signature" src="{{ asset('img/home/about/signature.png') }}">
                 </div>
             </div>
@@ -200,7 +200,7 @@
                 @endforeach
             </div>
 
-            <button class="button main-btn home__projects-btn"><span class="main-btn__text">Посмотреть все проекты</span></button>
+            <a href="{{ route('projects.completed') }}" class="button main-btn home__projects-btn"><span class="main-btn__text">Посмотреть все проекты</span></a>
             <img class="home__projects-aside-img" src="{{ asset('img/home/projects/aside.png') }}">
         </div>
     </section>  {{-- Projects end --}}

@@ -8,8 +8,7 @@ You must manually create route & views etc and declare functions to response for
 1) Used below command to copy custom bootstrap template from vendor folder
     php artisan vendor:publish --tag=laravel-pagination
 2) Created new pagination template and used in blade
-    {{ $users->links('vendor.pagination.custom') }}
-
+    {{ $users->links('templates.pagination') }}
 
 
 ---------------------Installed plugins & libraries-----------------------

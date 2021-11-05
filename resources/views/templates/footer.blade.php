@@ -5,15 +5,15 @@
         <div class="footer__inner-item">
             <h4 class="main-title footer__inner-title">Контакты</h4>
 
-            <a class="footer__link--iconed" href="#">
+            <a class="footer__link--iconed" href="/contacts/our_contacts">
                 <span class="material-icons footer__link-icon">home</span> 734060 г. Душанбе, ул. Н. Хувайдуллоева 377/1
             </a>
 
-            <a class="footer__link--iconed" href="#">
+            <a class="footer__link--iconed" href="mailto:info@tgem.tj">
                 <span class="material-icons footer__link-icon">email</span> Почта : info@tgem.tj
             </a>
 
-            <a class="footer__link--iconed" href="#">
+            <a class="footer__link--iconed" href="tel:+9922381111">
                 <span class="material-icons footer__link-icon">phone</span> Телефон : (+992 37) 238 1111, 238 1313
             </a>
         </div>  {{-- Footer contacts end --}}
@@ -24,7 +24,7 @@
             
             <div class="footer__news">
                 @foreach ($footer_news as $fn)
-                    <a href="#" class="footer__news-item">
+                    <a href="{{ route('news.single', $fn->url) }}" class="footer__news-item">
                         <img src="{{ asset('img/news/thumbs/' . $fn->image) }}" class="footer__news-image">
                         <div class="footer__news-desc">
                             <h4 class="footer__news-title" title="{{$fn->title}}">{{$fn->title}}</h4>
@@ -41,11 +41,11 @@
         <div class="footer__inner-item">
             <h4 class="main-title footer__inner-title">Деятельность</h4>
             
-            <a class="footer__link--iconed" href="#">
+            <a class="footer__link--iconed" href="/activity/construction">
                 <span class="material-icons footer__link-icon">task_alt</span> Строительство
             </a>
 
-            <a class="footer__link--iconed" href="#">
+            <a class="footer__link--iconed" href="/activity/energy">
                 <span class="material-icons footer__link-icon">task_alt</span> Энергетика
             </a>
         </div>
@@ -55,7 +55,7 @@
                 <h4 class="main-title footer__inner-title">Онлайн запись</h4>
                 <p>Онлайн-приемная Генерального директора</p>
 
-                <a href="#" class="button main-btn footer__button"><span class="main-btn__text footer__button-text">Записатсья</span></a>
+                <a href="/contacts/online_booking" class="button main-btn footer__button"><span class="main-btn__text footer__button-text">Записатсья</span></a>
             </div>
         @else
             <div class="footer__inner-item footer__inner-about">
