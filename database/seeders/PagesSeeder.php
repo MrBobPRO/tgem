@@ -19,14 +19,14 @@ class PagesSeeder extends Seeder
         $title = ["Главная", "О Компании", "Деятельность", "Проекты", "Медиа", "Карьера", "Контакты"];
         $url = ["/", "about", "activity", "projects", "media", "career", "contacts"];
         $priority = [1,2,3,4,5,6,7];
-        $no_childs = [true, false, false, false, false, false, false];
+        $may_have_childs = [false, true, true, true, true, true, true];
 
         for ($i = 0; $i < count($title); $i++) {
             $dropdown = new Dropdown();
             $dropdown->title = $title[$i];
             $dropdown->url = $url[$i];
             $dropdown->priority = $priority[$i];
-            $dropdown->no_childs = $no_childs[$i];
+            $dropdown->may_have_childs = $may_have_childs[$i];
             $dropdown->save();
         }
         //----------Dropdowns end----------

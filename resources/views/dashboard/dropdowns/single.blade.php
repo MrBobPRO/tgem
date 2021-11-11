@@ -8,40 +8,48 @@
     <input type="hidden" name="id" value="{{$dropdown->id}}">
 
     <div class="form-group">
-        <label class="label">Заголовок *</label>
-        <input class="input" name="title" type="text" value="{{$dropdown->title}}" required>
-        @error('title')
-            
-        @enderror
+        <label class="label">Заголовок <span class="required">*</span></label>
+        <input class="input" name="title" type="text" value="{{old('title') == '' ? $dropdown->title : old('title') }}">
     </div>
 
     <div class="form-group">
-        <label class="label">Приоритет *</label>
-        <input class="input" name="priority" type="number" value="{{$dropdown->priority}}" required>
+        <label class="label">Приоритет <span class="required">*</span></label>
+        <input class="input" name="priority" type="number"
+            value="{{old('priority') == '' ? $dropdown->priority : old('priority') }}" required>
     </div>
 
     <div class="form-group">
-        <label class="label">Ссылка *</label>
-        <input class="input" name="url" type="text" value="{{$dropdown->url}}" required>
+        <label class="label">Ссылка <span class="required">*</span></label>
+        <input class="input" name="url" type="text" value="{{old('url') == '' ? $dropdown->url : old('url') }}"
+            required>
     </div>
 
-    <div class="form-group form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="childs" name="childs" {{$dropdown->no_childs ?
-        '' : "checked"}}>
-        <label class="form-check-label" for="childs">Может иметь дочерных страниц</label>
+    <div class="form-group switch-container">
+        <label for="may_have_childs">Может иметь дочерных страниц</label>
+        <label class="switch">
+            <input class="switch__input" type="checkbox" name="may_have_childs" id="may_have_childs"
+                @if(old("may_have_childs")=="on" ) checked @elseif(old('may_have_childs')=='' &&
+                !$dropdown->may_have_childs)
+            ''
+            @elseif(old('may_have_childs') == '' && $dropdown->may_have_childs)
+            checked
+            @endif
+            ">
+            <span class="switch__slider"></span>
+        </label>
     </div>
 
     <div class="main-form__controls">
-        <button class="button button--iconed main-form__controls-button" type="submit"><span class="material-icons-outlined">
-            done_all
-        </span> Сохранить</button>
+        <button class="button button--iconed button--success main-form__controls-button" type="submit"><span
+                class="material-icons-outlined">
+                done_all
+            </span> Сохранить</button>
 
-    <button class="button button--danger button--iconed main-form__controls-button" type="button" data-bs-toggle="modal"
-        data-bs-target="#remove_single_modal"><span class="material-icons-outlined">
-            remove_circle
-        </span> Удалить</button>
+        <button class="button button--danger button--iconed main-form__controls-button" type="button"
+            data-bs-toggle="modal" data-bs-target="#remove_single_modal"><span class="material-icons-outlined">
+                remove_circle
+            </span> Удалить</button>
     </div>
-
 </form>
 
 

@@ -77,21 +77,21 @@
         </div>
 
         <div class="titles__item width-20">
-            @if($order_by != "no_childs")
+            @if($order_by != "may_have_childs")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=no_childs&order_type=asc' }}">Дочерные
+                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=asc' }}">Дочерные
                 страницы
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
-            @elseif($order_by == "no_childs" && $order_type == "asc")
+            @elseif($order_by == "may_have_childs" && $order_type == "asc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=no_childs&order_type=desc' }}">Дочерные
+                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=desc' }}">Дочерные
                 страницы
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
-            @elseif($order_by == "no_childs" && $order_type == "desc")
+            @elseif($order_by == "may_have_childs" && $order_type == "desc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=no_childs&order_type=asc' }}">Дочерные
+                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=asc' }}">Дочерные
                 страницы
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
@@ -141,14 +141,13 @@
             <div class="list__item-div width-20">{{$dropdown->title}}</div>
             <div class="list__item-div width-20">{{$dropdown->priority}}</div>
             <div class="list__item-div width-20">{{$dropdown->url}}</div>
-            <div class="list__item-div width-20">{{$dropdown->no_childs ? "ОТКЛЮЧЕНО" : "Включено"}}</div>
+            <div class="list__item-div width-20">{{$dropdown->may_have_childs ? "Включено" : "ОТКЛЮЧЕНО"}}</div>
             <div class="list__item-div width-20">{{$dropdown->pages()->count()}}</div>
 
             {{-- Item Controls start --}}
             <div class="list__item-controls">
                 <a class="control-button control-button--blue" href="#" data-bs-toggle="tooltip"
-                    data-bs-placement="bottom" title="Страницы"><span
-                        class="material-icons">keyboard_double_arrow_right</span></a>
+                    data-bs-placement="bottom" title="Страницы"><span class="material-icons">layers</span></a>
 
                 <a class="control-button" href="{{route('dashboard.dropdowns.single', $dropdown->id)}}"
                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Редактировать"><span

@@ -19,10 +19,23 @@ class DropdownController extends Controller
     public function update(Request $request)
     {
         $dropdown = Dropdown::find($request->id);
+        // Escape uique filends
+        $validation_errors = [];
+        if ($request->title != $dropdown->title) {
+            $duplicate = Dropdown::where("title", $request->title)->first();
+            if ($duplicate) array_push($validation_errors, "Выпадающй список с таким заголовком уже существует !");
+        }
+        if ($request->url != $dropdown->url) {
+            $duplicate = Dropdown::where("url", $request->url)->first();
+            if ($duplicate) array_push($validation_errors, "Выпадающй список с такой ссылкой уже существует !");
+        }
+
+        if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
+
         $dropdown->title = $request->title;
         $dropdown->priority = $request->priority;
         $dropdown->url = $request->url;
-        $dropdown->no_childs = $request->childs ? false : true;
+        $dropdown->may_have_childs = $request->may_have_childs ? true : false;
         $dropdown->save();
 
         return redirect()->back();
@@ -41,7 +54,7 @@ class DropdownController extends Controller
         ];
 
         $validation_messages = [
-            "title.unique" => "Выпадающй список с таким названием уже существует !",
+            "title.unique" => "Выпадающй список с таким заголовком уже существует !",
             "url.unique" => "Выпадающй список с такой ссылкой уже существует !",
         ];
 
@@ -51,7 +64,7 @@ class DropdownController extends Controller
         $dropdown->title = $request->title;
         $dropdown->priority = $request->priority;
         $dropdown->url = $request->url;
-        $dropdown->no_childs = $request->childs ? false : true;
+        $dropdown->may_have_childs = $request->may_have_childs ? true : false;
         $dropdown->save();
 
         return redirect()->route("dashboard.index");
@@ -59,12 +72,26 @@ class DropdownController extends Controller
 
     public function remove(Request $request)
     {
-        dd($request->id);
+        // need to get in array because of foreach multiple delete
+        $ids = [$request->id];
+        $this->delete_dropdown($ids);
+
+        return redirect()->route("dashboard.index");
     }
 
     public function remove_multiple(Request $request)
     {
-        dd($request->ids);
+        $this->delete_dropdown($request->ids);
+
+        return redirect()->route("dashboard.index");
     }
 
+    private function delete_dropdown($ids)
+    {
+        foreach ($ids as $id) {
+            $dropdown = Dropdown::find($id);
+            // delete dropdown pages
+            $dropdown->pages()->delete();
+        }
+    }
 }

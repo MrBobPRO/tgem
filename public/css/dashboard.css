@@ -185,8 +185,8 @@ button:focus {
     display: flex;
     gap: 5px;
     padding-right: 0 !important;
- }
- .control-button {
+}
+.control-button {
     color: white;
     background: #3e4674;
     padding: 7px;
@@ -194,20 +194,20 @@ button:focus {
     display: flex;
     align-items: center;
     border: none;
- }
- .control-button:hover {
-     color: white;
- }
- .control-button--green {
+}
+.control-button:hover {
+    color: white;
+}
+.control-button--green {
     background: green;
- }
- .control-button--blue {
+}
+.control-button--blue {
     background: #00adff;
- }
- .control-button--red {
+}
+.control-button--red {
     background: var(--danger-color);
- }
- 
+}
+
 /* Items start */
 /*-------------------------Main Content end-------------------------*/
 
@@ -368,22 +368,17 @@ button:focus {
     padding: 15px 20px 30px;
     margin-bottom: 30px;
 }
-.form-group.form-switch {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 65px;
-}
-.form-switch .form-check-label {
-    padding-left: 10px;
-    font-size: 15px;
-}
 .label {
     width: 100%;
     margin-bottom: 8px;
     font-size: 15px;
     font-weight: 500;
 }
-.input, .textarea {
+.label .required {
+    color: var(--danger-color);
+}
+.input,
+.textarea {
     border: 1px solid #ced4da;
     font-weight: 400;
     line-height: 1.5;
@@ -395,7 +390,8 @@ button:focus {
     transition: 0.3s;
     border-radius: 4px;
 }
-.input:focus, .textarea:focus {
+.input:focus,
+.textarea:focus {
     border-color: #7bb1ff;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(0 53 215 / 24%);
@@ -407,6 +403,58 @@ button:focus {
 .main-form__controls-button {
     width: 100%;
     justify-content: center;
+}
+
+/* Switch start */
+.switch-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 24px;
+}
+.switch__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.switch__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+.switch__slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+.switch__input:checked + .switch__slider {
+    background-color: #2196F3;
+}
+.switch__input:focus + .switch__slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+.switch__input:checked + .switch__slider:before {
+    transform: translateX(28px);
 }
 /*-------------------------Form end-------------------------*/
 
@@ -421,10 +469,10 @@ button:focus {
 
 /*-------------------------Checkbox start-------------------------*/
 /* The container */
- .checkbox {
+.checkbox {
     min-width: 30px;
     position: relative;
- }
+}
 .checkbox__label {
     display: flex;
     align-items: center;
@@ -437,40 +485,40 @@ button:focus {
     user-select: none;
     margin-top: 10px;
     left: 10px;
- }
-  /* Hide the browser's default checkbox */
- .checkbox__input {
+}
+/* Hide the browser's default checkbox */
+.checkbox__input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
- }
- /* Create a custom checkbox */
- .checkbox__checkmark {
+}
+/* Create a custom checkbox */
+.checkbox__checkmark {
     position: absolute;
     left: 0;
     height: 17px;
     width: 17px;
     border: 1px solid #989898;
     border-radius: 3px;
- }
- /* When the checkbox is checked, add a blue background */
- .checkbox__input:checked ~ .checkbox__checkmark {
+}
+/* When the checkbox is checked, add a blue background */
+.checkbox__input:checked ~ .checkbox__checkmark {
     background-color: var(--main-color);
- }
-  /* Create the checkmark/indicator (hidden when not checked) */
- .checkbox__checkmark:after {
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox__checkmark:after {
     content: "";
     position: absolute;
     display: none;
- }
- /* Show the checkmark when checked */
- .checkbox__input:checked ~ .checkbox__checkmark:after {
+}
+/* Show the checkmark when checked */
+.checkbox__input:checked ~ .checkbox__checkmark:after {
     display: block;
- }
- /* Style the checkmark/indicator */
- .checkbox__checkmark:after {
+}
+/* Style the checkmark/indicator */
+.checkbox__checkmark:after {
     left: 5px;
     top: 2px;
     width: 5px;
@@ -480,8 +528,8 @@ button:focus {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
- }
- /*-------------------------Chekbox end-------------------------*/
+}
+/*-------------------------Chekbox end-------------------------*/
 
 
 /*-------------------------Jquery RadioButton start-------------------------*/

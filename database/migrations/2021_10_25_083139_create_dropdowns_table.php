@@ -18,7 +18,7 @@ class CreateDropdownsTable extends Migration
             $table->string("title")->unique();
             $table->string("url")->unique();
             $table->integer("priority");
-            $table->boolean("no_childs");
+            $table->boolean("may_have_childs");
             $table->timestamps();
         });
     }
