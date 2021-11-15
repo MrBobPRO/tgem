@@ -16,7 +16,7 @@ class NewsSeeder extends Seeder
     public function run()
     {
         $titles = ["Подписание контракта по проекту “Реконструкция Нурекской ГЭС”", "Открытие ПС 110/10 «Вахдат» в городе Худжанде", "Открытие подстанции 110/20/10 кВ и ЛЭП 04 кВ в селе Ромит города Вахдат"];
-        $images = ["1.jpg", "2.jpg", "3.jpg"];
+        $images = ["Водные ресурсы Пяндж.jpg", "ПС 110-10 Вахдат.jpg", "ПС 110-20-10 Ромит.jpg"];
         $dates = [date_create_from_format("Y-m-d  H:i:s", "2021-10-15 12:00:00"), date_create_from_format("Y-m-d  H:i:s", "2015-08-02 12:00:00"), date_create_from_format("Y-m-d  H:i:s", "2020-03-10 12:00:00")];
         $inners = [1,0,1];
 

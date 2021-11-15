@@ -1,11 +1,11 @@
 <aside class="aside" id="aside">
-    <img class="aside__avatar" src="{{ asset('img/dashboard/admin.jpg') }}">
+    <img class="aside__avatar" src="{{ asset('img/archive/admin.jpg') }}">
     <h3 class="aside__username">Админ</h3>
 
     <nav class="aside__nav">
         <ul class="aside__nav-ul">
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.index' || $route == 'dashboard.dropdowns.single' || $route == 'dashboard.dropdowns.create' || $route == 'dashboard.dropdown.pages' || $route == 'dashboard.pages.single' || $route == 'dashboard.pages.create') aside__nav-link--active @endif"
+                <a class="aside__nav-link @if($route == 'dashboard.index' || $route == 'dashboard.dropdowns.single' || $route == 'dashboard.dropdowns.create' || $route == 'dashboard.pages.index' || $route == 'dashboard.pages.single' || $route == 'dashboard.pages.create') aside__nav-link--active @endif"
                     href="{{route('dashboard.index')}}"><span
                         class="aside__nav-link-icon material-icons">menu_open</span> Меню</a>
             </li>

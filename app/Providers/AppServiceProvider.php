@@ -44,5 +44,17 @@ class AppServiceProvider extends ServiceProvider
             $view->with("footer_news", News::latest()->take(2)->get());
         });
 
+        View::composer(["dashboard.templates.archives.images"], function($view) {
+            //get array of all files in archive folder excluding folders
+            $path = public_path('img/archive');
+            $files = scandir($path);
+            // exclude folders & gitignore
+            $files = array_diff($files, array(".", "..", ".gitignore", "small", "medium"));
+            //sort by name
+            sort($files);
+
+            $view->with("images", $files);
+        });
+
     }
 }

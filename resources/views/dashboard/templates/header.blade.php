@@ -9,11 +9,23 @@
         @break
 
         @case('dashboard.dropdowns.single')
-        Меню / Выпадающий список / {{$dropdown->title}}
+        Меню / {{$dropdown->title}}
         @break
 
         @case('dashboard.dropdowns.create')
         Меню / Добавить выпадающий список
+        @break
+
+        @case('dashboard.pages.index')
+        Меню / {{$dropdown->title}}
+        @break
+
+        @case('dashboard.pages.create')
+        Меню / {{$dropdown->title}} / Добавить страницу
+        @break
+
+        @case('dashboard.pages.single')
+        Меню / {{$page->dropdown->title}} / {{$page->title}}
         @break
 
         @endswitch
@@ -26,6 +38,13 @@
         @case('dashboard.index')
         <span class="header__actions-span">Элементов : {{$items_count}}</span>
         <a class="header__actions-link" href="{{route('dashboard.dropdowns.create')}}">Добавить выпадающий список</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.pages.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.pages.create') . '?dropdown_id=' . $dropdown->id}}">Добавить страницу</a>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break

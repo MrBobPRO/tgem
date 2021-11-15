@@ -32,6 +32,32 @@ button:focus {
     background: var(--main-color);
 }
 
+
+/*-------------------------Input type File start-------------------------*/
+input[type="file"] {
+    background: white;
+    position: relative;
+    cursor: pointer;
+}
+input[type="file"]::-webkit-file-upload-button,
+input[type="file"]::file-selector-button {
+    display: none;
+}
+input[type="file"]:after {
+    content: "Обзор...";
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    color: black;
+    background: #f7f7f7;
+    padding: 0px 20px;
+}
+/*-------------------------Input type File end-------------------------*/
+
 /*-------------------------Buttons start-------------------------*/
 .button {
     background: #3e4674;
@@ -62,6 +88,21 @@ button:focus {
     align-items: center;
 }
 .button--iconed span {
+    font-size: 18px;
+}
+.show-archive-button {
+    background: transparent;
+    color: #0a58ca;
+    padding: 0;
+    margin: 15px 0 8px;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.show-archive-button__icon {
     font-size: 18px;
 }
 /*-------------------------Buttons end-------------------------*/
@@ -142,7 +183,7 @@ button:focus {
 }
 .titles__link {
     display: flex;
-    gap: 4px;
+    gap: 2px;
     width: max-content;
 }
 .titles__icon {
@@ -359,7 +400,7 @@ button:focus {
 
 /*-------------------------Form start-------------------------*/
 .main-form {
-    max-width: 800px;
+    max-width: 880px;
     padding: 20px;
     color: #212529;
 }
@@ -396,6 +437,14 @@ button:focus {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(0 53 215 / 24%);
 }
+.input--readonly {
+    background: #f1f1f1;
+    cursor: auto;
+}
+.input--readonly:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
 .main-form__controls {
     display: flex;
     gap: 10px;
@@ -404,18 +453,39 @@ button:focus {
     width: 100%;
     justify-content: center;
 }
+.form-group__image-container {
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+    border: 20px solid #F4F6F9;
+    width: 50%;
+    cursor: zoom-in;
+    margin-top: 10px;
+}
+.form-group__image {
+    width: 100%;
+}
+.form-group__image-filename {
+    position: absolute;
+    top: 0;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    max-width: 100%;
+    font-size: 14px;
+}
 
 /* Switch start */
 .switch-container {
     display: flex;
     gap: 20px;
-    align-items: center;
     padding: 20px;
 }
 .switch {
     position: relative;
     display: inline-block;
     width: 55px;
+    min-width: 55px;
     height: 24px;
 }
 .switch__input {
@@ -464,7 +534,81 @@ button:focus {
     margin: 0;
     padding: 15px 30px;
 }
+.index-page-alert {
+    margin: 0;
+    padding: 15px 30px;
+}
 /*-------------------------Alert end-------------------------*/
+
+
+/* -------------------------Archive start -------------------------*/
+.archive-modal .modal-header {
+    font-weight: 400;
+    background: var(--main-color);
+    color: white;
+    padding: 12px 30px;
+}
+.archive-modal .modal-title {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 8px;
+}
+.archive-modal .modal-header button {
+    color: white;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.archive__body {
+    background: #EAEFF3;
+}
+.archive__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.archive__list-item {
+    width: calc(12.5% - 17.5px);
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+.archive__list-item.hidden {
+    display: none;
+}
+.archive__list-image {
+    max-width: 100%;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    cursor: zoom-in;
+}
+.archive__list-filename {
+    padding: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    flex-grow: 1;
+    background: transparent;
+    border: transparent;
+}
+.archive__search {
+    display: flex;
+    margin-bottom: 20px;
+}
+.archive__search-input {
+    width: 100%;
+    border: 1px solid #d5d5d5;
+    padding: 6px 14px;
+    font-size: 15px;
+}
+.archive__search-icon {
+    padding: 6px 5px;
+    background: var(--main-color);
+    color: white;
+}
+/* -------------------------Archive end------------------------- */
 
 
 /*-------------------------Checkbox start-------------------------*/
@@ -607,7 +751,8 @@ button:focus {
 .jq-file__name {
     height: auto;
     padding: 2px 80px 2px 10px;
-    border: 1px solid #d2d2d2;
+    border: 1px solid #ced4da;
+    cursor: pointer;
 }
 .jq-file__browse {
     padding: 2px 10px;
@@ -742,3 +887,47 @@ button:focus {
 }
 /* Select2 multiple dropdown end*/
 /*-------------------------Select2 multiple end-------------------------*/
+
+
+@media screen and (max-width: 1500px) {
+    .header__title {
+        font-size: 17px;
+        margin: 0 0 0 15px;
+    }
+    .header__actions {
+        margin-left: 30px;
+    }
+    .header__additional-link,
+    .header__additional-button {
+        font-size: 15px;
+    }
+    .titles {
+        font-size: 14px;
+    }
+    .titles__link {
+        gap: 0;
+    }
+    .titles__icon {
+        font-size: 16px;
+        align-items: center;
+        line-height: 20px;
+    }
+    .titles__controls {
+        min-width: 110px;
+    }
+    .list__item {
+        font-size: 14px;
+    }
+    .list__item-controls {
+        min-width: 110px;
+    }
+    .control-button {
+        padding: 6px;
+    }
+    .control-button span {
+        font-size: 20px;
+    }
+    .archive__list-image {
+        height: 120px;
+    }
+}

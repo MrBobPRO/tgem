@@ -15,7 +15,7 @@ class VacanciesSeeder extends Seeder
     public function run()
     {
         $title = ["Инженер-эколог", "Табельщик", "Машинист", "Инженер-строитель", "Инженер ПТО", "Аналитик"];
-        $image = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+        $image = ["Инженер-эколог.jpg", "Табельщик.jpg", "Машинист.jpg", "Инженер-строитель.jpg", "Инженер ПТО.jpg", "Аналитик.jpg"];
 
         for($i = 0; $i < count($title); $i++) {
             $vacancy = new Vacancy();

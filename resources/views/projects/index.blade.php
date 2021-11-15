@@ -9,7 +9,7 @@
             @foreach ($projects as $project)
                 <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                     <div class="project-list__image-container">
-                        <img class="projects-list__image" src="{{ asset('img/projects/thumbs/' . $project->image) }}">
+                        <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}">
                     </div>
                     <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
                         <p class="projects-list__group">{{$project->group->name}}</p>

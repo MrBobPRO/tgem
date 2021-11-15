@@ -521,7 +521,7 @@ button {
     visibility: visible;
     transition: all .8s ease-out 0s;
     left: 0;
-    cursor: url(/img//main/cross-out.png), pointer;
+    cursor: url(/img//archive/cross-out.png), pointer;
 }
 .aside__widget {
     position: fixed;

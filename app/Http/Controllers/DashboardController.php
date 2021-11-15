@@ -11,19 +11,20 @@ class DashboardController extends Controller
     {
         // Generate parameters for order request
         $order_by = $request->order_by;
-        if (!$order_by) $order_by = 'priority';
+        if (!$order_by) $order_by = "priority";
 
         $order_type = $request->order_type;
-        if (!$order_type) $order_type = 'asc';
+        if (!$order_type) $order_type = "asc";
 
         $active_page = $request->page;
         if (!$active_page) $active_page = 1;
 
         $dropdowns = Dropdown::orderBy($order_by, $order_type)
             ->withCount("pages")
-            ->paginate(30, ["*"], 'page', $active_page)
+            ->paginate(30, ["*"], "page", $active_page)
             ->appends($request->except("page"));
 
+        //used in search & counting
         $all_items = Dropdown::orderBy("title", "asc")->get();
         $items_count = count($all_items);
 

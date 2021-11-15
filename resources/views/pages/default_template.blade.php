@@ -11,7 +11,7 @@
             <div class="default-page__main-text">{!! $page->main_text !!}</div>
         </div>
 
-        <img class="default-page__main-image" src="{{ asset('img/pages/main/' . $page->image) }}">
+        <img class="default-page__main-image" src="{{ asset('img/archive/' . $page->image) }}">
     </section>
     @endif
 

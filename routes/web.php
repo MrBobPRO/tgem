@@ -47,6 +47,17 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/dropdowns/store", "DropdownController@store")->name("dropdowns.store");
     Route::post("/dropdowns/remove", "DropdownController@remove")->name("dropdowns.remove");
     Route::post("/dropdowns/remove_multiple", "DropdownController@remove_multiple")->name("dropdowns.remove_multiple");
+
+    //pages
+    Route::get("/dashboard/dropdowns/{dropdown}/pages", "PageController@webmaster_index")->name("dashboard.pages.index");
+    Route::get("/dashboard/pages/create", "PageController@webmaster_create")->name("dashboard.pages.create");
+    Route::get("/dashboard/pages/{id}", "PageController@webmaster_single")->name("dashboard.pages.single");
+
+    Route::post("/pages/update", "PageController@update")->name("pages.update");
+    Route::post("/pages/store", "PageController@store")->name("pages.store");
+    Route::post("/pages/remove", "PageController@remove")->name("pages.remove");
+    Route::post("/pages/remove_multiple", "PageController@remove_multiple")->name("pages.remove_multiple");
+
     //Projects
     Route::get("/dashboard/projects", "ProjectController@dashboard_index")->name("dashboard.projects.index");
     //News

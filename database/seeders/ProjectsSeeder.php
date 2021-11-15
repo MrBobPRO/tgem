@@ -62,7 +62,7 @@ class ProjectsSeeder extends Seeder
             <p>2015-2017 гг.</p>"
         ];
 
-        $images = ["1.jpg", "2.jpg", "3.jpg"];
+        $images = ["ЛЭП Афганистан.jpg", "Ромит 110-10.jpg", "АСКУЭ Худжанд.jpg"];
 
         for($i = 0; $i < count($titles); $i++) {
             $project = new Project();
@@ -117,7 +117,7 @@ class ProjectsSeeder extends Seeder
             <p>Замена 6 повышающих трансформаторов</p>"
         ];
 
-        $images = ["4.jpg", "5.jpg", "6.jpg"];
+        $images = ["завода по производству электрооборудования.jpg", "Реабилитация Нурекской ГЭС.jpg", "Реабилитация Кайраккумской ГЭС.jpg"];
 
         for($i = 0; $i < count($titles); $i++) {
             $project = new Project();

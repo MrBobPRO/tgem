@@ -3,7 +3,7 @@
 
 <main class="single-project">
     <div class="main-container single-project__inner">
-        <img class="single-project__image" src="{{ asset('img/projects/' . $project->image) }}" alt="{{$project->title}}">
+        <img class="single-project__image" src="{{ asset('img/archive/' . $project->image) }}" alt="{{$project->title}}">
         <h1 class="single-project__title">{{$project->title}}</h1>
         <div class="single-project__body">{!!$project->body!!}</div>
     </div>

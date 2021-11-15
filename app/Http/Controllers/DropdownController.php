@@ -19,7 +19,7 @@ class DropdownController extends Controller
     public function update(Request $request)
     {
         $dropdown = Dropdown::find($request->id);
-        // Escape uique filends
+        // Validate uique filends
         $validation_errors = [];
         if ($request->title != $dropdown->title) {
             $duplicate = Dropdown::where("title", $request->title)->first();

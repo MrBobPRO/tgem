@@ -1,5 +1,5 @@
 {{-- Main pages Footer is different from other pages footer --}}
-<footer class="footer" style="background-image: url({{ asset( $route == 'home' ? 'img/main/footer.jpg' : 'img/main/footer2.jpg') }})">
+<footer class="footer" style="background-image: url({{ asset( $route == 'home' ? 'img/archive/footer.jpg' : 'img/archive/footer2.jpg') }})">
     <div class="main-container footer__inner @if($route == 'home') footer__inner--home @endif">
         {{-- Footer contacts start --}}
         <div class="footer__inner-item">
@@ -25,7 +25,7 @@
             <div class="footer__news">
                 @foreach ($footer_news as $fn)
                     <a href="{{ route('news.single', $fn->url) }}" class="footer__news-item">
-                        <img src="{{ asset('img/news/thumbs/' . $fn->image) }}" class="footer__news-image">
+                        <img src="{{ asset('img/archive/medium/' . $fn->image) }}" class="footer__news-image">
                         <div class="footer__news-desc">
                             <h4 class="footer__news-title" title="{{$fn->title}}">{{$fn->title}}</h4>
                             <?php 
@@ -60,7 +60,7 @@
         @else
             <div class="footer__inner-item footer__inner-about">
                 <a href="/" class="logo footer__logo">
-                    <img class="logo__img" src="{{ asset('img/main/logo-white.png') }}" alt="ТГЕМ лого">
+                    <img class="logo__img" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого">
                 </a>
 
                 <p class="footer__inner-about-text">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов.</p>

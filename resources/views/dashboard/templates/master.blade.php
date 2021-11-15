@@ -27,6 +27,8 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     {{-- Material Icons --}}
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    {{-- Simditor v2.3.28 --}}
+    <link href="{{ asset('js/simditor/styles/simditor.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
@@ -55,6 +57,11 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     {{-- JQuery Form Styler 2.0.1 --}}
     <script src=" {{asset('js/JQueryFormStyler/jquery.formstyler.min.js') }}"></script>
+    {{-- Simditor v2.3.28 --}}
+    <script src="{{ asset('js/simditor/scripts/module.js') }}"></script>
+    <script src="{{ asset('js/simditor/scripts/hotkeys.js') }}"></script>
+    <script src="{{ asset('js/simditor/scripts/uploader.js') }}"></script>
+    <script src="{{ asset('js/simditor/scripts/simditor.js') }}"></script>
 
     <script src="{{ asset('js/dashboard.js') }}"></script>
 

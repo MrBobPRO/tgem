@@ -22,17 +22,17 @@
         <div class="titles__item width-20">
             @if($order_by != "title")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
             @elseif($order_by == "title" && $order_type == "asc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=title&order_type=desc' }}">Заголовок
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=title&order_type=desc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "title" && $order_type == "desc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
@@ -41,17 +41,17 @@
         <div class="titles__item width-20">
             @if($order_by != "priority")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=priority&order_type=asc' }}">Приоритет
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=priority&order_type=asc' }}">Приоритет
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
             @elseif($order_by == "priority" && $order_type == "asc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=priority&order_type=desc' }}">Приоритет
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=priority&order_type=desc' }}">Приоритет
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "priority" && $order_type == "desc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=priority&order_type=asc' }}">Приоритет
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=priority&order_type=asc' }}">Приоритет
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
@@ -60,17 +60,17 @@
         <div class="titles__item width-20">
             @if($order_by != "url")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=url&order_type=asc' }}">Ссылка
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=url&order_type=asc' }}">Ссылка
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
             @elseif($order_by == "url" && $order_type == "asc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=url&order_type=desc' }}">Ссылка
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=url&order_type=desc' }}">Ссылка
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "url" && $order_type == "desc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=url&order_type=asc' }}">Ссылка
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=url&order_type=asc' }}">Ссылка
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
@@ -79,19 +79,19 @@
         <div class="titles__item width-20">
             @if($order_by != "may_have_childs")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=asc' }}">Дочерные
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=asc' }}">Дочерные
                 страницы
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
             @elseif($order_by == "may_have_childs" && $order_type == "asc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=desc' }}">Дочерные
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=desc' }}">Дочерные
                 страницы
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "may_have_childs" && $order_type == "desc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=asc' }}">Дочерные
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=may_have_childs&order_type=asc' }}">Дочерные
                 страницы
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
@@ -101,19 +101,19 @@
         <div class="titles__item width-20">
             @if($order_by != "pages_count")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=pages_count&order_type=desc' }}">Количество
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=pages_count&order_type=desc' }}">Кол-во
                 страниц
                 <span class="material-icons-outlined titles__icon">arrow_downward</span>
             </a>
             @elseif($order_by == "pages_count" && $order_type == "asc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=pages_count&order_type=desc' }}">Количество
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=pages_count&order_type=desc' }}">Кол-во
                 страниц
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "pages_count" && $order_type == "desc")
             <a class="titles__link"
-                href=" {{ route('dashboard.index') . '?page=' . $active_page . '&order_by=pages_count&order_type=asc' }}">Количество
+                href="{{ route('dashboard.index') . '?page=' . $active_page . '&order_by=pages_count&order_type=asc' }}">Кол-во
                 страниц
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
@@ -146,8 +146,9 @@
 
             {{-- Item Controls start --}}
             <div class="list__item-controls">
-                <a class="control-button control-button--blue" href="#" data-bs-toggle="tooltip"
-                    data-bs-placement="bottom" title="Страницы"><span class="material-icons">layers</span></a>
+                <a class="control-button control-button--blue" href="{{route('dashboard.pages.index', $dropdown->id)}}"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
+                        class="material-icons">layers</span></a>
 
                 <a class="control-button" href="{{route('dashboard.dropdowns.single', $dropdown->id)}}"
                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Редактировать"><span

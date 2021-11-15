@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use Image;
+
 class Helper {
 
     public static function transliterate_into_latin($string)
@@ -28,6 +30,53 @@ class Helper {
 
         //return lowercased url
         return strtolower($transilation);
+    }
+
+    public static function delete_if_exists($path)
+    {
+        if(file_exists($path)) {
+            unlink($path);
+        }
+    }
+
+    public static function rename_file_if_exists($path, $file) 
+    {
+        $name = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension = '.' . $file->getClientOriginalExtension();
+        $full_name = $name . $extension;
+
+        while(file_exists(public_path($path) . $full_name)) {
+            $name = $name . '(1)'; 
+            $full_name = $name . $extension;
+        }
+
+        return $full_name;
+    }
+
+    public static function store_image_into_archive($image, $filename)
+    {
+        $archive_path = public_path("img/archive");
+        $image->move($archive_path, $filename);
+
+        //create image instence from original
+        $original = Image::make($archive_path . "/" . $filename);
+        // make image thumbs (medium width : 500px)
+        if($original->width() > 500) {
+            $original->resize(500, null, function($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        $original->save($archive_path . "/medium/" . $filename);
+
+        // make image thumbs (small width : 210px)
+        if($original->width() > 200) {
+            $original->resize(200, null, function($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        $original->save($archive_path . "/small/" . $filename);
+
+        return true;
     }
 
 }

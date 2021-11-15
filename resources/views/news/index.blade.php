@@ -9,7 +9,7 @@
             @foreach ($news as $new)
                 <a class="news-list__item" href="{{ route('news.single', $new->url) }}">
                     <div class="news-list__image-container">
-                        <img class="news-list__image" src="{{ asset('img/news/thumbs/' . $new->image) }}">
+                        <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}">
                         <?php $formatted = Carbon\Carbon::create($new->created_at)->locale("ru"); ?>   
                         <div class="news-list__date">{{$formatted->isoFormat('DD')}}<span class="news-list__date-span">
                             {{$formatted->isoFormat("MMM")}}/{{$formatted->isoFormat("YY")}}

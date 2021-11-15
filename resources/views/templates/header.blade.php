@@ -4,7 +4,7 @@
         <div class="header__contacts-wrapper">
             <div class="main-container header__contacts">
                 <a href="/" class="logo header__contacts-logo">
-                    <img class="logo__img" src="{{ asset('img/main/logo.png') }}" alt="ТГЕМ лого">
+                    <img class="logo__img" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
                 </a>
 
                 <div class="header__contacts-item">
@@ -31,7 +31,7 @@
             <ul class="navbar__list secondary-navbar__list">
 
                 @foreach($dropdowns as $dropdown)
-                    @if($dropdown->no_childs)
+                    @if(!$dropdown->may_have_childs)
                         <li class="navbar__item secondary-navbar__item">
                             <a class="navbar__link secondary-navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
                         </li>
@@ -64,12 +64,12 @@
             <nav class="main-container navbar">
 
                 <a href="/" class="logo">
-                    <img class="logo__img" src="{{ asset('img/main/logo.png') }}" alt="ТГЕМ лого">
+                    <img class="logo__img" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
                 </a>
             
                 <ul class="navbar__list">
                     @foreach($dropdowns as $dropdown)
-                        @if($dropdown->no_childs)
+                        @if(!$dropdown->may_have_childs)
                             <li class="navbar__item">
                                 <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
                             </li>
@@ -105,12 +105,12 @@
         <nav class="main-container navbar">
 
             <a href="/" class="logo">
-                <img class="logo__img" src="{{ asset('img/main/logo.png') }}" alt="ТГЕМ лого">
+                <img class="logo__img" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
             </a>
         
             <ul class="navbar__list">
                 @foreach($dropdowns as $dropdown)
-                    @if($dropdown->no_childs)
+                    @if(!$dropdown->may_have_childs)
                         <li class="navbar__item">
                             <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
                         </li>
@@ -147,7 +147,7 @@
     <div class="aside__overlay" data-action="hide-aside"></div>
     <div class="aside__widget">
         <button class="aside__widget-hide-btn" data-action="hide-aside">X</button>
-        <img class="logo aside__widget-logo" src="{{ asset('img/main/logo-white.png') }}" alt="ТГЕМ лого" class="aside__widget-logo">
+        <img class="logo aside__widget-logo" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого" class="aside__widget-logo">
         <h1 class="aside__widget-title">О компании</h1>
         <p class="aside__widget-desc">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
         <h1 class="aside__widget-title">Контакты</h1>

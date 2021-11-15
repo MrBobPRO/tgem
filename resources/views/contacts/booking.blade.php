@@ -5,9 +5,9 @@
     @include("templates.crumbs", ["main_title" => "Главная", "main_link" => route("home"), "page_title" => $page_title])
 
     <div class="main-container online-booking__inner">
-        <form class="online-booking__form" action="#" style="background-image: url({{ asset('img/contacts/booking-pattern.png') }})">
+        <form class="online-booking__form" action="#" style="background-image: url({{ asset('img/archive/booking-pattern.png') }})">
             <div class="online-booking__cap">
-                <img class="online-booking__cap-image" src="{{ asset('img/contacts/cap.png') }}">
+                <img class="online-booking__cap-image" src="{{ asset('img/archive/cap.png') }}">
             </div>
 
             <div class="online-booking__form-about">
