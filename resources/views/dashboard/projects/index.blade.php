@@ -1,11 +1,6 @@
 @extends('dashboard.templates.master')
 @section("main")
 
-<div class="index-page-alert alert alert-primary">
-    Вы можете менять контент только тех страниц, у которых включен стандартный шаблон. Страницы с нестандартным шаблоном
-    добавляются / редактируются программистами !
-</div>
-
 {{-- Search start --}}
 <section class="search">
     <div class="select2_single_container">
@@ -13,7 +8,7 @@
             data-dropdown-css-class="select2_single_dropdown">
             <option></option>
             @foreach($all_items as $item)
-            <option value="{{ route('dashboard.pages.single', $item->id)}}">{{$item->title}}</option>
+            <option value="{{ route('dashboard.projects.single', $item->id)}}">{{$item->title}}</option>
             @endforeach
         </select>
     </div>
@@ -27,77 +22,55 @@
         <div class="titles__item width-20">
             @if($order_by != "title")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
             @elseif($order_by == "title" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=title&order_type=desc' }}">Заголовок
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=title&order_type=desc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "title" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
         </div>
 
         <div class="titles__item width-20">
-            @if($order_by != "priority")
+            @if($order_by != "completed")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=priority&order_type=asc' }}">Приоритет
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=completed&order_type=asc' }}">Статус
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
-            @elseif($order_by == "priority" && $order_type == "asc")
+            @elseif($order_by == "completed" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=priority&order_type=desc' }}">Приоритет
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=completed&order_type=desc' }}">Статус
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
-            @elseif($order_by == "priority" && $order_type == "desc")
+            @elseif($order_by == "completed" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=priority&order_type=asc' }}">Приоритет
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=completed&order_type=asc' }}">Статус
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
         </div>
 
         <div class="titles__item width-20">
-            @if($order_by != "url")
+            @if($order_by != "project_group_id")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=url&order_type=asc' }}">Ссылка
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=project_group_id&order_type=asc' }}">Группа
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
-            @elseif($order_by == "url" && $order_type == "asc")
+            @elseif($order_by == "project_group_id" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=url&order_type=desc' }}">Ссылка
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=project_group_id&order_type=desc' }}">Группа
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
-            @elseif($order_by == "url" && $order_type == "desc")
+            @elseif($order_by == "project_group_id" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=url&order_type=asc' }}">Ссылка
-                <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
-            </a>
-            @endif
-        </div>
-
-        <div class="titles__item width-20">
-            @if($order_by != "default_template")
-            <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=default_template&order_type=asc' }}">Стандартный
-                шаблон
-                <span class="material-icons-outlined titles__icon">arrow_upward</span>
-            </a>
-            @elseif($order_by == "default_template" && $order_type == "asc")
-            <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=default_template&order_type=desc' }}">Стандартный
-                шаблон
-                <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
-            </a>
-            @elseif($order_by == "default_template" && $order_type == "desc")
-            <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=default_template&order_type=asc' }}">Стандартный
-                шаблон
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=project_group_id&order_type=asc' }}">Группа
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
@@ -106,20 +79,39 @@
         <div class="titles__item width-20">
             @if($order_by != "images_count")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=images_count&order_type=desc' }}">Кол-во
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=images_count&order_type=desc' }}">Кол-во
                 изб. в галереи
                 <span class="material-icons-outlined titles__icon">arrow_downward</span>
             </a>
             @elseif($order_by == "images_count" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=images_count&order_type=desc' }}">Кол-во
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=images_count&order_type=desc' }}">Кол-во
                 изб. в галереи
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "images_count" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.pages.index', $dropdown->id) . '?page=' . $active_page . '&order_by=images_count&order_type=asc' }}">Кол-во
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=images_count&order_type=asc' }}">Кол-во
                 изб. в галереи
+                <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
+            </a>
+            @endif
+        </div>
+
+        <div class="titles__item width-20">
+            @if($order_by != "created_at")
+            <a class="titles__link"
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=created_at&order_type=asc' }}">Дата добавления
+                <span class="material-icons-outlined titles__icon">arrow_upward</span>
+            </a>
+            @elseif($order_by == "created_at" && $order_type == "asc")
+            <a class="titles__link"
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=created_at&order_type=desc' }}">Дата добавления
+                <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
+            </a>
+            @elseif($order_by == "created_at" && $order_type == "desc")
+            <a class="titles__link"
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=created_at&order_type=asc' }}">Дата добавления
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
@@ -129,49 +121,47 @@
     </div> {{-- Titles end --}}
 
     {{-- Multiple Items form start --}}
-    <form action="{{ route('pages.remove_multiple') }}" method="POST" id="multiple_items_form">
+    <form action="{{ route('projects.remove_multiple') }}" method="POST" id="multiple_items_form">
         @csrf
-        @foreach ($pages as $page)
+        @foreach ($projects as $project)
         {{-- List Item start --}}
         <div class="list__item">
             {{-- checkboxes for multiple remove --}}
             <div class="checkbox">
-                {{-- You cant edit/delete pages without default template from dashboard     --}}
-                @if($page->default_template)
-                <label for="{{$page->id}}" class="checkbox__label">
-                    <input class="checkbox__input" id="{{$page->id}}" type="checkbox" name="ids[]"
-                        value="{{$page->id}}">
+                <label for="{{$project->id}}" class="checkbox__label">
+                    <input class="checkbox__input" id="{{$project->id}}" type="checkbox" name="ids[]"
+                        value="{{$project->id}}">
                     <span class="checkbox__checkmark"></span>
                 </label>
-                @endif
             </div>
 
-            <div class="list__item-div width-20">{{$page->title}}</div>
-            <div class="list__item-div width-20">{{$page->priority}}</div>
-            <div class="list__item-div width-20">{{$page->url}}</div>
-            <div class="list__item-div width-20">{{$page->default_template ? "Включено" : "ОТКЛЮЧЕНО"}}</div>
-            <div class="list__item-div width-20">{{$page->images()->count()}}</div>
+            <div class="list__item-div width-20">{{$project->title}}</div>
+            <div class="list__item-div width-20">{{$project->completed ? "Выполненный" : "Текущий"}}</div>
+            <div class="list__item-div width-20">{{$project->group->title}}</div>
+            <div class="list__item-div width-20">{{$project->images()->count()}}</div>
+            @php
+                $formatted = Carbon\Carbon::create($project->created_at)->locale("ru");
+            @endphp
+            <div class="list__item-div width-20">{{ $formatted->isoFormat("DD MMMM YYYY") }}</div>
 
             {{-- Item Controls start --}}
             <div class="list__item-controls">
-                <a class="control-button control-button--blue" href="/{{$page->dropdown->url}}/{{$page->url}}"
+                <a class="control-button control-button--blue" href="{{ route('projects.single', $project->url)}}"
                     target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
                         class="material-icons">visibility</span></a>
-                {{-- You cant edit/delete pages without default template from dashboard     --}}
-                @if($page->default_template)
-                <a class="control-button" href="{{route('dashboard.pages.single', $page->id)}}" data-bs-toggle="tooltip"
+
+                <a class="control-button" href="{{route('dashboard.projects.single', $project->id)}}" data-bs-toggle="tooltip"
                     data-bs-placement="bottom" title="Редактировать"><span class="material-icons">edit</span></a>
 
                 <button class="control-button control-button--red" type="button" data-action="show_single_remove_modal"
-                    data-item-id="{{$page->id}}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-item-id="{{$project->id}}" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Удалить"><span class="material-icons">delete</span></button>
-                @endif
             </div> {{-- Item Controls start --}}
         </div> {{-- List Item start --}}
         @endforeach
     </form> {{-- Multiple Items form end --}}
 
-    {{$pages->links()}}
+    {{$projects->links()}}
 </section> {{-- Main list end --}}
 
 
@@ -185,7 +175,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Вы уверены что хотите удалить отмеченные страницы ?<br><br>
+                Вы уверены что хотите удалить отмеченные проекты ?<br><br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="button" data-bs-dismiss="modal">Отмена</button>
@@ -207,11 +197,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Вы уверены что хотите удалить страницу ?
+                Вы уверены что хотите удалить проект ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="button" data-bs-dismiss="modal">Отмена</button>
-                <form action="{{ route('pages.remove') }}" method="POST">
+                <form action="{{ route('projects.remove') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" value="0" name="id" id="remove_single_modal_input" />
                     <button type="submit" class="button button--danger" id="remove_single_modal_button">Удалить</button>

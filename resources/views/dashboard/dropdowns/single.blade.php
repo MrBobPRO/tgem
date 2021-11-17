@@ -68,7 +68,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="button" data-bs-dismiss="modal">Отмена</button>
-                <form action="{{ route('dropdowns.remove') }}" method="POST" id="removee_single_item_form">
+                <form action="{{ route('dropdowns.remove') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" value="{{$dropdown->id}}" name="id" id="remove_single_modal_input" />
                     <button type="submit" class="button button--danger" id="remove_single_modal_button">Удалить</button>

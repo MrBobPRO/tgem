@@ -35,12 +35,16 @@
 
     <div class="form-group">
         <label class="label">Изображение <span class="required">*</span></label>
-        <input class="input" name="image" type="file">
+        {{-- Archive with id = 1 --}}
+        <input class="input" name="image" type="file" data-action="nullify-archive-input"
+            data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
+        @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
+        <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
+
         <a class="form-group__image-container" href="{{ asset('img/archive/' . $page->image)}}" target="_blank">
-            <img class="form-group__image" src="{{ asset('img/archive/' . $page->image)}}">
+            <img class="form-group__image" src="{{ asset('img/archive/medium/' . $page->image)}}">
             <span class="form-group__image-filename">{{$page->image}}</span>
         </a>
-
     </div>
 
     <div class="form-group">
@@ -69,7 +73,7 @@
                 remove_circle
             </span> Удалить</button>
     </div>
-
+</form>
 
 <!-- Remove Single Items Modal Start-->
 <div class="modal fade" id="remove_single_modal" tabindex="-1" aria-labelledby="remove_single_modal_label"
@@ -85,9 +89,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="button" data-bs-dismiss="modal">Отмена</button>
-                <form action="{{ route('pages.remove') }}" method="POST" id="removee_single_item_form">
-                    {{ csrf_field() }}
-                    <input type="hidden" value="{{$page->id}}" name="id" id="remove_single_modal_input" />
+                <form action="{{ route('pages.remove') }}" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{$page->id}}" name="id" id="remove_single_modal_input"/>
                     <button type="submit" class="button button--danger" id="remove_single_modal_button">Удалить</button>
                 </form>
             </div>
@@ -96,6 +100,7 @@
 </div>
 <!-- Remove Single Items Modal End-->
 
-</form>
+{{-- Images Archive with id = 1 --}}
+@include("dashboard.templates.archives.images", ["archive_id" => "1"])
 
 @endsection

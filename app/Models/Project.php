@@ -16,12 +16,12 @@ class Project extends Model
 
     public function scopeConstructions($query)
     {
-        return $query->where("project_group_id", ProjectType::where("name", ProjectGroup::CONSTRUCTION_GROUP_NAME)->first()->id);
+        return $query->where("project_group_id", ProjectType::where("title", ProjectGroup::CONSTRUCTION_GROUP_TITLE)->first()->id);
     }
 
     public function scopeEnergetic($query)
     {
-        return $query->where("project_group_id", ProjectType::where("name", ProjectGroup::ENERGETIC_GROUP_NAME)->first()->id);
+        return $query->where("project_group_id", ProjectType::where("title", ProjectGroup::ENERGETIC_GROUP_TITLE)->first()->id);
     }
 
     public function images()

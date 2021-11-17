@@ -28,9 +28,9 @@
                         <img src="{{ asset('img/archive/medium/' . $fn->image) }}" class="footer__news-image">
                         <div class="footer__news-desc">
                             <h4 class="footer__news-title" title="{{$fn->title}}">{{$fn->title}}</h4>
-                            <?php 
+                            @php
                                 $formatted = Carbon\Carbon::create($fn->created_at)->locale("ru");
-                            ?>
+                            @endphp
                             <p class="footer__news-date">{{$formatted->isoFormat("MMMM DD, YYYY")}}</p>
                         </div>
                     </a>

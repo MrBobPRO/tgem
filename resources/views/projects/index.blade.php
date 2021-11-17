@@ -12,7 +12,7 @@
                         <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}">
                     </div>
                     <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
-                        <p class="projects-list__group">{{$project->group->name}}</p>
+                        <p class="projects-list__group">{{$project->group->title}}</p>
                         <h3 class="projects-list__title">{{$project->title}}</h3>
                     </div>
                 </a>

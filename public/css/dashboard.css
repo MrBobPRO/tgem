@@ -5,8 +5,9 @@ body {
     font-weight: 400;
 }
 :root {
-    --main-color: #272C4A;
+    --main-color: #3b4164;
     --danger-color: #f44336;
+    --blue-color: #00adff;
 }
 :focus {
     outline: none;
@@ -30,6 +31,9 @@ button:focus {
 ::selection {
     color: white;
     background: var(--main-color);
+}
+.visibility-hidden {
+    visibility: hidden;
 }
 
 
@@ -92,7 +96,7 @@ input[type="file"]:after {
 }
 .show-archive-button {
     background: transparent;
-    color: #0a58ca;
+    text-decoration: underline;
     padding: 0;
     margin: 15px 0 8px;
     font-weight: 500;
@@ -229,7 +233,7 @@ input[type="file"]:after {
 }
 .control-button {
     color: white;
-    background: #3e4674;
+    background: var(--main-color);
     padding: 7px;
     border-radius: 50%;
     display: flex;
@@ -243,7 +247,7 @@ input[type="file"]:after {
     background: green;
 }
 .control-button--blue {
-    background: #00adff;
+    background: var(--blue-color);
 }
 .control-button--red {
     background: var(--danger-color);
@@ -285,49 +289,32 @@ input[type="file"]:after {
     font-size: 18px;
     margin: 0 0 0 20px;
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    padding-right: 30px;
 }
 .header__actions {
     display: flex;
     gap: 15px;
-    margin-left: 50px;
-    padding-left: 15px;
-    border-left: 1px solid #bdbdbd;
-    color: #757575;
+    margin-left: auto;
+    min-width: max-content;
 }
 .header__actions-span,
 .header__actions-link,
 .header__actions-button {
-    padding: 0 15px 0 0;
+    padding: 0 0 0 15px;
     border: none;
-    border-right: 1px solid #bdbdbd;
+    border-left: 1px solid #bdbdbd;
     background: transparent;
-    color: #757575;
+    color: black;
     transition: 0.3s;
 }
 .header__actions-link:hover {
-    color: var(--main-color);
-    text-decoration: underline;
-}
-.header__additional {
-    margin-left: auto;
-    display: flex;
-    gap: 15px;
-}
-.header__additional-link,
-.header__additional-button {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    gap: 6px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    font-size: 16px;
     color: black;
-}
-.header__additional-button {
-    gap: 10px;
+    text-decoration: underline;
 }
 /*-------------------------Header end-------------------------*/
 
@@ -336,7 +323,7 @@ input[type="file"]:after {
 .aside {
     width: 100%;
     max-width: 210px;
-    background: var(--main-color);
+    background: #4a5864;
     height: 100vh;
     position: fixed;
     display: flex;
@@ -347,26 +334,31 @@ input[type="file"]:after {
     transition-property: transform, visibility, width;
     color: white;
     z-index: 20;
+    border-right: 1px solid #ddd;
 }
 .content--max .aside {
     transform: translateX(-210px);
+}
+.aside__logo {
+    display: flex;
+    padding: 5px 35px;
+    background: white;
+}
+.aside__logo-image {
+    width: 100%;
 }
 .aside__avatar {
     border-radius: 50%;
     max-width: 110px;
     display: flex;
-    margin: 20px auto 10px;
-    box-shadow: 0 0 30px 0 #00000033;
-}
-.aside__username {
-    text-align: center;
-    font-weight: 500;
-    font-size: 17px;
-    margin: 0 0 30px;
+    margin: 15px auto;
+    box-shadow: 0 0 20px 0 #00000029;
 }
 .aside__nav-ul {
     margin: 0;
     padding: 0;
+    border-bottom: 1px solid #5c6974;
+    border-top: 1px solid #5c6974;
 }
 .aside__nav-li {
     display: flex;
@@ -374,7 +366,38 @@ input[type="file"]:after {
 .aside__nav-link {
     display: flex;
     width: 100%;
+    color: #c7d4e0;
+    text-decoration: none;
+    padding: 9px 15px;
+    gap: 15px;
+    align-items: center;
+    transition: 0.3s;
+    font-size: 15px;
+    border-bottom: 1px solid #5c6974;
+}
+.aside__nav-link--active {
+    background: var(--blue-color);
+    border-color: var(--blue-color);
     color: white;
+    font-weight: 500;
+}
+.aside__nav-link--active:hover {
+    color: white;
+}
+.aside__nav-link:not(.aside__nav-link--active):hover {
+    background: #ffffff38;
+    color: white;
+}
+.aside__nav-link-icon {
+    font-size: 18px;
+}
+.aside__form {
+    width: 100%;
+}
+.aside__form-button {
+    display: flex;
+    width: 100%;
+    color: #c7d4e0;
     text-decoration: none;
     padding: 9px 15px;
     gap: 15px;
@@ -382,17 +405,14 @@ input[type="file"]:after {
     font-weight: 300;
     transition: 0.3s;
     font-size: 15px;
+    background: transparent;
+    border: none;
 }
-.aside__nav-link--active {
-    background: white;
-    color: var(--main-color);
-    font-weight: 500;
-}
-.aside__nav-link:not(.aside__nav-link--active):hover {
+.aside__form-button:hover {
     background: #ffffff38;
     color: white;
 }
-.aside__nav-link-icon {
+.aside__form-icon {
     font-size: 18px;
 }
 /*-------------------------Aside end-------------------------*/
@@ -474,6 +494,16 @@ input[type="file"]:after {
     max-width: 100%;
     font-size: 14px;
 }
+.form-group__select2-single {
+    max-width: 100% !important;
+}
+.form-group__select2-single .select2-container--default {
+    box-shadow: none !important;
+    border: 1px solid #ced4da !important;
+}
+.form-group__select2-single .select2-selection--single {
+    padding: 5px 7px !important;
+}
 
 /* Switch start */
 .switch-container {
@@ -518,10 +548,10 @@ input[type="file"]:after {
     border-radius: 50%;
 }
 .switch__input:checked + .switch__slider {
-    background-color: #2196F3;
+    background-color: var(--blue-color);
 }
 .switch__input:focus + .switch__slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px var(--blue-color);
 }
 .switch__input:checked + .switch__slider:before {
     transform: translateX(28px);
@@ -766,7 +796,7 @@ input[type="file"]:after {
 
 /*-------------------------Select2 single start-------------------------*/
 .select2_single_container {
-    max-width: 480px;
+    max-width: 550px;
     width: 100%;
 }
 .select2_single_container .select2_single {
@@ -894,11 +924,7 @@ input[type="file"]:after {
         font-size: 17px;
         margin: 0 0 0 15px;
     }
-    .header__actions {
-        margin-left: 30px;
-    }
-    .header__additional-link,
-    .header__additional-button {
+    .header__actions-span, .header__actions-link, .header__actions-button {
         font-size: 15px;
     }
     .titles {
@@ -929,5 +955,9 @@ input[type="file"]:after {
     }
     .archive__list-image {
         height: 120px;
+    }
+    .select2_single_dropdown .select2-results__option {
+        font-size: 14px;
+        padding: 4px 15px;
     }
 }

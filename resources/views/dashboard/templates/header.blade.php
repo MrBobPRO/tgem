@@ -28,6 +28,30 @@
         Меню / {{$page->dropdown->title}} / {{$page->title}}
         @break
 
+        @case('dashboard.projects.index')
+        Проекты
+        @break
+
+        @case('dashboard.projects.create')
+        Проекты / Добавить новый
+        @break
+
+        @case('dashboard.projects.single')
+        Проекты / {{$project->title}}
+        @break
+
+        @case('dashboard.projects.groups.index')
+        Проекты / Группы
+        @break
+
+        @case('dashboard.projects.groups.create')
+        Проекты / Группы / Добавить новый
+        @break
+
+        @case('dashboard.projects.groups.single')
+        Проекты / Группы / {{$group->title}}
+        @break
+
         @endswitch
     </h1> {{-- Header Title end --}}
 
@@ -49,18 +73,22 @@
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break
 
-        @endswitch
-    </div> {{-- Page info start --}}
+        @case('dashboard.projects.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.projects.groups.index')}}">Группы</a>
+        <a class="header__actions-link" href="{{route('dashboard.projects.create')}}">Добавить проект</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
 
-    {{-- Header Additional start --}}
-    <div class="header__additional">
-        <a class="header__additional-link" href="{{route('home')}}" target="_blank">На сайт<span
-                class="material-icons-outlined header__additional-icob">home</span></a>
-        <form class="header__additional-form" method="POST" action="{{ route('logout') }}">
-            @csrf
-            <button class="header__additional-button" type="submit">Выход<span
-                    class="material-icons-outlined header__additional-icon">exit_to_app</span></button>
-        </form>
-    </div> {{-- Header Additional end --}}
+        @case('dashboard.projects.groups.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.projects.groups.create')}}">Добавить группу</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @endswitch
+    </div> {{-- Page info end --}}
 
 </header>

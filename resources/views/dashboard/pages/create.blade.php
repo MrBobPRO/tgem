@@ -42,7 +42,7 @@
 
     <div class="form-group">
         <label class="label">Основной текст <span class="required">*</span></label>
-        <textarea class="simditor-wysiwyg" name="main_text" rows="8" required>{{ old("main_text") }}</textarea>
+        <textarea class="simditor-wysiwyg" name="main_text" required>{{ old("main_text") }}</textarea>
     </div>
 
     <div class="form-group">
@@ -52,8 +52,7 @@
 
     <div class="form-group">
         <label class="label">Дополнительный текст</label>
-        <textarea class="simditor-wysiwyg" name="additional_text_body"
-            rows="8">{{ old("additional_text_body") }}</textarea>
+        <textarea class="simditor-wysiwyg" name="additional_text_body">{{ old("additional_text_body") }}</textarea>
     </div>
 
     <div class="main-form__controls">

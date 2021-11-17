@@ -17,10 +17,10 @@ class ProjectsSeeder extends Seeder
     public function run()
     {
         //-----------Create Project Groups----------
-        $group_names = ["Строительные проекты", "Энергетические проекты"];
-        foreach($group_names as $name) {
+        $group_titles = ["Строительные проекты", "Энергетические проекты"];
+        foreach($group_titles as $title) {
             $project_group = new ProjectGroup();
-            $project_group->name = $name;
+            $project_group->title = $title;
             $project_group->save();
         }
 

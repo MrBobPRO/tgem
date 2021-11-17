@@ -146,7 +146,7 @@
 
             {{-- Item Controls start --}}
             <div class="list__item-controls">
-                <a class="control-button control-button--blue" href="{{route('dashboard.pages.index', $dropdown->id)}}"
+                <a class="control-button control-button--blue {{!$dropdown->may_have_childs ? 'visibility-hidden' : ''}}" href="{{route('dashboard.pages.index', $dropdown->id)}}"
                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
                         class="material-icons">layers</span></a>
 
@@ -204,7 +204,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="button" data-bs-dismiss="modal">Отмена</button>
-                <form action="{{ route('dropdowns.remove') }}" method="POST" id="removee_single_item_form">
+                <form action="{{ route('dropdowns.remove') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" value="0" name="id" id="remove_single_modal_input" />
                     <button type="submit" class="button button--danger" id="remove_single_modal_button">Удалить</button>

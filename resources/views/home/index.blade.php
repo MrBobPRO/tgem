@@ -160,7 +160,7 @@
             <div class="horizontal-tab home__projects-tab" data-content="projects-tab-content">
                 <button class="horizontal-tab__button horizontal-tab__button--active home__projects-tab-button" data-pane="pj-content0">Все проекты</button>
                 @foreach ($project_groups as $group)
-                    <button class="horizontal-tab__button home__projects-tab-button" data-pane="pj-content{{$group->id}}">{{$group->name}}</button>
+                    <button class="horizontal-tab__button home__projects-tab-button" data-pane="pj-content{{$group->id}}">{{$group->title}}</button>
                 @endforeach
             </div>
         
@@ -173,7 +173,7 @@
                                     <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}">
                                 </div>
                                 <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
-                                    <p class="projects-list__group">{{$project->group->name}}</p>
+                                    <p class="projects-list__group">{{$project->group->title}}</p>
                                     <h3 class="projects-list__title">{{$project->title}}</h3>
                                 </div>
                             </a>

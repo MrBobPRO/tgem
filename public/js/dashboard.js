@@ -71,7 +71,7 @@ $(document).ready(function () {
     // JQ FORM STYLER
 
     // Select2
-    $('.select2_single').select2({allowClear: true, language: 'ru'});
+    $('.select2_single').select2({allowClear: false, language: 'ru'});
     // MultiSelect2
     $('.select2_multiple').select2({
         closeOnSelect: false, language: 'ru', width: '100%'
@@ -119,7 +119,8 @@ $('.select2_single').on('select2:open', function (e) {
 });
 // Change clear buttons title on select2 single select
 $('.select2_single').on('select2:select', function (e) {
-    $('.select2-selection__clear')[0].title = 'Очистить';
+    if($('.select2-selection__clear')[0])
+        $('.select2-selection__clear')[0].title = 'Очистить';
 });
 // Change clear buttons title on select2 multiselect
 $('.select2_multiple').on('select2:select', function (e) {

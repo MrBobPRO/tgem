@@ -10,8 +10,8 @@ class ProjectGroup extends Model
     use HasFactory;
     public $timestamps = false;
 
-    const CONSTRUCTION_GROUP_NAME = 'Строительные проекты';
-    const ENERGETIC_GROUP_NAME = 'Энергетические проекты';
+    const CONSTRUCTION_GROUP_TITLE = 'Строительные проекты';
+    const ENERGETIC_GROUP_TITLE = 'Энергетические проекты';
 
     public function projects()
     {

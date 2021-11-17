@@ -22,7 +22,7 @@ class PageController extends Controller
     }
 
 
-    public function webmaster_index($dropdown_id, Request $request)
+    public function dashboard_index($dropdown_id, Request $request)
     {
         //get dropdown title. Used in header as page title
         $dropdown = Dropdown::find($dropdown_id);
@@ -50,7 +50,7 @@ class PageController extends Controller
         return view("dashboard.pages.index", compact("pages", "all_items", "items_count", "dropdown", "order_by", "order_type", "active_page"));
     }
 
-    public function webmaster_create(Request $request)
+    public function dashboard_create(Request $request)
     {
         $dropdown = Dropdown::find($request->dropdown_id);
 
@@ -99,15 +99,73 @@ class PageController extends Controller
         return redirect()->route("dashboard.pages.index", $dropdown->id);
     }
 
-    public function webmaster_single($id)
+    public function dashboard_single($id)
     {
         $page = Page::find($id);
 
         return view("dashboard.pages.single", compact("page"));
     }
 
-    public function webmaster_update($id)
+    public function update(Request $request)
     {
+        $page = Page::find($request->id);
+        // Validate uique filends
+        $validation_errors = [];
+        if($request->title != $page->title) {
+            $duplicate = Page::where("dropdown_id", $page->dropdown_id)->where("title", $request->title)->first();
+            if ($duplicate) array_push($validation_errors, "Страница с таким заголовком в текущем выпадающем списке уже существует!");
+        }
+        if($request->url != $page->url) {
+            $duplicate = Page::where("dropdown_id", $page->dropdown_id)->where("url", $request->url)->first();
+            if ($duplicate) array_push($validation_errors, "Страница с такой ссылкой в текущем выпадающем списке уже существует!");
+        }
+
+        if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
+
+        $page->title = $request->title;
+        $page->priority = $request->priority;
+        $page->url = $request->url;
+        $page->image = $request->image_from_archive ? $request->image_from_archive : $page->image; 
+        $page->main_text = $request->main_text;
+        $page->additional_text_title = $request->additional_text_title;
+        $page->additional_text_body = $request->additional_text_body;
+        $page->save();
+
+        //resize image and store in archive
+        if($request->file("image")) {
+            $image = $request->file("image");
+            $filename = Helper::rename_file_if_exists("img/archive/", $image);
+            $page->image = $filename;
+            $page->save();
+            Helper::store_image_into_archive($image, $filename);
+        }
+
         return redirect()->back();
+    }
+
+    public function remove(Request $request)
+    {
+        // need to get in array because of foreach multiple delete
+        $dropdown_id = Page::find($request->id)->dropdown_id;
+        $ids = [$request->id];
+        $this->permanent_delete($ids);
+
+        return redirect()->route("dashboard.pages.index", $dropdown_id);
+    }
+
+    public function remove_multiple(Request $request)
+    {
+        $this->permanent_delete($request->ids);
+
+        return redirect()->back();
+    }
+
+    private function permanent_delete($ids)
+    {
+        foreach ($ids as $id) {
+            $page = Page::find($id);
+            $page->images()->delete();
+            $page->delete();
+        }
     }
 }

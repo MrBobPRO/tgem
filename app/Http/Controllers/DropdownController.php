@@ -8,8 +8,36 @@ use Illuminate\Support\Facades\Validator;
 
 class DropdownController extends Controller
 {
+    public function dashboard_create()
+    {
+        return view("dashboard.dropdowns.create");
+    }
 
-    public function webmaster_single($id)
+    public function store(Request $request)
+    {
+        $validation_rules = [
+            "title" => "unique:dropdowns",
+            "url" => "unique:dropdowns"
+        ];
+
+        $validation_messages = [
+            "title.unique" => "Выпадающй список с таким заголовком уже существует !",
+            "url.unique" => "Выпадающй список с такой ссылкой уже существует !",
+        ];
+
+        Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
+
+        $dropdown = new Dropdown();
+        $dropdown->title = $request->title;
+        $dropdown->priority = $request->priority;
+        $dropdown->url = $request->url;
+        $dropdown->may_have_childs = $request->may_have_childs ? true : false;
+        $dropdown->save();
+
+        return redirect()->route("dashboard.index");
+    }
+
+    public function dashboard_single($id)
     {
         $dropdown = Dropdown::find($id);
 
@@ -41,57 +69,32 @@ class DropdownController extends Controller
         return redirect()->back();
     }
 
-    public function webmaster_create()
-    {
-        return view("dashboard.dropdowns.create");
-    }
-
-    public function store(Request $request)
-    {
-        $validation_rules = [
-            "title" => "unique:dropdowns",
-            "url" => "unique:dropdowns"
-        ];
-
-        $validation_messages = [
-            "title.unique" => "Выпадающй список с таким заголовком уже существует !",
-            "url.unique" => "Выпадающй список с такой ссылкой уже существует !",
-        ];
-
-        Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
-
-        $dropdown = new Dropdown();
-        $dropdown->title = $request->title;
-        $dropdown->priority = $request->priority;
-        $dropdown->url = $request->url;
-        $dropdown->may_have_childs = $request->may_have_childs ? true : false;
-        $dropdown->save();
-
-        return redirect()->route("dashboard.index");
-    }
-
     public function remove(Request $request)
     {
         // need to get in array because of foreach multiple delete
         $ids = [$request->id];
-        $this->delete_dropdown($ids);
+        $this->permanent_delete($ids);
 
         return redirect()->route("dashboard.index");
     }
 
     public function remove_multiple(Request $request)
     {
-        $this->delete_dropdown($request->ids);
+        $this->permanent_delete($request->ids);
 
-        return redirect()->route("dashboard.index");
+        return redirect()->back();
     }
 
-    private function delete_dropdown($ids)
+    private function permanent_delete($ids)
     {
         foreach ($ids as $id) {
             $dropdown = Dropdown::find($id);
             // delete dropdown pages
+            foreach($dropdown->pages as $page) {
+                $page->images()->delete();
+            }
             $dropdown->pages()->delete();
+            $dropdown->delete();
         }
     }
 }

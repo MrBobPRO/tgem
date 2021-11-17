@@ -1,6 +1,9 @@
 <aside class="aside" id="aside">
+    <a class="aside__logo" href="{{ route('home') }}" target="_blank">
+        <img class="aside__logo-image" src="{{ asset('img/archive/logo.png') }}">
+    </a>
+
     <img class="aside__avatar" src="{{ asset('img/archive/admin.jpg') }}">
-    <h3 class="aside__username">Админ</h3>
 
     <nav class="aside__nav">
         <ul class="aside__nav-ul">
@@ -11,8 +14,8 @@
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.projects.index') aside__nav-link--active @endif"
-                    href="{{route('dashboard.index')}}"><span
+                <a class="aside__nav-link @if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single' || $route == 'dashboard.projects.create' || $route == 'dashboard.projects.groups.index' || $route == 'dashboard.projects.groups.single' || $route == 'dashboard.projects.groups.create') aside__nav-link--active @endif"
+                    href="{{route('dashboard.projects.index')}}"><span
                         class="aside__nav-link-icon material-icons">location_city</span> Проекты</a>
             </li>
 
@@ -44,6 +47,14 @@
                 <a class="aside__nav-link @if($route == 'dashboard.images.index') aside__nav-link--active @endif"
                     href="{{route('dashboard.index')}}"><span class="aside__nav-link-icon material-icons">edit</span>
                     Приёмная</a>
+            </li>
+
+            <li class="aside__nav-li">
+                <form class="aside__form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="aside__form-button" type="submit"><span class="aside__form-icon material-icons">logout</span>
+                        Выйти</button>
+                </form>
             </li>
         </ul>
     </nav>
