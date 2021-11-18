@@ -20,14 +20,14 @@
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.news.index') aside__nav-link--active @endif"
-                    href="{{route('dashboard.index')}}"><span class="aside__nav-link-icon material-icons">article</span>
+                <a class="aside__nav-link @if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') aside__nav-link--active @endif"
+                    href="{{route('dashboard.news.index')}}"><span class="aside__nav-link-icon material-icons">article</span>
                     Новости</a>
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.images.index') aside__nav-link--active @endif"
-                    href="{{route('dashboard.index')}}"><span class="aside__nav-link-icon material-icons">work</span>
+                <a class="aside__nav-link @if($route == 'dashboard.vacancies.index' || $route == 'dashboard.vacancies.single' || $route == 'dashboard.vacancies.create') aside__nav-link--active @endif"
+                    href="{{route('dashboard.vacancies.index')}}"><span class="aside__nav-link-icon material-icons">work</span>
                     Вакансии</a>
             </li>
 
@@ -38,15 +38,10 @@
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.images.index') aside__nav-link--active @endif"
-                    href="{{route('dashboard.index')}}"><span class="aside__nav-link-icon material-icons">image</span>
-                    Картинки</a>
-            </li>
-
-            <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.images.index') aside__nav-link--active @endif"
-                    href="{{route('dashboard.index')}}"><span class="aside__nav-link-icon material-icons">edit</span>
-                    Приёмная</a>
+                <a class="aside__nav-link @if($route == 'dashboard.booking.index' || $route == 'dashboard.booking.records.single') aside__nav-link--active @endif"
+                    href="{{route('dashboard.booking.index')}}"><span class="aside__nav-link-icon material-icons">edit</span>
+                    Приёмная @if($new_booking_records_count > 0)
+                    ({{ $new_booking_records_count}})@endif </a>
             </li>
 
             <li class="aside__nav-li">

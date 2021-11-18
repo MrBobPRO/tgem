@@ -52,6 +52,38 @@
         Проекты / Группы / {{$group->title}}
         @break
 
+        @case('dashboard.news.index')
+        Новости
+        @break
+
+        @case('dashboard.news.create')
+        Новости / Добавить новый
+        @break
+
+        @case('dashboard.news.single')
+        Новости / {{$new->title}}
+        @break
+
+        @case('dashboard.vacancies.index')
+        Вакансии
+        @break
+
+        @case('dashboard.vacancies.create')
+        Вакансии / Добавить новый
+        @break
+
+        @case('dashboard.vacancies.single')
+        Вакансии / {{$vacancy->title}}
+        @break
+
+        @case('dashboard.booking.index')
+        Приёмная генерального директора
+        @break
+
+        @case('dashboard.booking.records.single')
+        Приёмная генерального директора / {{$record->name}}
+        @break
+
         @endswitch
     </h1> {{-- Header Title end --}}
 
@@ -84,6 +116,27 @@
         @case('dashboard.projects.groups.index')
         <span class="header__actions-span">Элементов : {{$items_count}}</span>
         <a class="header__actions-link" href="{{route('dashboard.projects.groups.create')}}">Добавить группу</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.news.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.news.create')}}">Добавить новость</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.vacancies.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.vacancies.create')}}">Добавить вакансию</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.booking.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <span class="header__actions-span">Новые записи : {{$new_records_count}}</span>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break

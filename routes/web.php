@@ -28,9 +28,11 @@ Route::group(["middleware" => "auth"], function () {
     Route::get("/media/gallery/{url}", "GalleryController@single")->name("galleries.single");
     //Vacancies
     Route::get("/career/vacancies", "VacancyController@index")->name("vacancies.index");
+    Route::get("/career/vacancies/{url}", "VacancyController@single")->name("vacancies.single");
     //contacts
     Route::get("/contacts/our_contacts", "ContactController@index")->name("contacts.index");
     Route::get("/contacts/online_booking", "ContactController@booking")->name("contacts.booking");
+    Route::post("/booking/records/store", "BookingController@store")->name("booking.records.store");
 });
 
 
@@ -76,8 +78,32 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/projects/groups/remove", "ProjectGroupController@remove")->name("projects.groups.remove");
     Route::post("/projects/groups/remove_multiple", "ProjectGroupController@remove_multiple")->name("projects.groups.remove_multiple");
 
-    //News
+    //projects
     Route::get("/dashboard/news", "NewsController@dashboard_index")->name("dashboard.news.index");
+    Route::get("/dashboard/news/create", "NewsController@dashboard_create")->name("dashboard.news.create");
+    Route::get("/dashboard/news/{id}", "NewsController@dashboard_single")->name("dashboard.news.single");
+
+    Route::post("/news/update", "NewsController@update")->name("news.update");
+    Route::post("/news/store", "NewsController@store")->name("news.store");
+    Route::post("/news/remove", "NewsController@remove")->name("news.remove");
+    Route::post("/news/remove_multiple", "NewsController@remove_multiple")->name("news.remove_multiple");
+
+    //vacancies
+    Route::get("/dashboard/vacancies", "VacancyController@dashboard_index")->name("dashboard.vacancies.index");
+    Route::get("/dashboard/vacancies/create", "VacancyController@dashboard_create")->name("dashboard.vacancies.create");
+    Route::get("/dashboard/vacancies/{id}", "VacancyController@dashboard_single")->name("dashboard.vacancies.single");
+
+    Route::post("/vacancies/update", "VacancyController@update")->name("vacancies.update");
+    Route::post("/vacancies/store", "VacancyController@store")->name("vacancies.store");
+    Route::post("/vacancies/remove", "VacancyController@remove")->name("vacancies.remove");
+    Route::post("/vacancies/remove_multiple", "VacancyController@remove_multiple")->name("vacancies.remove_multiple");
+
+    //booking
+    Route::get("/dashboard/booking", "BookingController@dashboard_index")->name("dashboard.booking.index");
+    Route::get("/dashboard/booking/records/{id}", "BookingController@dashboard_single")->name("dashboard.booking.records.single");
+
+    Route::post("/booking/records/remove", "BookingController@remove")->name("booking.records.remove");
+    Route::post("/booking/records/remove_multiple", "BookingController@remove_multiple")->name("booking.records.remove_multiple");
 });
 //---------------------------Dasboard end---------------------------
 

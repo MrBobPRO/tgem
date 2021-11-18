@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Booking;
 use App\Models\Dropdown;
 use App\Models\News;
 use Illuminate\Pagination\Paginator;
@@ -54,6 +55,10 @@ class AppServiceProvider extends ServiceProvider
             sort($files);
 
             $view->with("images", $files);
+        });
+
+        View::composer(["dashboard.templates.aside"], function($view) {
+            $view->with("new_booking_records_count", Booking::where("new", true)->count());
         });
 
     }

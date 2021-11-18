@@ -1204,6 +1204,18 @@ button {
 .vacancies-list__link:hover .vacancy-list__title {
     color: var(--main-color);
 }
+
+/* Single vacancy page */
+.single-vacancy__inner {
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+.single-vacancy__inner ul {
+    list-style-type: disc;
+    padding-inline-start: 40px;
+    margin-block-end: 1em;
+}
 /* --------------------------Vacancies list end-------------------------- */
 
 
@@ -1401,6 +1413,7 @@ button {
     height: 450px;
 }
 /* --------------------------Contacts page end-------------------------- */
+
 
 
 /* --------------------------Online Booking start-------------------------- */

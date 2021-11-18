@@ -379,7 +379,6 @@ input[type="file"]:after {
     background: var(--blue-color);
     border-color: var(--blue-color);
     color: white;
-    font-weight: 500;
 }
 .aside__nav-link--active:hover {
     color: white;
@@ -457,11 +456,11 @@ input[type="file"]:after {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(0 53 215 / 24%);
 }
-.input--readonly {
+.input--readonly, .textarea--readonly {
     background: #f1f1f1;
     cursor: auto;
 }
-.input--readonly:focus {
+.input--readonly:focus, .textarea--readonly:focus {
     box-shadow: none;
     border-color: transparent;
 }
