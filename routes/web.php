@@ -98,12 +98,27 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/vacancies/remove", "VacancyController@remove")->name("vacancies.remove");
     Route::post("/vacancies/remove_multiple", "VacancyController@remove_multiple")->name("vacancies.remove_multiple");
 
+    //galleries
+    Route::get("/dashboard/galleries", "GalleryController@dashboard_index")->name("dashboard.galleries.index");
+    Route::get("/dashboard/galleries/create", "GalleryController@dashboard_create")->name("dashboard.galleries.create");
+    Route::get("/dashboard/galleries/{id}", "GalleryController@dashboard_single")->name("dashboard.galleries.single");
+
+    Route::post("/galleries/update", "GalleryController@update")->name("galleries.update");
+    Route::post("/galleries/store", "GalleryController@store")->name("galleries.store");
+    Route::post("/galleries/remove", "GalleryController@remove")->name("galleries.remove");
+    Route::post("/galleries/remove_multiple", "GalleryController@remove_multiple")->name("galleries.remove_multiple");
+
     //booking
     Route::get("/dashboard/booking", "BookingController@dashboard_index")->name("dashboard.booking.index");
     Route::get("/dashboard/booking/records/{id}", "BookingController@dashboard_single")->name("dashboard.booking.records.single");
 
     Route::post("/booking/records/remove", "BookingController@remove")->name("booking.records.remove");
     Route::post("/booking/records/remove_multiple", "BookingController@remove_multiple")->name("booking.records.remove_multiple");
+
+    //images
+    Route::post("/images/store", "ImageController@store")->name("images.store");
+    Route::post("/images/update", "ImageController@update")->name("images.update");
+    Route::post("/images/remove", "ImageController@remove")->name("images.remove");
 });
 //---------------------------Dasboard end---------------------------
 

@@ -32,8 +32,8 @@
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.galleries.index') aside__nav-link--active @endif"
-                    href="{{route('dashboard.index')}}"><span
+                <a class="aside__nav-link @if($route == 'dashboard.galleries.index' || $route == 'dashboard.galleries.single' || $route == 'dashboard.galleries.create') aside__nav-link--active @endif"
+                    href="{{route('dashboard.galleries.index')}}"><span
                         class="aside__nav-link-icon material-icons">collections</span> Галерея</a>
             </li>
 

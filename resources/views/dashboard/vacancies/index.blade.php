@@ -88,7 +88,7 @@
             {{-- Item Controls start --}}
             <div class="list__item-controls">
                 <a class="control-button control-button--blue" href="{{ route('vacancies.single', $vacancy->url)}}"
-                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
+                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Посмотреть"><span
                         class="material-icons">visibility</span></a>
 
                 <a class="control-button" href="{{route('dashboard.vacancies.single', $vacancy->id)}}" data-bs-toggle="tooltip"

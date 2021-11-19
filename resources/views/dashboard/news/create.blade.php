@@ -28,7 +28,7 @@
     <div class="form-group">
         <label class="label">Изображение <span class="required">*</span></label>
         {{-- Archive with id = 1 --}}
-        <input class="input" name="image" type="file" data-action="nullify-archive-input"
+        <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
             data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input" />
         @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
         <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">

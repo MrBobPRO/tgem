@@ -44,7 +44,7 @@
     <div class="form-group">
         <label class="label">Изображение <span class="required">*</span></label>
         {{-- Archive with id = 1 --}}
-        <input class="input" name="image" type="file" data-action="nullify-archive-input"
+        <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
             data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
         @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
         <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
@@ -95,5 +95,8 @@
 
 {{-- Images Archive with id = 1 --}}
 @include("dashboard.templates.archives.images", ["archive_id" => "1"])
+
+{{-- Galleries archive_id => 99 --}}
+@include("dashboard.templates.common_gallery_edit", ["relation_column_name" => "news_id", "item" => $new])
 
 @endsection

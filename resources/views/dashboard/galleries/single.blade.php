@@ -1,34 +1,29 @@
 @extends('dashboard.templates.master')
 @section("main")
 
-<form class="main-form" id="update_form" action="{{ route('vacancies.update') }}" method="POST"
+<form class="main-form" id="update_form" action="{{ route('galleries.update') }}" method="POST"
     enctype="multipart/form-data">
     {{ csrf_field() }}
 
-    <input type="hidden" name="id" value="{{$vacancy->id}}">
+    <input type="hidden" name="id" value="{{$gallery->id}}">
 
     <div class="form-group">
         <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{ old('title') == '' ? $vacancy->title : old('title') }}"
+        <input class="input" name="title" type="text" value="{{ old('title') == '' ? $gallery->title : old('title') }}"
             required>
     </div>
 
     <div class="form-group">
-        <label class="label">Текст <span class="required">*</span></label>
-        <textarea class="simditor-wysiwyg" name="body" required>{{ old("body") == '' ? $vacancy->body : old("body") }}</textarea>
-    </div>
-
-    <div class="form-group">
-        <label class="label">Изображение <span class="required">*</span> . Ширина и высота объязательно должны быть одинаковыми !</label>
+        <label class="label">Изображение <span class="required">*</span></label>
         {{-- Archive with id = 1 --}}
-        <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
+        <input class="input" name="thumbnail" type="file" data-action="nullify-archive-input"
             data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
         @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
-        <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
+        <input class="input input--readonly" readonly type="text" name="thumbnail_from_archive" id="image_archive1_input">
 
-        <a class="form-group__image-container" href="{{ asset('img/archive/' . $vacancy->image)}}" target="_blank">
-            <img class="form-group__image" src="{{ asset('img/archive/medium/' . $vacancy->image)}}">
-            <span class="form-group__image-filename">{{$vacancy->image}}</span>
+        <a class="form-group__image-container" href="{{ asset('img/archive/' . $gallery->thumbnail)}}" target="_blank">
+            <img class="form-group__image" src="{{ asset('img/archive/medium/' . $gallery->thumbnail)}}">
+            <span class="form-group__image-filename">{{$gallery->thumbnail}}</span>
         </a>
     </div>
 
@@ -55,13 +50,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Вы уверены что хотите удалить вакансию ?
+                Вы уверены что хотите удалить галерею ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="button" data-bs-dismiss="modal">Отмена</button>
-                <form action="{{ route('vacancies.remove') }}" method="POST" id="remove_single_item_form">
+                <form action="{{ route('galleries.remove') }}" method="POST" id="remove_single_item_form">
                     @csrf
-                    <input type="hidden" value="{{$vacancy->id}}" name="id" id="remove_single_modal_input"/>
+                    <input type="hidden" value="{{$gallery->id}}" name="id" id="remove_single_modal_input"/>
                     <button type="submit" class="button button--danger" id="remove_single_modal_button">Удалить</button>
                 </form>
             </div>
@@ -72,5 +67,8 @@
 
 {{-- Images Archive with id = 1 --}}
 @include("dashboard.templates.archives.images", ["archive_id" => "1"])
+
+{{-- Galleries archive_id => 99 --}}
+@include("dashboard.templates.common_gallery_edit", ["relation_column_name" => "gallery_id", "item" => $gallery])
 
 @endsection

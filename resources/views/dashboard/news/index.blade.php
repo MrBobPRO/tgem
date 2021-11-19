@@ -118,7 +118,7 @@
 
             <div class="list__item-div width-25">{{$new->title}}</div>
             <div class="list__item-div width-25">{{$new->inner ? "Новости компании" : "Отраслевые новости"}}</div>
-            <div class="list__item-div width-25">{{$new->images()->count()}}</div>
+            <div class="list__item-div width-25">{{$new->images_count}}</div>
             @php
                 $formatted = Carbon\Carbon::create($new->created_at)->locale("ru");
             @endphp
@@ -127,7 +127,7 @@
             {{-- Item Controls start --}}
             <div class="list__item-controls">
                 <a class="control-button control-button--blue" href="{{ route('news.single', $new->url)}}"
-                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
+                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Посмотреть"><span
                         class="material-icons">visibility</span></a>
 
                 <a class="control-button" href="{{route('dashboard.news.single', $new->id)}}" data-bs-toggle="tooltip"

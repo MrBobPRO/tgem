@@ -558,6 +558,43 @@ input[type="file"]:after {
 /*-------------------------Form end-------------------------*/
 
 
+/*-------------------------Common gallery start-------------------------*/
+.common-gallery {
+    max-width: 840px;
+    margin: 20px;
+    color: #212529;
+    background: white;
+    border: 2px solid var(--blue-color);
+    border-bottom: 0;
+}
+.common-gallery__title {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    background: var(--blue-color);
+    color: white;
+    padding: 10px 20px;
+}
+.common-gallery__form {
+    padding: 20px;
+    border-bottom: 2px solid var(--blue-color);
+}
+.common-gallery__form-title {
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+.common-gallery__title-input {
+    margin-bottom: 10px;
+}
+.common-gallery__form-controls {
+    margin-top: 20px;
+}
+/*-------------------------Common gallery end-------------------------*/
+
+
 /*-------------------------Alert start-------------------------*/
 .single-page-alert {
     margin: 0;

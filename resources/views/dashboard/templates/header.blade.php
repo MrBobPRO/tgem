@@ -76,6 +76,18 @@
         Вакансии / {{$vacancy->title}}
         @break
 
+        @case('dashboard.galleries.index')
+        Галерея
+        @break
+
+        @case('dashboard.galleries.create')
+        Галерея / Добавить новый
+        @break
+
+        @case('dashboard.galleries.single')
+        Галерея / {{$gallery->title}}
+        @break
+
         @case('dashboard.booking.index')
         Приёмная генерального директора
         @break
@@ -130,6 +142,13 @@
         @case('dashboard.vacancies.index')
         <span class="header__actions-span">Элементов : {{$items_count}}</span>
         <a class="header__actions-link" href="{{route('dashboard.vacancies.create')}}">Добавить вакансию</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.galleries.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.galleries.create')}}">Добавить галерею</a>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break

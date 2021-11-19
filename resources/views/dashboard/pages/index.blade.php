@@ -155,7 +155,7 @@
             {{-- Item Controls start --}}
             <div class="list__item-controls">
                 <a class="control-button control-button--blue" href="/{{$page->dropdown->url}}/{{$page->url}}"
-                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
+                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Посмотреть"><span
                         class="material-icons">visibility</span></a>
                 {{-- You cant edit/delete pages without default template from dashboard     --}}
                 @if($page->default_template)

@@ -138,7 +138,7 @@
             <div class="list__item-div width-20">{{$project->title}}</div>
             <div class="list__item-div width-20">{{$project->completed ? "Выполненный" : "Текущий"}}</div>
             <div class="list__item-div width-20">{{$project->group->title}}</div>
-            <div class="list__item-div width-20">{{$project->images()->count()}}</div>
+            <div class="list__item-div width-20">{{$project->images_count}}</div>
             @php
                 $formatted = Carbon\Carbon::create($project->created_at)->locale("ru");
             @endphp
@@ -147,7 +147,7 @@
             {{-- Item Controls start --}}
             <div class="list__item-controls">
                 <a class="control-button control-button--blue" href="{{ route('projects.single', $project->url)}}"
-                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Страницы"><span
+                    target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Посмотреть"><span
                         class="material-icons">visibility</span></a>
 
                 <a class="control-button" href="{{route('dashboard.projects.single', $project->id)}}" data-bs-toggle="tooltip"

@@ -1,7 +1,7 @@
 @extends('dashboard.templates.master')
 @section("main")
 
-<form class="main-form" id="create_form" action="{{ route('vacancies.store') }}" method="POST"
+<form class="main-form" id="create_form" action="{{ route('galleries.store') }}" method="POST"
     enctype="multipart/form-data">
     {{ csrf_field() }}
 
@@ -11,17 +11,12 @@
     </div>
 
     <div class="form-group">
-        <label class="label">Текст <span class="required">*</span></label>
-        <textarea class="simditor-wysiwyg" name="body" required>{{ old("body") }}</textarea>
-    </div>
-
-    <div class="form-group">
-        <label class="label">Изображение <span class="required">*</span> . Ширина и высота объязательно должны быть одинаковыми !</label>
+        <label class="label">Миниатюрное изображение <span class="required">*</span></label>
         {{-- Archive with id = 1 --}}
-        <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
+        <input class="input" name="thumbnail" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
             data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input" />
         @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
-        <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
+        <input class="input input--readonly" readonly type="text" name="thumbnail_from_archive" id="image_archive1_input">
     </div>
 
     <div class="main-form__controls">

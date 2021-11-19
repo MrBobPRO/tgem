@@ -228,3 +228,19 @@ function nullify_archive_input(event) {
         document.getElementById(mirror_input.dataset.archiveInputId).value = null;
 }
 // -------------------Archive end-------------------
+
+
+// -------------------Delete Common Galleries Images start-------------------
+// Onle one modal is used for all images
+if (document.getElementById("common_gallery_remove_image_modal")) {
+    let common_gallery_remove_image_modal = new bootstrap.Modal(document.getElementById('common_gallery_remove_image_modal'));
+    let common_gallery_remove_image_modal_input = document.getElementById("common_gallery_remove_image_modal_input");
+
+    document.querySelectorAll("button[data-action='show_common_gallery_remove_image_modal'").forEach(item => {
+        item.addEventListener("click", event => {
+            common_gallery_remove_image_modal.show();
+            common_gallery_remove_image_modal_input.value = item.dataset.imageId;
+        })
+    });
+}
+// -------------------Delete Common Galleries Images end-------------------
