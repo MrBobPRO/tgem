@@ -1,6 +1,8 @@
 @extends('templates.master')
 @section('content')
 
+@section("title", $page_title)
+
 <main class="vacancies-page">
     @include("templates.crumbs", ["main_title" => "Главная", "main_link" => route("home"), "page_title" => $page_title])
     

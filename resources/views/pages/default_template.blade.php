@@ -1,4 +1,7 @@
 @extends('templates.master')
+
+@section("title", $page->title)
+
 @section('content')
 
 <main class="default-page">

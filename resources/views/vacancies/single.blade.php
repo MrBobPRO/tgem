@@ -1,4 +1,7 @@
 @extends('templates.master')
+
+@section("title", $vacancy->title)
+
 @section('content')
 
 <main class="single-vacancy">

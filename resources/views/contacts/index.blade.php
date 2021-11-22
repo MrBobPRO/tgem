@@ -1,4 +1,7 @@
 @extends('templates.master')
+
+@section("title", $page_title)
+
 @section('content')
 
 <main class="contacs-page">

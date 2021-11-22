@@ -75,6 +75,7 @@ ul {
     transition: all 0.25s ease-in-out;
     background-color: #434343;
     text-transform: uppercase;
+    border: none;
 }
 .scroll-top::before {
     content: '';

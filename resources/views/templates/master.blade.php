@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ТГЭМ – Открытое акционерное общество</title>
 
+    <title>
+        @hasSection ('title')
+            @yield('title') – ТГЭМ
+        @else
+            ТГЭМ – Открытое акционерное общество
+        @endif
+    </title>
+
+    {{-----------Meta tags start--------- --}}
+    {{-- Same metas for all routes --}}
+    <meta name="keywords" content="ТГЭМ, TGEM, Точикгидроэлектромонтаж, Строительство, Проективароние, Монтаж, Гидроэнергетика, Энергетика"/>
+    <meta property="og:site_name" content="ТГЭМ">
+    <meta property="og:type" content="object" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    @hasSection ('meta-tags')
+        @yield('meta-tags')
+    @else
+        <meta name="description" content="ТГЭМ – строим будущее вместе">
+        <meta property="og:description" content="ТГЭМ – строим будущее вместе">
+        <meta property="og:title" content="ТГЭМ" />
+        <meta property="og:image" content="{{ asset('img/archive/logo-share.png') }}">
+        <meta property="og:image:alt" content="ТГЕМ – Лого">
+        <meta name="twitter:title" content="ТГЭМ">
+        <meta name="twitter:image" content="{{ asset('img/archive/logo-share.png') }}">
+    @endif
+    {{----------- Meta tags end-----------}}
+
+    {{-- Favicons for all devices --}}
+    <link rel="icon" href="{{ asset('img/archive/medium/cropped-favi-32x32.png') }}" sizes="32x32">
+    <link rel="icon" href="{{ asset('img/archive/medium/cropped-favi-192x192.png') }}" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('img/archive/medium/cropped-favi-180x180.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('img/archive/medium/cropped-favi-270x270.png') }}">
+
+    {{-- Noindex remove on production --}}
     <meta name="robots" content="none"/>
     <meta name="googlebot" content="noindex, nofollow" />
     <meta name="yandex" content="none">
