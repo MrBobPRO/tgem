@@ -68,7 +68,7 @@ class Helper {
         }
         $original->save($archive_path . "/medium/" . $filename);
 
-        // make image thumbs (small width : 210px)
+        // make image thumbs (small width : 200px)
         if($original->width() > 200) {
             $original->resize(200, null, function($constraint) {
                 $constraint->aspectRatio();

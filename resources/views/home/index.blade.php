@@ -54,12 +54,12 @@
                 <p class="home__about-desc">За более чем полувековую историю своего существования наша компания выполнила и продолжает выполнять строительные, электромонтажные и пусконаладочные работы на большиства крупных объектах Республики Таджикистан и за ее пределами.</p>
                 <div class="home__about-more">
                     <a href="about/about_us" class="button main-btn"><span class="main-btn__text">Подробнее</span></a>
-                    <img class="home__about-signature" src="{{ asset('img/archive/signature.png') }}">
+                    <img class="home__about-signature" src="{{ asset('img/archive/signature.png') }}" alt="TGEM signature">
                 </div>
             </div>
 
             <div class="home__about-img-container">
-                <img class="home__about-img" src="{{ asset('img/archive/home-about.jpg') }}">
+                <img class="home__about-img" src="{{ asset('img/archive/home-about.jpg') }}" alt="Строительство гидроэнергетика">
                 <div class="experience-box">
                     <div class="experience-box__inner">
                         <p class="experience-box__counter">50+</p>
@@ -84,8 +84,8 @@
                             <p class="services-carousel__title">
                                 Строительство <br>гидротехнических <br>Сооружений
                             </p>
-                            <img class="services-carousel__icon" src="{{ asset('img/archive/excavator.png') }}">
-                            <button class="button secondary-btn services-carousel__button">Подробнее</button>
+                            <img class="services-carousel__icon" src="{{ asset('img/archive/excavator.png') }}" alt="excavator">
+                            <a href="#" class="button secondary-btn services-carousel__button">Подробнее</a>
                         </div>
                     </div>
 
@@ -95,8 +95,8 @@
                             <p class="services-carousel__title">
                                 Строительство <br>промышленных <br>Комплексов
                             </p>
-                            <img class="services-carousel__icon" src="{{ asset('img/archive/building.png') }}">
-                            <button class="button secondary-btn services-carousel__button">Подробнее</button>
+                            <img class="services-carousel__icon" src="{{ asset('img/archive/building.png') }}" alt="building">
+                            <a href="#" class="button secondary-btn services-carousel__button">Подробнее</a>
                         </div>
                     </div>
 
@@ -106,14 +106,14 @@
                             <p class="services-carousel__title">
                                 Монтаж <br>электрооборудования <br>до 500 кВ включительно
                             </p>
-                            <img class="services-carousel__icon" src="{{ asset('img/archive/welding.png') }}">
-                            <button class="button secondary-btn services-carousel__button">Подробнее</button>
+                            <img class="services-carousel__icon" src="{{ asset('img/archive/welding.png') }}" alt="welding">
+                            <a href="#" class="button secondary-btn services-carousel__button">Подробнее</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <img class="home__services-aside-img" src="{{ asset('img/archive/services-aside.png') }}">
+            <img class="home__services-aside-img" src="{{ asset('img/archive/services-aside.png') }}" alt="builder">
         </div>
     </section>    {{-- Services end --}}
 
@@ -125,7 +125,7 @@
 
             <div class="statistics__list">
                 <div class="statistics__item">
-                    <img class="statistics__item-icon" src="{{ asset('img/archive/earth.png') }}">
+                    <img class="statistics__item-icon" src="{{ asset('img/archive/earth.png') }}" alt="earth">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Выполненные проекты</p>
                         <p class="statistics__item-value">150</p>
@@ -133,7 +133,7 @@
                 </div>
 
                 <div class="statistics__item">
-                    <img class="statistics__item-icon" src="{{ asset('img/archive/managment.png') }}">
+                    <img class="statistics__item-icon" src="{{ asset('img/archive/managment.png') }}" alt="managment">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Активные проекты</p>
                         <p class="statistics__item-value">15</p>
@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="statistics__item">
-                    <img class="statistics__item-icon" src="{{ asset('img/archive/engineer.png') }}">
+                    <img class="statistics__item-icon" src="{{ asset('img/archive/engineer.png') }}" alt="engineer">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Число сотрудников</p>
                         <p class="statistics__item-value">3500</p>
@@ -170,7 +170,7 @@
                         @foreach ($projects as $project)
                             <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                                 <div class="project-list__image-container">
-                                    <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}">
+                                    <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}" alt="{{$project->title}}">
                                 </div>
                                 <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
                                     <p class="projects-list__group">{{$project->group->title}}</p>
@@ -187,7 +187,7 @@
                             @foreach ($group->projects as $project)
                                 <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                                     <div class="project-list__image-container">
-                                        <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}">
+                                        <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}" alt="{{$project->title}}">
                                     </div>
                                     <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
                                         <p class="projects-list__group">{{$project->group->name}}</p>
@@ -201,7 +201,7 @@
             </div>
 
             <a href="{{ route('projects.completed') }}" class="button main-btn home__projects-btn"><span class="main-btn__text">Посмотреть все проекты</span></a>
-            <img class="home__projects-aside-img" src="{{ asset('img/archive/projects-aside.png') }}">
+            <img class="home__projects-aside-img" src="{{ asset('img/archive/projects-aside.png') }}" alt="architect">
         </div>
     </section>  {{-- Projects end --}}
     
@@ -217,8 +217,10 @@
                 @foreach ($news as $new)
                     <a class="news-list__item" href="{{ route('news.single', $new->url) }}">
                         <div class="news-list__image-container">
-                            <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}">
-                            <?php $formatted = Carbon\Carbon::create($new->created_at)->locale("ru"); ?>   
+                            <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new->title}}">
+                            @php 
+                                $formatted = Carbon\Carbon::create($new->created_at)->locale("ru");
+                            @endphp
                             <div class="news-list__date">{{$formatted->isoFormat('DD')}}<span class="news-list__date-span">
                                 {{$formatted->isoFormat("MMM")}}/{{$formatted->isoFormat("YY")}}
                             </div>

@@ -85,6 +85,9 @@ let home__carousel = $("#home__carousel");
 if (home__carousel[0]) home__carousel.owlCarousel({
     loop: true,
     margin: 0,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    autoplayTimeout: 5000,
     nav: false,
     items: 1,
     dots: false

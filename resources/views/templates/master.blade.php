@@ -65,6 +65,7 @@
     
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/media.css') }}">
 
 </head>
 <body>

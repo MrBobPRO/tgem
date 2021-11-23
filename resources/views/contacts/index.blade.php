@@ -17,14 +17,14 @@
             <div class="contacts__list-item">
                 <h2 class="contacts__list-title">Звоните нам:</h2>
                 <p class="contacts__list-text">
-                    <a class="contacts__list-link" href="#">Телефон: +992 (37) 238-1111</a>
-                    <a class="contacts__list-link" href="#">Телефон: +992 (37) 238-1313</a>
+                    <a class="contacts__list-link" href="tel:+9922381111">Телефон: +992 (37) 238-1111</a>
+                    <a class="contacts__list-link" href="tel:+9922381313">Телефон: +992 (37) 238-1313</a>
                 </p>
             </div>
 
             <div class="contacts__list-item">
                 <h2 class="contacts__list-title">Напишите нам</h2>
-                <a class="contacts__list-link" href="#">Почта: info@tgem.tj</a>
+                <a class="contacts__list-link" href="mailto:info@tgem.tj">Почта: info@tgem.tj</a>
             </div>
         </div>
     </section>

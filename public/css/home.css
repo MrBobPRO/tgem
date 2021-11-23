@@ -52,16 +52,18 @@
 .home__carousel-actions {
     display: flex;
     gap: 25px;
+    align-items: center;
 }
 .home__carousel-more {
     background: var(--main-color);
     color: white;
     border-radius: 3px;
-    padding: 14px 40px 14px;
+    padding: 16px 40px;
     font-weight: 700;
     font-size: 16px;
-    line-height: 30px;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 .home__carousel-more::before {
     position: absolute;

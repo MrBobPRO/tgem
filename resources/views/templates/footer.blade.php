@@ -25,7 +25,7 @@
             <div class="footer__news">
                 @foreach ($footer_news as $fn)
                     <a href="{{ route('news.single', $fn->url) }}" class="footer__news-item">
-                        <img src="{{ asset('img/archive/medium/' . $fn->image) }}" class="footer__news-image">
+                        <img src="{{ asset('img/archive/small/' . $fn->image) }}" class="footer__news-image" alt="{{$fn->title}}">
                         <div class="footer__news-desc">
                             <h4 class="footer__news-title" title="{{$fn->title}}">{{$fn->title}}</h4>
                             @php

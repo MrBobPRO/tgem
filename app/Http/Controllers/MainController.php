@@ -19,4 +19,9 @@ class MainController extends Controller
         return view("home.index", compact("projects", "project_groups", "news"));
     }
 
+    public function search(Request $request)
+    {
+        dd($request->keyword);
+    }
+
 }
