@@ -9,44 +9,88 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
 
+    <style>
+        section {
+            margin: 50px 0;
+            max-width: 1000px;
+        }
+    </style>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <h1>Dropdown</h1>
-    <div style="width: max-content;">
-        <li class="dropdown">
-            <a href="javascript::void(0)" class="dropdown__btn">Dropdown button</a>
-            <ul class="dropdown__list">
-                <li class="dropdown__item">
-                    <a class="dropdown__link" href="#">Dropdown item 1</a>
+
+    <section id="dropdown_section">
+        <h1>Dropdown</h1>
+        <div style="width: max-content;">
+            <li class="dropdown">
+                <a href="javascript::void(0)" class="dropdown__btn">Dropdown button</a>
+                <ul class="dropdown__list">
+                    <li class="dropdown__item">
+                        <a class="dropdown__link" href="#">Dropdown item 1</a>
+                    </li>
+        
+                    <li class="dropdown__item navbar__dropdown-item">
+                        <a class="dropdown__link" href="#">Dropdown item 2</a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+    </section>
+
+
+    <section id="horizontal_tab_section">
+        <h1>Horizontal Tab</h1>
+        <div class="horizontal-tab" data-content="my-tab-content">
+            <button class="horizontal-tab__button horizontal-tab__button--active" data-pane="content1">Tab1</button>
+            <button class="horizontal-tab__button" data-pane="content2">Tab2</button>
+            <button class="horizontal-tab__button" data-pane="content3">Tab3</button>
+        </div>
+    
+        <div class="horizontal-tab__content" id="my-tab-content">
+            <div class="horizontal-tab__pane horizontal-tab__pane--active" id="content1">Content1</div>
+            <div class="horizontal-tab__pane" id="content2">Content2</div>
+            <div class="horizontal-tab__pane" id="content3">Content3</div>
+        </div>
+    </section>
+
+
+    <section id="mobile_dropdown_section">
+        <h1>Mobile dropdown</h1>
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown__toggler">Pages <span class="material-icons-outlined mobile-dropdown__icon">expand_more</span></button>
+            <ul class="mobile-dropdown__list">
+                <li class="mobile-dropdown__item">
+                    <a class="mobile-dropdown__link" href="#">About us</a>
                 </li>
     
-                <li class="dropdown__item navbar__dropdown-item">
-                    <a class="dropdown__link" href="#">Dropdown item 2</a>
+                <li class="mobile-dropdown__item">
+                    <a class="mobile-dropdown__link" href="#">Our Company</a>
+                </li>
+    
+                <li class="mobile-dropdown__item">
+                    <a class="mobile-dropdown__link" href="#">Our History</a>
                 </li>
             </ul>
-        </li>
-    </div>
-    <br><br><br>
+        </div>
 
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown__toggler">For Clients <span class="material-icons-outlined mobile-dropdown__icon">expand_more</span></button>
+            <ul class="mobile-dropdown__list">
+                <li class="mobile-dropdown__item">
+                    <a class="mobile-dropdown__link" href="#">Rate us</a>
+                </li>
+    
+                <li class="mobile-dropdown__item">
+                    <a class="mobile-dropdown__link" href="#">Our Contacts</a>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-    <h1>Horizontal Tab</h1>
-    <div class="horizontal-tab" data-content="my-tab-content">
-        <button class="horizontal-tab__button horizontal-tab__button--active" data-pane="content1">Tab1</button>
-        <button class="horizontal-tab__button" data-pane="content2">Tab2</button>
-        <button class="horizontal-tab__button" data-pane="content3">Tab3</button>
-    </div>
-
-    <div class="horizontal-tab__content" id="my-tab-content">
-        <div class="horizontal-tab__pane horizontal-tab__pane--active" id="content1">Content1</div>
-        <div class="horizontal-tab__pane" id="content2">Content2</div>
-        <div class="horizontal-tab__pane" id="content3">Content3</div>
-    </div>
-    <br><br><br>
-
-
+    
     <script src="scripts.js"></script>
 </body>
 </html>

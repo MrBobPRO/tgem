@@ -23,3 +23,18 @@ document.querySelectorAll(".horizontal-tab__button").forEach(item => {
         target_pane.classList.add("horizontal-tab__pane--active");
     })
 })
+
+document.querySelectorAll(".mobile-dropdown__toggler").forEach(item => {
+    item.addEventListener("click", event => {
+        let target = event.target;
+        // get dropdown parent
+        let parent = target.closest(".mobile-dropdown");
+        let list = parent.getElementsByClassName("mobile-dropdown__list")[0];
+
+        if (list.clientHeight) {
+            list.style.height = 0;
+        } else {
+          list.style.height = list.scrollHeight + "px";
+        }
+    })
+})

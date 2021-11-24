@@ -1,4 +1,9 @@
 <header class="header">
+
+    <div class="mobile-logo">
+        <img class="mobile-logo__img" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
+    </div>
+
     @if($route == "home")
         {{-- Header contacts start --}}
         <div class="header__contacts-wrapper">
@@ -26,7 +31,7 @@
 
         {{-- Home Secondary Navbar start --}}
         <nav class="main-container navbar secondary-navbar">
-            <span class="material-icons aside-toggler secondary-navbar__aside-toggler">menu_open</span>
+            <span class="material-icons aside-toggler secondary-navbar__aside-toggler">notes</span>
             {{-- Home econdary Navbar start end --}}
             <ul class="navbar__list secondary-navbar__list">
 
@@ -55,6 +60,8 @@
             <div class="search-toggler">
                 <span class="material-icons search-toggler__icon">search</span>
             </div>
+
+            <span class="material-icons mobile-menu-toggler">menu</span>
         </nav>  {{-- Home Secondary Navbar end --}}
 
     
@@ -89,12 +96,13 @@
                     @endforeach
                 </ul>  {{-- Home navbar list end --}}
             
-                <span class="material-icons aside-toggler">menu_open</span>
+                <span class="material-icons aside-toggler">notes</span>
 
                 <div class="search-toggler">
                     <span class="material-icons search-toggler__icon">search</span>
                 </div>
             
+                <span class="material-icons mobile-menu-toggler">menu</span>
             </nav> {{-- Main navbar end --}}
         </div>
     @endif
@@ -130,7 +138,7 @@
                 @endforeach
             </ul>  {{-- Home navbar list end --}}
         
-            <span class="material-icons aside-toggler">menu_open</span>
+            <span class="material-icons aside-toggler">notes</span>
 
             <div class="search-toggler">
                 <span class="material-icons search-toggler__icon">search</span>
@@ -147,7 +155,7 @@
     <div class="aside__overlay" data-action="hide-aside"></div>
     <div class="aside__widget">
         <button class="aside__widget-hide-btn" data-action="hide-aside">X</button>
-        <img class="logo aside__widget-logo" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого" class="aside__widget-logo">
+        <img class="logo aside__widget-logo" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого">
         <h1 class="aside__widget-title">О компании</h1>
         <p class="aside__widget-desc">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
         <h1 class="aside__widget-title">Контакты</h1>
@@ -176,6 +184,38 @@
             <span class="material-icons-outlined">search</span>
         </button>
     </form>
-
 </div>
 {{-- Search Popup end --}}
+
+
+{{-- Mobile Menu start --}}
+<div class="mobile-menu" id="mobile_menu">
+    <div class="mobile-menu__overlay" data-action="hide-mobile-menu"></div>
+
+    <nav class="mobile-menu__nav">
+        <button class="mobile-menu__hide-btn" data-action="hide-mobile-menu">X</button>
+        <img class="logo mobile-menu__logo" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
+        <ul class="mobile-menu__ul">
+            @foreach($dropdowns as $dropdown)
+                @if(!$dropdown->may_have_childs)
+                    <li class="mobile-menu__item">
+                        <a class="mobile-dropdown__link" href="{{ $dropdown->url }}">{{ $dropdown->title }}</a>
+                    </li>
+                @else
+                    <div class="mobile-dropdown">
+                        <button class="mobile-dropdown__toggler">{{ $dropdown->title }}<span class="material-icons-outlined mobile-dropdown__icon">expand_more</span></button>
+                        <ul class="mobile-dropdown__list">
+                            @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
+                            <li class="mobile-dropdown__item">
+                                <a class="mobile-dropdown__link" href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{ $dp_pg->title }}</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            @endforeach
+        </ul>
+
+    </nav>
+</div>
+{{-- Mobile Menu end --}}

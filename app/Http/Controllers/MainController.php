@@ -21,7 +21,9 @@ class MainController extends Controller
 
     public function search(Request $request)
     {
-        dd($request->keyword);
+        $keyword = $request->keyword;
+
+        return view("search.index", compact("keyword"));
     }
 
 }
