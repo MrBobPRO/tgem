@@ -177,8 +177,7 @@
         <span class="material-icons-outlined search-popup__hide-btn-icon">close</span>
     </button>
 
-    <form action="{{ route("search") }}" method="GET" class="search-popup__form">
-        @csrf
+    <form action="{{ route('search') }}" method="GET" class="search-popup__form">
         <input type="text" name="keyword" placeholder="Поиск..." class="search-popup__input" required minlength="3">
         <button type="submit" class="search-popup__form-btn">
             <span class="material-icons-outlined">search</span>

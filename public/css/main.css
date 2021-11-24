@@ -1589,3 +1589,70 @@ button {
     width: max-content;
 }
 /* --------------------------Online Booking end-------------------------- */
+
+
+/* --------------------------Search page start-------------------------- */
+.search-page__form {
+    width: 45%;
+    display: flex;
+    margin: 0 auto;
+}
+.search-page__input {
+    width: 100%;
+    border: none;
+}
+.search-page__input:focus {
+    border: none;
+    outline: none;
+}
+.search-page__form-button {
+    border: none;
+    padding: 8px 5px 8px 10px;
+    background: white;
+    display: flex;
+}
+.search-page__form-icon {
+    font-size: 26px;
+}
+.search-page__crumbs-text {
+    font-weight: 300;
+    margin-bottom: 25px;
+    -webkit-line-clamp: 5;
+    font-size: 16px;
+}
+.search-results {
+    padding-top: 70px;
+    padding-bottom: 90px;
+    flex-direction: column;
+}
+.search-results__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.search-results__item {
+    display: flex;
+    box-shadow: 0 5px 10px 0px rgb(46 55 77 / 10%);
+}
+.search-results__image {
+    width: 200px;
+    object-fit: cover;
+    min-height: 130px;
+}
+.search-results__text {
+    padding: 30px 40px;
+}
+.search-results__category {
+    color: #555555;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.search-results__title {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+/* --------------------------Search page end-------------------------- */

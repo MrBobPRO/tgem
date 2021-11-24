@@ -408,4 +408,28 @@
     }
     /* Booking end */
 
+
+    /* Search start */
+    .search-results {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .search-page__form {
+        width: 70%;
+    }
+    .search-results__item {
+        flex-direction: column;
+    }
+    .search-results__image {
+        width: 100%;
+        height: auto;
+    }
+    .search-results__text {
+        padding: 20px;
+    }
+    .search-results__title {
+        font-size: 16px;
+    }
+    /* Search end */
+
 }
