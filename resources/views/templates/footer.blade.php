@@ -1,5 +1,5 @@
 {{-- Main pages Footer is different from other pages footer --}}
-<footer class="footer" style="background-image: url({{ asset( $route == 'home' ? 'img/archive/footer.jpg' : 'img/archive/footer2.jpg') }})">
+<footer class="footer" style="background-image: url('{{ asset( $route == 'home' ? 'img/archive/footer.jpg' : 'img/archive/footer2.jpg') }}')">
     <div class="main-container footer__inner @if($route == 'home') footer__inner--home @endif">
         {{-- Footer contacts start --}}
         <div class="footer__inner-item">

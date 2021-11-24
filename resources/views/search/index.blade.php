@@ -4,7 +4,7 @@
 
 <main class="search-page">
 
-    <section class="crumbs" style="background-image: url({{ asset('img/archive/default_page_bg.jpg') }})">
+    <section class="crumbs" style="background-image: url('{{ asset('img/archive/default_page_bg.jpg') }}')">
         <h1 class="crumbs__title">Поиск</h1>
 
         <p class="crumbs__text search-page__crumbs-text">Поиск по ключевому слову "{{ $keyword }}". Найденных результатов : {{ $results_count }}</p>

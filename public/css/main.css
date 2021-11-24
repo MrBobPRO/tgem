@@ -800,7 +800,6 @@ button {
     background-color: #ffffff;
     transition: all 500ms ease;
     font-weight: 500;
-    text-transform: capitalize;
     border: none;
     padding-right: 0;
 }

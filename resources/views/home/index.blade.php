@@ -5,15 +5,16 @@
     {{-- Main carousel start --}}
     <section class="owl-carousel-container">
         <div class="owl-carousel home__carousel" id="home__carousel">
-            <div class="home__carousel-item" style="background-image: url({{ asset('img/archive/slide1.jpg') }})">
+            @foreach($slides as $slide)
+            <div class="home__carousel-item" style="background-image: url('{{ asset('img/archive/' . $slide->image) }}')">
                 <div class="home__carousel-overlay">
                     <div class="main-container home__carousel-text">
-                        <span class="home__carousel-crumb">Главная Конструкция</span>
-                        <h1 class="home__carousel-title">Строим будущее вместе</h1>
-                        <p class="home__carousel-desc">Ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
+                        <span class="home__carousel-crumb">{{ $slide->crumb }}</span>
+                        <h1 class="home__carousel-title">{{ $slide->title }}</h1>
+                        <p class="home__carousel-desc">{{ $slide->description }}</p>
                         <div class="home__carousel-actions">
-                            <a href="#" class="home__carousel-more"><span class="home__carousel-more-text">Подробнее</span></a>
-                            <a href="https://www.youtube.com/" target="_blank" class="home__carousel-play">
+                            <a href="{{ $slide->link }}" class="home__carousel-more"><span class="home__carousel-more-text">Подробнее</span></a>
+                            <a href="{{ $slide->video }}" target="_blank" class="home__carousel-play">
                                 <div class="ripple-container">
                                     <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
                                 </div>
@@ -23,32 +24,14 @@
                     </div>
                 </div>
             </div>
-
-            <div class="home__carousel-item" style="background-image: url({{ asset('img/archive/slide2.jpg') }})">
-                <div class="home__carousel-overlay">
-                    <div class="main-container home__carousel-text">
-                        <span class="home__carousel-crumb">Главная Конструкция</span>
-                        <h1 class="home__carousel-title">Кайракумская ГЭС</h1>
-                        <p class="home__carousel-desc">Ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов</p>
-                        <div class="home__carousel-actions">
-                            <a href="#" class="home__carousel-more"><span class="home__carousel-more-text">Подробнее</span></a>
-                            <a href="https://www.youtube.com/" target="_blank" class="home__carousel-play">
-                                <div class="ripple-container">
-                                    <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
-                                </div>
-                                Посмотреть видео
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>  {{-- Main carousel end --}}
 
     {{-- About start --}}
     <section class="home__about-wrapper">
         <div class="main-container home__about">
-            <div class="home__about-text" style="background-image: url({{ asset('img/archive/home-pattern.png') }})">
+            <div class="home__about-text" style="background-image: url('{{ asset('img/archive/home-pattern.png') }}')">
                 <h2 class="title--styled title--styled-left"><span class="seperator--left"></span>О компании</h2>
                 <h1 class="main-title home__about-title">Строительство  <br>и гидроэнергетика</h1>
                 <p class="home__about-desc">За более чем полувековую историю своего существования наша компания выполнила и продолжает выполнять строительные, электромонтажные и пусконаладочные работы на большиства крупных объектах Республики Таджикистан и за ее пределами.</p>
@@ -80,7 +63,7 @@
                 <div class="owl-carousel services__carousel" id="services__carousel">
                     <div class="services-carousel__item">
                         <div class="services-carousel__item-inner">
-                            <div class="services-carousel__pattern" style="background-image: url({{ asset('img/archive/services-pattern.png') }})"></div>
+                            <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
                                 Строительство <br>гидротехнических <br>Сооружений
                             </p>
@@ -91,7 +74,7 @@
 
                     <div class="services-carousel__item">
                         <div class="services-carousel__item-inner">
-                            <div class="services-carousel__pattern" style="background-image: url({{ asset('img/archive/services-pattern.png') }})"></div>
+                            <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
                                 Строительство <br>промышленных <br>Комплексов
                             </p>
@@ -102,7 +85,7 @@
 
                     <div class="services-carousel__item">
                         <div class="services-carousel__item-inner">
-                            <div class="services-carousel__pattern" style="background-image: url({{ asset('img/archive/services-pattern.png') }})"></div>
+                            <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
                                 Монтаж <br>электрооборудования <br>до 500 кВ включительно
                             </p>
@@ -118,7 +101,7 @@
     </section>    {{-- Services end --}}
 
     {{-- Statistics start --}}
-    <section class="statistics" style="background-image: url({{ asset('img/archive/statistics-bg.jpg') }})">
+    <section class="statistics" style="background-image: url('{{ asset('img/archive/statistics-bg.jpg') }}')">
         <div class="main-container statistics__inner">
             <h2 class="title--styled title--styled-left title--styled-right"><span class="seperator--left seperator--light"></span>Статистика<span class="seperator--right seperator--light"></span></h2>
             <h1 class="main-title statistics__secondary-title">У Нас</h1>
@@ -207,7 +190,7 @@
     
 
     {{-- News start --}}
-    <section class="home__news" style="background-image: url({{ asset('img/archive/news-bg.png') }})">
+    <section class="home__news" style="background-image: url('{{ asset('img/archive/news-bg.png') }}')">
         {{-- News inner start --}}
         <div class="main-container home__news-inner"> 
             <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>Последние новости<span class="seperator--right"></span></h2>

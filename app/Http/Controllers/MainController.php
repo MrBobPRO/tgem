@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Page;
 use App\Models\Project;
 use App\Models\ProjectGroup;
+use App\Models\Slider;
 use App\Models\Vacancy;
 use Illuminate\Http\Request;
 use stdClass;
@@ -15,12 +16,14 @@ class MainController extends Controller
 {
     public function home()
     {
+        $slides = Slider::orderBy("priority", "asc")->get();
+
         $projects = Project::latest()->take(6)->get();
         $project_groups = ProjectGroup::all();
 
         $news = News::latest()->take(3)->get();
 
-        return view("home.index", compact("projects", "project_groups", "news"));
+        return view("home.index", compact("projects", "project_groups", "news", "slides"));
     }
 
     public function search(Request $request)

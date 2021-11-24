@@ -1,4 +1,4 @@
-<section class="crumbs" style="background-image: url({{ asset('img/archive/default_page_bg.jpg') }})">
+<section class="crumbs" style="background-image: url('{{ asset('img/archive/default_page_bg.jpg') }}')">
     <p class="crumbs__text">
         <a class="crumbs__link" href="{{ $main_link }}">{{ $main_title }}</a>
         <span class="crumbs__seperator">/</span>

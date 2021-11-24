@@ -14,15 +14,21 @@
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single' || $route == 'dashboard.projects.create' || $route == 'dashboard.projects.groups.index' || $route == 'dashboard.projects.groups.single' || $route == 'dashboard.projects.groups.create') aside__nav-link--active @endif"
-                    href="{{route('dashboard.projects.index')}}"><span
-                        class="aside__nav-link-icon material-icons">location_city</span> Проекты</a>
+                <a class="aside__nav-link @if($route == 'dashboard.slider.index' || $route == 'dashboard.slider.single' || $route == 'dashboard.slider.create') aside__nav-link--active @endif"
+                    href="{{route('dashboard.slider.index')}}"><span class="aside__nav-link-icon material-icons">perm_media</span>
+                    Слайдер</a>
             </li>
 
             <li class="aside__nav-li">
                 <a class="aside__nav-link @if($route == 'dashboard.news.index' || $route == 'dashboard.news.single' || $route == 'dashboard.news.create') aside__nav-link--active @endif"
                     href="{{route('dashboard.news.index')}}"><span class="aside__nav-link-icon material-icons">article</span>
                     Новости</a>
+            </li>
+
+            <li class="aside__nav-li">
+                <a class="aside__nav-link @if($route == 'dashboard.projects.index' || $route == 'dashboard.projects.single' || $route == 'dashboard.projects.create' || $route == 'dashboard.projects.groups.index' || $route == 'dashboard.projects.groups.single' || $route == 'dashboard.projects.groups.create') aside__nav-link--active @endif"
+                    href="{{route('dashboard.projects.index')}}"><span
+                        class="aside__nav-link-icon material-icons">location_city</span> Проекты</a>
             </li>
 
             <li class="aside__nav-li">

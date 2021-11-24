@@ -28,6 +28,18 @@
         Меню / {{$page->dropdown->title}} / {{$page->title}}
         @break
 
+        @case('dashboard.slider.index')
+        Слайдер
+        @break
+
+        @case('dashboard.slider.create')
+        Слайдер / Добавить слайд
+        @break
+
+        @case('dashboard.slider.single')
+        Слайдер / {{$slide->title}}
+        @break
+
         @case('dashboard.projects.index')
         Проекты
         @break
@@ -113,6 +125,13 @@
         @case('dashboard.pages.index')
         <span class="header__actions-span">Элементов : {{$items_count}}</span>
         <a class="header__actions-link" href="{{route('dashboard.pages.create') . '?dropdown_id=' . $dropdown->id}}">Добавить страницу</a>
+        <button class="header__actions-button" type="button" data-bs-toggle="modal"
+            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.slider.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
+        <a class="header__actions-link" href="{{route('dashboard.slider.create')}}">Добавить слайд</a>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break

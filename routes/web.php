@@ -60,6 +60,26 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/pages/remove", "PageController@remove")->name("pages.remove");
     Route::post("/pages/remove_multiple", "PageController@remove_multiple")->name("pages.remove_multiple");
 
+    //slider
+    Route::get("/dashboard/slider", "SliderController@dashboard_index")->name("dashboard.slider.index");
+    Route::get("/dashboard/slider/create", "SliderController@dashboard_create")->name("dashboard.slider.create");
+    Route::get("/dashboard/slider/{id}", "SliderController@dashboard_single")->name("dashboard.slider.single");
+
+    Route::post("/slider/update", "SliderController@update")->name("slider.update");
+    Route::post("/slider/store", "SliderController@store")->name("slider.store");
+    Route::post("/slider/remove", "SliderController@remove")->name("slider.remove");
+    Route::post("/slider/remove_multiple", "SliderController@remove_multiple")->name("slider.remove_multiple");
+
+    //news
+    Route::get("/dashboard/news", "NewsController@dashboard_index")->name("dashboard.news.index");
+    Route::get("/dashboard/news/create", "NewsController@dashboard_create")->name("dashboard.news.create");
+    Route::get("/dashboard/news/{id}", "NewsController@dashboard_single")->name("dashboard.news.single");
+
+    Route::post("/news/update", "NewsController@update")->name("news.update");
+    Route::post("/news/store", "NewsController@store")->name("news.store");
+    Route::post("/news/remove", "NewsController@remove")->name("news.remove");
+    Route::post("/news/remove_multiple", "NewsController@remove_multiple")->name("news.remove_multiple");
+
     //projects
     Route::get("/dashboard/projects", "ProjectController@dashboard_index")->name("dashboard.projects.index");
     Route::get("/dashboard/projects/create", "ProjectController@dashboard_create")->name("dashboard.projects.create");
@@ -79,16 +99,6 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/projects/groups/store", "ProjectGroupController@store")->name("projects.groups.store");
     Route::post("/projects/groups/remove", "ProjectGroupController@remove")->name("projects.groups.remove");
     Route::post("/projects/groups/remove_multiple", "ProjectGroupController@remove_multiple")->name("projects.groups.remove_multiple");
-
-    //projects
-    Route::get("/dashboard/news", "NewsController@dashboard_index")->name("dashboard.news.index");
-    Route::get("/dashboard/news/create", "NewsController@dashboard_create")->name("dashboard.news.create");
-    Route::get("/dashboard/news/{id}", "NewsController@dashboard_single")->name("dashboard.news.single");
-
-    Route::post("/news/update", "NewsController@update")->name("news.update");
-    Route::post("/news/store", "NewsController@store")->name("news.store");
-    Route::post("/news/remove", "NewsController@remove")->name("news.remove");
-    Route::post("/news/remove_multiple", "NewsController@remove_multiple")->name("news.remove_multiple");
 
     //vacancies
     Route::get("/dashboard/vacancies", "VacancyController@dashboard_index")->name("dashboard.vacancies.index");
