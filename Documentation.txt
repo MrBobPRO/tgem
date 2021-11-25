@@ -1,3 +1,10 @@
+----------------------database.php----------------------
+mysql ->  'collation' => 'utf8mb4_unicode_ci'
+changed to -> 'collation' => 'utf8mb4_0900_ai_ci', 
+because of some seed errors
+
+
+
 -----------------Default page template----------------------
 Route named "default_page" responses For pages with default_template = true
 
