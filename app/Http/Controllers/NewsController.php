@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function company()
     {
-        $news = News::where("inner", true)->paginate(9);
+        $news = News::where("inner", true)->latest()->paginate(9);
         $page_title = "Новости компании";
 
         return view("news.index", compact("news", "page_title"));
@@ -19,7 +19,7 @@ class NewsController extends Controller
 
     public function industry()
     {
-        $news = News::where("inner", false)->paginate(9);
+        $news = News::where("inner", false)->latest()->paginate(9);
         $page_title = "Отраслевые новости";
 
         return view("news.index", compact("news", "page_title"));

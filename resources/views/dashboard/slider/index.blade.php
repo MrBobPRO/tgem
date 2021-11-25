@@ -60,17 +60,17 @@
         <div class="titles__item width-33">
             @if($order_by != "link")
             <a class="titles__link"
-                href="{{ route('dashboard.slider.index') . '?page=' . $active_page . '&order_by=link&order_type=desc' }}">Ссылка
+                href="{{ route('dashboard.slider.index') . '?page=' . $active_page . '&order_by=link&order_type=desc' }}">Ссылка кнопки
                 <span class="material-icons-outlined titles__icon">arrow_downward</span>
             </a>
             @elseif($order_by == "link" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.slider.index') . '?page=' . $active_page . '&order_by=link&order_type=desc' }}">Ссылка
+                href="{{ route('dashboard.slider.index') . '?page=' . $active_page . '&order_by=link&order_type=desc' }}">Ссылка кнопки
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "link" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.slider.index') . '?page=' . $active_page . '&order_by=link&order_type=asc' }}">Ссылка
+                href="{{ route('dashboard.slider.index') . '?page=' . $active_page . '&order_by=link&order_type=asc' }}">Ссылка кнопки
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif

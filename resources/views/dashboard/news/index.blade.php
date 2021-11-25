@@ -41,17 +41,17 @@
         <div class="titles__item width-25">
             @if($order_by != "inner")
             <a class="titles__link"
-                href="{{ route('dashboard.news.index') . '?page=' . $active_page . '&order_by=inner&order_type=asc' }}">Статус
+                href="{{ route('dashboard.news.index') . '?page=' . $active_page . '&order_by=inner&order_type=asc' }}">Тип
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
             @elseif($order_by == "inner" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.news.index') . '?page=' . $active_page . '&order_by=inner&order_type=desc' }}">Статус
+                href="{{ route('dashboard.news.index') . '?page=' . $active_page . '&order_by=inner&order_type=desc' }}">Тип
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
             @elseif($order_by == "inner" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.news.index') . '?page=' . $active_page . '&order_by=inner&order_type=asc' }}">Статус
+                href="{{ route('dashboard.news.index') . '?page=' . $active_page . '&order_by=inner&order_type=asc' }}">Тип
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif

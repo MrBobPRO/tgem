@@ -167,7 +167,7 @@
                 @foreach ($project_groups as $group)
                     <div class="horizontal-tab__pane home__projects-tab-pane" id="pj-content{{$group->id}}">
                         <div class="projects-list">
-                            @foreach ($group->projects as $project)
+                            @foreach ($group->projects->take(6) as $project)
                                 <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                                     <div class="project-list__image-container">
                                         <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}" alt="{{$project->title}}">

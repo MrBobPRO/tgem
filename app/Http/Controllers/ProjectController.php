@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     public function completed()
     {
-        $projects = Project::where("completed", true)->paginate(9);
+        $projects = Project::where("completed", true)->latest()->paginate(9);
         $page_title = "Выполненные Проекты";
 
         return view("projects.index", compact("projects", "page_title"));
@@ -20,7 +20,7 @@ class ProjectController extends Controller
 
     public function current()
     {
-        $projects = Project::where("completed", false)->paginate(9);
+        $projects = Project::where("completed", false)->latest()->paginate(9);
         $page_title = "Текущие Проекты";
 
         return view("projects.index", compact("projects", "page_title"));
