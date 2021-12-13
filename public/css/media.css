@@ -283,8 +283,25 @@
     .single-news__title {
         margin: 20px 0;
         font-size: 20px;
+        line-height: 1.4;
     }
     /* News end */
+
+    /* Galleries page start */
+    .galleries-page__inner {
+        padding-top: 50px;
+        padding-bottom: 50px
+    }
+    .galleries-list__item {
+        width: 100%;
+    }
+    .galleries-list__desc {
+        padding: 30px 20px;
+    }
+    .galleries-list__title {
+        font-size: 16px;
+    }
+    /* Galleries page END */
 
     /* Projects start */
     .projects-page__inner {
@@ -303,6 +320,7 @@
     .single-project__title {
         margin: 20px 0;
         font-size: 20px;
+        line-height: 1.4;
     }
     /* Projects end */
 
