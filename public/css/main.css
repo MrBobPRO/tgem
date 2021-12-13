@@ -660,8 +660,8 @@ button {
     background: transparent;
 }
 .mobile-menu__logo {
-    margin: 20px 20px 40px;
-    max-width: 200px;
+    margin: 20px 20px 30px;
+    max-width: 190px;
 }
 .mobile-menu__ul {
     border-top: 1px solid rgba(0,0,0,0.10);
