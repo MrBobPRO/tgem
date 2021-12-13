@@ -28,7 +28,7 @@
             @endforeach
         </div>
 
-        {{ $galleries->links('templates.pagination') }}
+        {{ $galleries->onEachSide(1)->links('templates.pagination') }}
     </div>
 
 </main>

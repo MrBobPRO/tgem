@@ -29,7 +29,7 @@
             @endforeach
         </div>
 
-        {{ $news->links('templates.pagination') }}
+        {{ $news->onEachSide(1)->links('templates.pagination') }}
     </div>
 
 </main>

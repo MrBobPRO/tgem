@@ -22,7 +22,7 @@
             @endforeach
         </div>
 
-        {{ $projects->links('templates.pagination') }}
+        {{ $projects->onEachSide(1)->links('templates.pagination') }}
     </div>
 
 </main>
