@@ -316,7 +316,7 @@ button {
 .mobile-logo {
     display: none;
     justify-content: center;
-    padding: 15px;
+    padding: 10px 15px;
     border-bottom: 1px solid #dddddd;
 }
 .header__contacts-wrapper {
