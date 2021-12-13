@@ -73,6 +73,10 @@
     .page-link__text {
         display: none;
     }
+    .page-item:first-child .page-link, .page-item:last-child .page-link {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .main-container {
         padding-left: 20px;
         padding-right: 20px;
