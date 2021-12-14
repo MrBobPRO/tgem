@@ -323,6 +323,10 @@ button {
     border-top: 6px solid var(--secondary-color);
     position: relative;
     border-bottom: 1px solid #dddddd;
+    background-image: url(/img/archive/medium/machinery.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 100px) 0px;
+    background-size: contain;
 }
 .header__contacts-wrapper::before {
     background: var(--main-color);
@@ -338,6 +342,7 @@ button {
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 9%;
 }
 .header__contacts-title {
     margin: 0;
@@ -1342,6 +1347,27 @@ button {
     margin-block-end: 1em;
 }
 /* --------------------------Vacancies list end-------------------------- */
+
+
+/* Share start */
+.share-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.share-container__text {
+    margin: 0;
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--main-color);
+    font-size: 18px;
+}
+.ya-share2__list {
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+/* Share утв */
 
 
 /* --------------------------Crumbs template start-------------------------- */

@@ -37,7 +37,6 @@
                 <p class="home__about-desc">За более чем полувековую историю своего существования наша компания выполнила и продолжает выполнять строительные, электромонтажные и пусконаладочные работы на большиства крупных объектах Республики Таджикистан и за ее пределами.</p>
                 <div class="home__about-more">
                     <a href="about/about_us" class="button main-btn"><span class="main-btn__text">Подробнее</span></a>
-                    <img class="home__about-signature" src="{{ asset('img/archive/signature.png') }}" alt="TGEM signature">
                 </div>
             </div>
 
@@ -45,8 +44,8 @@
                 <img class="home__about-img" src="{{ asset('img/archive/home-about.jpg') }}" alt="Строительство гидроэнергетика">
                 <div class="experience-box">
                     <div class="experience-box__inner">
-                        <p class="experience-box__counter">50+</p>
-                        <p class="experience-box__txt" class="">Лет <br> Стажа</p>
+                        <p class="experience-box__counter">60+</p>
+                        <p class="experience-box__txt" class="">лет <br> опыта</p>
                     </div>
                 </div>
             </div>
@@ -111,7 +110,7 @@
                     <img class="statistics__item-icon" src="{{ asset('img/archive/earth.png') }}" alt="earth">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Выполненные проекты</p>
-                        <p class="statistics__item-value">150</p>
+                        <p class="statistics__item-value">150+</p>
                     </div>
                 </div>
 
@@ -119,7 +118,7 @@
                     <img class="statistics__item-icon" src="{{ asset('img/archive/managment.png') }}" alt="managment">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Активные проекты</p>
-                        <p class="statistics__item-value">15</p>
+                        <p class="statistics__item-value">23</p>
                     </div>
                 </div>
 
@@ -127,7 +126,7 @@
                     <img class="statistics__item-icon" src="{{ asset('img/archive/engineer.png') }}" alt="engineer">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Число сотрудников</p>
-                        <p class="statistics__item-value">3500</p>
+                        <p class="statistics__item-value">5000+</p>
                     </div>
                 </div>
             </div>

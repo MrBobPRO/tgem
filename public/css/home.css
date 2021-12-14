@@ -298,9 +298,6 @@ home__services-title {
     font-weight: 600;
     margin: 0;
 }
-.statistics__item-value::after {
-    content: "+";
-}
 /* Statistics end */
 
 /* Projects start */
@@ -344,8 +341,9 @@ home__services-title {
 }
 .home__projects-aside-img {
     position: absolute;
-    left: 30px;
+    left: 0px;
     bottom: 0px;
+    z-index: -1;
 }
 /* Projects end */
 

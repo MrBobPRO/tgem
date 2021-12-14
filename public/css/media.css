@@ -34,9 +34,13 @@
     /* Crumbs end */
 
     /* Home start */
+    .header__contacts-wrapper {
+        background-image: none;
+    }
     .header__contacts {
         padding-top: 10px;
         padding-bottom: 10px;
+        padding-right: 45px;
     }
     .header__contacts .logo__img {
         width: 180px;
@@ -54,14 +58,14 @@
     .home__carousel-desc {
         font-size: 17px;
     }
+    .home__projects-aside-img {
+        height: 260px;
+    }
     .project-list__image-container {
         height: 280px;
     }
     .projects-list__image {
         height: 280px;
-    }
-    .home__projects-aside-img {
-        display: none;
     }
     /* Home end */
 }
@@ -235,6 +239,9 @@
     }
     .home__projects-tab-button {
         font-size: 15px;
+    }
+    .home__projects-aside-img {
+        display: none;
     }
     .home__projects-btn {
         margin-top: 30px;
