@@ -1,6 +1,10 @@
+/* For Full HD 125% font size */
 @media screen and (max-width: 1650px) {
     .header__contacts-wrapper {
         background-image: none;
+    }
+    .header__contacts {
+        padding-right: 45px;
     }
 }
 
@@ -43,7 +47,6 @@
     .header__contacts {
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-right: 45px;
     }
     .header__contacts .logo__img {
         width: 180px;
