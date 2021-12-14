@@ -1,3 +1,9 @@
+@media screen and (max-width: 1650px) {
+    .header__contacts-wrapper {
+        background-image: none;
+    }
+}
+
 @media screen and (max-width: 1500px) {
 
     /* Navbar start */
@@ -34,9 +40,6 @@
     /* Crumbs end */
 
     /* Home start */
-    .header__contacts-wrapper {
-        background-image: none;
-    }
     .header__contacts {
         padding-top: 10px;
         padding-bottom: 10px;
