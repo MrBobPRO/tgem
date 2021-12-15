@@ -15,4 +15,4 @@ yarn-error.log
 /.vscode
 
 .htaccess
-/public/archive
+/public/img/archive/*
