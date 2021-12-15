@@ -10,7 +10,15 @@
     <div class="main-container news-page__inner">
         <div class="news-list">
             @foreach ($news as $new)
-                <a class="news-list__item" href="{{ route('news.single', $new->url) }}">
+                <a class="news-list__item wow
+                    @if($loop->index == 0 || $loop->index == 3 || $loop->index == 6)
+                        fadeInLeft
+                    @elseif($loop->index == 1 || $loop->index == 4 || $loop->index == 7)
+                        fadeInUp 
+                    @elseif($loop->index == 2 || $loop->index == 5 || $loop->index == 8)
+                        fadeInRight 
+                    @endif
+                " data-wow-delay="0ms" data-wow-duration="1500ms" href="{{ route('news.single', $new->url) }}">
                     <div class="news-list__image-container">
                         <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new->title}}">
                         @php 

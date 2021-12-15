@@ -20,12 +20,12 @@ window.onscroll = function () { // If it is HOME PAGEaside-toggler
         }
     }
     // Else if its not HOME PAGE else {
-        if (document.body.scrollTop > 91 || document.documentElement.scrollTop > 91) {
-            fixed_navbar.classList.add("navbar-container--visible");
-        } else {
-            fixed_navbar.classList.remove("navbar-container--visible");
-        }
+    if (document.body.scrollTop > 91 || document.documentElement.scrollTop > 91) {
+        fixed_navbar.classList.add("navbar-container--visible");
+    } else {
+        fixed_navbar.classList.remove("navbar-container--visible");
     }
+}
 
 // --------------Set navbar position fixed on scroll end--------------
 
@@ -111,6 +111,7 @@ if (home__carousel[0])
         dots: false
     });
 
+
 // --------------Home main Owl Carousel end----------------
 
 
@@ -126,48 +127,52 @@ if (services__carousel[0])
         dots: false,
         responsive: {
             0: {
-                items : 1
+                items: 1
             },
             992: {
-                items: 3,
+                items: 3
             }
         }
     });
+
 
 // --------------Home main Owl Carousel end----------------
 
 
 // --------------Google Maps start----------------
-let map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 38.550527,
-            lng: 68.736801
-        },
-        zoom: 15,
-        mapTypeControl: false,
-        streetViewControl: false
-    });
+let map = document.getElementById("map");
+if (map) {
+    let map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 38.550527,
+                lng: 68.736801
+            },
+            zoom: 15,
+            mapTypeControl: false,
+            streetViewControl: false
+        });
 
-    marker = new google.maps.Marker({
-        map: map,
-        draggable: false,
-        animation: google.maps.Animation.BOUNCE,
-        position: {
-            lat: 38.550527,
-            lng: 68.736801
-        },
-        // icon: '/img/main/marker.png'
-    });
-    marker.addListener('click', toggleBounce);
-}
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: false,
+            animation: google.maps.Animation.BOUNCE,
+            position: {
+                lat: 38.550527,
+                lng: 68.736801
+            },
+            // icon: '/img/main/marker.png'
+        });
+        marker.addListener('click', toggleBounce);
+    }
 
-function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-        marker.setAnimation(null);
-    } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
     }
 }
 // --------------Google Maps end----------------
@@ -182,3 +187,46 @@ lc_lightbox('.gallery__element', {
     // more options here
 });
 // --------------Gallery plugin end----------------
+
+
+// --------------Counter start----------------
+if ($('.count-box').length) {
+    $('.count-box').appear(function () {
+
+        var $t = $(this),
+            n = $t.find(".count-text").attr("data-stop"),
+            r = parseInt($t.find(".count-text").attr("data-speed"), 10);
+
+        if (! $t.hasClass("counted")) {
+            $t.addClass("counted");
+            $({countNum: $t.find(".count-text").text()}).animate({
+                countNum: n
+            }, {
+                duration: r,
+                easing: "linear",
+                step: function () {
+                    $t.find(".count-text").text(Math.floor(this.countNum));
+                },
+                complete: function () {
+                    $t.find(".count-text").text(this.countNum);
+                }
+            });
+        }
+
+    }, {accY: 0});
+}
+// --------------Counter end----------------
+
+
+// ----------------Wow animation start----------------
+if ($('.wow').length) {
+    var wow = new WOW({
+        boxClass: 'wow', // animated element css class (default is wow)
+        animateClass: 'animated', // animation css class (default is animated)
+        offset: 0, // distance to the element when triggering the animation (default is 0)
+        mobile: true, // trigger animations on mobile devices (default is true)
+        live: true // act on asynchronously loaded content (default is true)
+    });
+    wow.init();
+}
+// ----------------Wow animation end----------------

@@ -62,6 +62,8 @@
     {{-- Lightbox Gallery --}}
     <link rel="stylesheet" href="{{ asset('js/lc-lightbox-lite/css/lc_lightbox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/lc-lightbox-lite/skins/dark.css') }}">
+    {{-- Animate.css library --}}
+    <link rel="stylesheet" href="{{ asset('css/animate/animate.css') }}">
     
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -89,6 +91,11 @@
     <script src="{{ asset('js/lc-lightbox-lite/js/lc_lightbox.lite.min.js') }}"></script>
     {{-- Simple components library --}}
     <script src="{{ asset('js/components-library/scripts.js') }}"></script>
+    {{-- Wow animation library --}}
+    <script src="{{ asset('js/wow/wow.js') }}"></script>
+    {{-- Jquery onAppear Plugin --}}
+    <script src="{{ asset('js/jquery-appear/appear.js') }}"></script>
+
     <script src="{{ asset('js/main.js') }}"></script>
 
 </body>

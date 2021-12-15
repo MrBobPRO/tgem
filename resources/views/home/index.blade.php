@@ -1,6 +1,5 @@
 @extends('templates.master')
 @section('content')
-
 <main class="home">
     {{-- Main carousel start --}}
     <section class="owl-carousel-container">
@@ -47,7 +46,7 @@
                 <img class="home__about-img" src="{{ asset('img/archive/home-about.jpg') }}" alt="Строительство гидроэнергетика">
                 <div class="experience-box">
                     <div class="experience-box__inner">
-                        <p class="experience-box__counter">60+</p>
+                        <p class="experience-box__counter count-box"><span class="count-text"  data-speed="3500" data-stop="60"></span>+</p>
                         <p class="experience-box__txt" class="">лет <br> опыта</p>
                     </div>
                 </div>
@@ -109,27 +108,27 @@
             <h1 class="main-title statistics__secondary-title">У Нас</h1>
 
             <div class="statistics__list">
-                <div class="statistics__item">
+                <div class="statistics__item wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <img class="statistics__item-icon" src="{{ asset('img/archive/earth.png') }}" alt="earth">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Выполненные проекты</p>
-                        <p class="statistics__item-value">150+</p>
+                        <p class="statistics__item-value count-box"><span class="count-text" data-speed="3500" data-stop="150"></span>+</p>
                     </div>
                 </div>
 
-                <div class="statistics__item">
+                <div class="statistics__item wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <img class="statistics__item-icon" src="{{ asset('img/archive/managment.png') }}" alt="managment">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Активные проекты</p>
-                        <p class="statistics__item-value">23</p>
+                        <p class="statistics__item-value count-box"><span class="count-text"  data-speed="3500" data-stop="23"></span></p>
                     </div>
                 </div>
 
-                <div class="statistics__item">
+                <div class="statistics__item wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <img class="statistics__item-icon" src="{{ asset('img/archive/engineer.png') }}" alt="engineer">
                     <div class="statistics__item-content">
                         <p class="statistics__item-key">Число сотрудников</p>
-                        <p class="statistics__item-value">5000+</p>
+                        <p class="statistics__item-value count-box"><span class="count-text"  data-speed="3500" data-stop="5000"></span>+</p>
                     </div>
                 </div>
             </div>
@@ -200,7 +199,15 @@
 
             <div class="news-list">
                 @foreach ($news as $new)
-                    <a class="news-list__item" href="{{ route('news.single', $new->url) }}">
+                    <a class="news-list__item wow
+                        @if($loop->index == 0)
+                            fadeInLeft
+                        @elseif($loop->index == 1)
+                            fadeInUp 
+                        @else
+                            fadeInRight 
+                        @endif
+                    " data-wow-delay="0ms" data-wow-duration="1500ms" href="{{ route('news.single', $new->url) }}">
                         <div class="news-list__image-container">
                             <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new->title}}">
                             @php 
