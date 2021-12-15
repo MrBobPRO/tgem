@@ -28,6 +28,8 @@ class ProjectsSeeder extends Seeder
         //-----------COMPLETED Projects----------
         $titles = ["Строительство ЛЭП в ИР Афганистан", "ПС «Ромит» 110/10 кВ", "Проект АСКУЭ (Худжанд)", "ПС «Темурмалик»  110/10 кВ", "Строительство школы", "КРУЭ 500/220 кВ", "Проект снижения потерь электроэнергии в Согдийской области", "ПС «КОРЕЗ» 110/35/10 кВ", "Региональный проект по передачи электроэнергии Таджикистана", "ПС РАВШАН” 220/110/10 кВ", "Проект «SCADA»", "ПС «ВАХДАТ 110/10 кВ»", "Международный аэропорт Душанбе", "Электроснабжение рудника “ЗАРНИСОР”", "HYATT REGENCY HOTEL и БЦ “СОЗИДАНИЕ”", "Сангтудинская ГЭС 1", "Нурекская ГЭС"];
 
+        $group_id = [1,2,2,2,1,2,2,2,1,2,2,2,2,2,2,2,2];
+
         $created_at = [
             date_create_from_format("Y-m-d  H:i:s", "2021-10-15 12:00:00"),
             date_create_from_format("Y-m-d  H:i:s", "2021-10-15 12:01:00"),
@@ -212,7 +214,7 @@ class ProjectsSeeder extends Seeder
             $project->image = $images[$i];
             $project->created_at = $created_at[$i];
             $project->completed = 1;
-            $project->project_group_id = rand(1,2);
+            $project->project_group_id = $group_id[$i];
             $project->url = Helper::transliterate_into_latin($titles[$i]);
             $project->save();
         }
@@ -231,6 +233,7 @@ class ProjectsSeeder extends Seeder
 
         //-----------UNCOMPLETED Projects----------
         $titles = ["Строительство завода по производству электрооборудования", "Реабилитация Нурекской ГЭС", "Реабилитация Кайраккумской ГЭС", "Проект АСКУЭ (Душанбе)", "CASA 1000", "Строительство правобережных сооружений Рогунской ГЭС. Лот-3", "Строительство плотины Рогунской ГЭС. Лот-2"];
+        $group_id = [1,2,2,2,1,1,1];
 
         $created_at = [
             date_create_from_format("Y-m-d  H:i:s", "2021-10-16 12:00:00"),
@@ -322,7 +325,7 @@ class ProjectsSeeder extends Seeder
             $project->image = $images[$i];
             $project->created_at = $created_at[$i];
             $project->completed = 0;
-            $project->project_group_id = rand(1,2);
+            $project->project_group_id = $group_id[$i];
             $project->url = Helper::transliterate_into_latin($titles[$i]);
             $project->save();
         }

@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <label class="label">Описание слайда <span class="required">*</span></label>
-        <textarea class="textarea" name="description" required>{{ old("description") == '' ? $slide->description : old("description") }}</textarea>
+        <textarea class="textarea" name="description" rows="5" required>{{ old("description") == '' ? $slide->description : old("description") }}</textarea>
     </div>
 
     <div class="form-group">
