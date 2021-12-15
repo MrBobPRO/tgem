@@ -298,7 +298,7 @@ class GallerySeeder extends Seeder
 
         //Seriticate page images
         $filename = ["ЛИЦЕНЗИЯ М.Н.Р.Э.О.jpg", "СЕРТИФИКАТ ISO 9001-2015.jpg", "СЕРТИФИКАТ ISO 14001-2015.jpg", "СЕРТИФИКАТ ISO 18001-2015.jpg"];
-        $title = ["ЛИЦЕНЗИЯ М.Н.Р.Э.О.", "СЕРТИФИКАТ ISO 9001:2015", "СЕРТИФИКАТ ISO 14001:2015", "СЕРТИФИКАТ ISO 18001 2015"];
+        $title = ["ЛИЦЕНЗИЯ М.Н.Р.Э.О.", "СЕРТИФИКАТ ISO 9001:2015", "СЕРТИФИКАТ ISO 14001:2015", "СЕРТИФИКАТ OHSAS 18001:2015"];
         for($i = 0; $i < count($filename); $i++) {
             $image = new Image();
             $image->filename = $filename[$i];
