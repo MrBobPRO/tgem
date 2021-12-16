@@ -24,12 +24,12 @@ class GallerySeeder extends Seeder
         $gallery->save();
         
         $image = new Image();
-        $image->filename = "ПС 110-10 Вахдат.jpg";
+        $image->filename = "ПС 110-20-10 Ромит.jpg";
         $image->gallery_id = 1;
         $image->save();
-        for ($i = 2; $i < 9; $i++) {
+        for ($i = 2; $i < 14; $i++) {
             $image = new Image();
-            $image->filename = "ПС 110-10 Вахдат " . $i . ".jpg";
+            $image->filename = "ПС 110-20-10 Ромит " . $i . ".jpg";
             $image->gallery_id = 1;
             $image->save();
         }
