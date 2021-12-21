@@ -1057,7 +1057,7 @@ button {
 .news-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px 30px;
+    gap: 80px 30px;
 }
 .news-list__item {
     width: calc(33% - 20px);
