@@ -135,6 +135,7 @@ Route::group(["middleware" => "auth"], function() {
 //---------------------------Dasboard end---------------------------
 
 require __DIR__.'/auth.php';
+require __DIR__.'/redirects.php';
 
 //--------------------------IMPORTANT. MUST BE AT THE BOTTOM!!!---------------------------
 Route::get("/{dropdown}/{page}", "PageController@default")->name("default_page");
