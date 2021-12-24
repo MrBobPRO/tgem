@@ -27,7 +27,11 @@
         <div class="search-results__list">
             @foreach ($result->pages as $item)
             <a href="/{{$item->dropdown->url . '/' . $item->url}}" class="search-results__item">
-                <img class="search-results__image" src="{{ asset('img/archive/medium/' . $item->image) }}">
+                @if($item->image == '')
+                    <img class="search-results__image" src="{{ asset('img/archive/medium/logo-share.png') }}">
+                @else
+                    <img class="search-results__image" src="{{ asset('img/archive/medium/' . $item->image) }}">
+                @endif
                 <div class="search-results__text">
                     <p class="search-results__category">Страницы</p>
                     <h3 class="search-results__title">{{ $item->title }}</h3>

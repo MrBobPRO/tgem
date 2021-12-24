@@ -1636,9 +1636,11 @@ button {
 
 /* --------------------------Search page start-------------------------- */
 .search-page__form {
-    width: 45%;
+    width: 42%;
     display: flex;
     margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
 }
 .search-page__input {
     width: 100%;
