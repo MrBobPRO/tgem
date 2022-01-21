@@ -379,12 +379,6 @@
     .vacancies-list__item {
         width: 100%;
     }
-    .vacancies-list__link {
-        padding: 20px;
-    }
-    .vacancy-list__title {
-        font-size: 18px;
-    }
     .single-vacancy__inner {
         padding-top: 40px;
         padding-bottom: 40px;
