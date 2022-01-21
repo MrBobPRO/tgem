@@ -11,7 +11,7 @@ class BookingController extends Controller
 {
     public function email(Request $request)
     {
-        Mail::to('boburjon_n@mail.ru')->send(new MailBooking($request));
+        Mail::to('info@tgem.tj')->send(new MailBooking($request));
 
         return redirect()->back();
     }
