@@ -44,13 +44,6 @@
             </li>
 
             <li class="aside__nav-li">
-                <a class="aside__nav-link @if($route == 'dashboard.booking.index' || $route == 'dashboard.booking.records.single') aside__nav-link--active @endif"
-                    href="{{route('dashboard.booking.index')}}"><span class="aside__nav-link-icon material-icons">edit</span>
-                    Приёмная @if($new_booking_records_count > 0)
-                    ({{ $new_booking_records_count}})@endif </a>
-            </li>
-
-            <li class="aside__nav-li">
                 <form class="aside__form" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button class="aside__form-button" type="submit"><span class="aside__form-icon material-icons">logout</span>

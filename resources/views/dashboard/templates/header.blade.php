@@ -100,14 +100,6 @@
         Галерея / {{$gallery->title}}
         @break
 
-        @case('dashboard.booking.index')
-        Приёмная генерального директора
-        @break
-
-        @case('dashboard.booking.records.single')
-        Приёмная генерального директора / {{$record->name}}
-        @break
-
         @endswitch
     </h1> {{-- Header Title end --}}
 
@@ -168,13 +160,6 @@
         @case('dashboard.galleries.index')
         <span class="header__actions-span">Элементов : {{$items_count}}</span>
         <a class="header__actions-link" href="{{route('dashboard.galleries.create')}}">Добавить галерею</a>
-        <button class="header__actions-button" type="button" data-bs-toggle="modal"
-            data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
-        @break
-
-        @case('dashboard.booking.index')
-        <span class="header__actions-span">Элементов : {{$items_count}}</span>
-        <span class="header__actions-span">Новые записи : {{$new_records_count}}</span>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
         @break

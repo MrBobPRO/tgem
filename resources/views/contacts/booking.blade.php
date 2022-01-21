@@ -8,7 +8,7 @@
     @include("templates.crumbs", ["main_title" => "Главная", "main_link" => route("home"), "page_title" => $page_title])
 
     <div class="main-container online-booking__inner">
-        <form class="online-booking__form" method="POST" action="{{ route('booking.records.store') }}" style="background-image: url('{{ asset('img/archive/booking-pattern.png') }}')">
+        <form class="online-booking__form" method="POST" action="{{ route('booking.email') }}" style="background-image: url('{{ asset('img/archive/booking-pattern.png') }}')">
             @csrf
             <div class="online-booking__cap">
                 <img class="online-booking__cap-image" src="{{ asset('img/archive/medium/cap.png') }}">

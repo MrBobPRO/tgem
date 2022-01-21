@@ -33,7 +33,7 @@ Route::get("/career/vacancies/{url}", "VacancyController@single")->name("vacanci
 //contacts
 Route::get("/contacts/our_contacts", "ContactController@index")->name("contacts.index");
 Route::get("/contacts/online_booking", "ContactController@booking")->name("contacts.booking");
-Route::post("/booking/records/store", "BookingController@store")->name("booking.records.store");
+Route::post("/booking/email", "BookingController@email")->name("booking.email");
 
 
 //--------------------------Dasboard start---------------------------
@@ -117,13 +117,6 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/galleries/store", "GalleryController@store")->name("galleries.store");
     Route::post("/galleries/remove", "GalleryController@remove")->name("galleries.remove");
     Route::post("/galleries/remove_multiple", "GalleryController@remove_multiple")->name("galleries.remove_multiple");
-
-    //booking
-    Route::get("/dashboard/booking", "BookingController@dashboard_index")->name("dashboard.booking.index");
-    Route::get("/dashboard/booking/records/{id}", "BookingController@dashboard_single")->name("dashboard.booking.records.single");
-
-    Route::post("/booking/records/remove", "BookingController@remove")->name("booking.records.remove");
-    Route::post("/booking/records/remove_multiple", "BookingController@remove_multiple")->name("booking.records.remove_multiple");
 
     //images
     Route::post("/images/store", "ImageController@store")->name("images.store");

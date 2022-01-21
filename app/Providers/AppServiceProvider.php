@@ -56,10 +56,5 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with("images", $files);
         });
-
-        View::composer(["dashboard.templates.aside"], function($view) {
-            $view->with("new_booking_records_count", Booking::where("new", true)->count());
-        });
-
     }
 }
