@@ -39,11 +39,6 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('img/archive/medium/cropped-favi-180x180.png') }}">
     <meta name="msapplication-TileImage" content="{{ asset('img/archive/medium/cropped-favi-270x270.png') }}">
 
-    {{-- Noindex remove on production --}}
-    <meta name="robots" content="none"/>
-    <meta name="googlebot" content="noindex, nofollow" />
-    <meta name="yandex" content="none">
-
     {{-- Roboto & Montserrat Google fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
