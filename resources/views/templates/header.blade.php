@@ -55,8 +55,30 @@
                 </ul>
             </li>
             @endif
-
             @endforeach
+
+            {{-- Locale switcher start --}}
+            <li class="dropdown navbar__dropdown locale-dropdown">
+                <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">
+                    <img src="{{ asset('img/archive/' . $curLocale->image) }}">
+                    {{$curLocale->shortname}}
+                </a>
+
+                <ul class="dropdown__list navbar__dropdown-list">
+                    @foreach($locales as $loc)
+                    <li class="dropdown__item navbar__dropdown-item">
+                        <form action="{{ route('locale.switch') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="locale" value="{{ $loc->value }}">
+                            <button class="dropdown__link navbar__dropdown-link" href="#">
+                                <img src="{{ asset('img/archive/' . $loc->image) }}">
+                                {{$loc->name}}
+                            </button>
+                        </form>
+                    </li>
+                    @endforeach
+                </ul>
+            </li> {{-- Locale switcher end --}}
         </ul> {{-- Home econdary Navbar List end --}}
 
         <div class="search-toggler">
@@ -70,7 +92,8 @@
     @else {{-- if its NOT HOME PAGE --}}
     {{-- Main navbar start --}}
     <div class="navbar-container">
-        <nav class="main-container navbar">
+        {{-- reduced-navbar class added because not enough free space for locale switcher --}}
+        <nav class="main-container navbar reduced-navbar">
 
             <a href="/" class="logo">
                 <img class="logo__img" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
@@ -97,6 +120,29 @@
                 </li>
                 @endif
                 @endforeach
+
+                {{-- Locale switcher start --}}
+                <li class="dropdown navbar__dropdown locale-dropdown">
+                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">
+                        <img src="{{ asset('img/archive/' . $curLocale->image) }}">
+                        {{$curLocale->shortname}}
+                    </a>
+
+                    <ul class="dropdown__list navbar__dropdown-list">
+                        @foreach($locales as $loc)
+                        <li class="dropdown__item navbar__dropdown-item">
+                            <form action="{{ route('locale.switch') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="locale" value="{{ $loc->value }}">
+                                <button class="dropdown__link navbar__dropdown-link" href="#">
+                                    <img src="{{ asset('img/archive/' . $loc->image) }}">
+                                    {{$loc->name}}
+                                </button>
+                            </form>
+                        </li>
+                        @endforeach
+                    </ul>
+                </li> {{-- Locale switcher end --}}
             </ul> {{-- Home navbar list end --}}
 
             <span class="material-icons aside-toggler">notes</span>

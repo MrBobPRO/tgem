@@ -465,6 +465,16 @@ button {
     cursor: pointer;
     font-size: 30px;
 }
+/* Reduced navbar */
+.reduced-navbar .logo__img {
+    width: 140px;
+}
+.reduced-navbar .navbar__list {
+    gap: 12px;
+}
+.reduced-navbar .navbar__link, .reduced-navbar .navbar__dropdown-btn {
+    font-size: 15px;
+}
 /* Main Navbar end */
 
 /* Main Navbar Fixed on scroll start */
@@ -518,6 +528,18 @@ button {
     background-color: var(--main-color);
     transition: all 500ms ease;
     transform: scale(0.5,1);
+}
+.locale-dropdown .dropdown__btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.locale-dropdown .dropdown__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    background: transparent;
 }
 /* Home Secondary Navbar end */
 /* --------------------------Navbar end---------------------------- */

@@ -6,6 +6,11 @@ use Image;
 
 class Helper {
 
+    public static function getLocales()
+    {
+        return rand(10, 20);
+    }
+
     public static function transliterate_into_latin($string)
     {
         $cyr = [

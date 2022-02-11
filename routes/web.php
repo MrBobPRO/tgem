@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", "MainController@home")->name("home");
-//search
+
 Route::get("/search", "MainController@search")->name("search");
+Route::post("/switch-locale", "LocaleController@switch")->name("locale.switch");
+
 // Projects    
 Route::get("/projects/completed_projects", "ProjectController@completed")->name("projects.completed");
 Route::get("/projects/current_projects", "ProjectController@current")->name("projects.current");

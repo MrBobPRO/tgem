@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         //-----------Create Users----------
         $u = new User();
         $u->name = "admin";
@@ -23,8 +21,8 @@ class DatabaseSeeder extends Seeder
         $u->password = bcrypt("12345");
         $u->save();
 
-
         //-----------Call Other Seeders----------
+        $this->call(LocaleSeeder::class);
         $this->call(PagesSeeder::class);
         $this->call(ProjectsSeeder::class);
         $this->call(NewsSeeder::class);

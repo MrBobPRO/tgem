@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Models\Booking;
 use App\Models\Dropdown;
+use App\Models\Locale;
 use App\Models\News;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -33,12 +35,19 @@ class AppServiceProvider extends ServiceProvider
         // Schema::defaultStringLength(191);
         Paginator::useBootstrap();
 
+        View::composer('*', function ($view) {
+            $view->with('locale', App::currentLocale() )
+                ->with('localedValue', App::currentLocale() . '_value' );
+        }); 
+
         View::composer(["templates.master", "dashboard.templates.master"], function ($view) {
             $view->with("route", Route::currentRouteName());
         });
 
-        View::composer(["templates.header", "pages.default_template"], function($view) {
-            $view->with("dropdowns", Dropdown::orderBy("priority", "asc")->get());
+        View::composer(["templates.header"], function($view) {
+            $view->with("dropdowns", Dropdown::orderBy("priority", "asc")->get())
+                ->with('locales', Locale::all())
+                ->with('curLocale', Locale::where('value', App::currentLocale())->first());
         });
 
         View::composer(["templates.footer"], function($view) {
