@@ -14,17 +14,19 @@ class LocaleSeeder extends Seeder
      */
     public function run()
     {
-        $value = ['ru', 'en', 'tj'];
-        $name = ['Русский', 'Английский', 'Таджикский'];
-        $shortname = ['ru', 'en', 'tj'];
-        $logo = ['logo-ru.png', 'logo-en.png', 'logo-tj.png'];
-        $image = ['ru-flag.png', 'en-flag.png', 'tj-flag.png'];
+        $value = ['ru', 'tj', 'en'];
+        $name = ['Русский', 'Таджикский', 'Английский'];
+        $shortname = ['ru', 'tj', 'en'];
+        $primary = [1, 0, 0];
+        $logo = ['logo-ru.png', 'logo-tj.png', 'logo-en.png'];
+        $image = ['flag-ru.png', 'flag-tj.png', 'flag-en.png'];
 
         for($i=0; $i<count($name); $i++) {
             $locale = new Locale();
             $locale->value = $value[$i];
             $locale->name = $name[$i];
             $locale->shortname = $shortname[$i];
+            $locale->primary = $primary[$i];
             $locale->logo = $logo[$i];
             $locale->image = $image[$i];
             $locale->save();

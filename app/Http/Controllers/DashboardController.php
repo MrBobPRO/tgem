@@ -26,7 +26,7 @@ class DashboardController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Dropdown::orderBy("title", "asc")->get();
+        $all_items = Dropdown::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.dropdowns.index", compact("dropdowns", "all_items", "items_count", "order_by", "order_type", "active_page"));

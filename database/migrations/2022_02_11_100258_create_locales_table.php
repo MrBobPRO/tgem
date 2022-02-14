@@ -18,6 +18,7 @@ class CreateLocalesTable extends Migration
             $table->string('value');
             $table->string('name');
             $table->string('shortname');
+            $table->boolean('primary');
             $table->string('logo');
             $table->string('image');
         });

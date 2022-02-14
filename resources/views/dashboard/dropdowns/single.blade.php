@@ -7,37 +7,80 @@
 
     <input type="hidden" name="id" value="{{$dropdown->id}}">
 
-    <div class="form-group">
-        <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{old('title') == '' ? $dropdown->title : old('title') }}">
-    </div>
+    <div class="locales-tab">
+        {{-- Tab Navs start --}}
+        <nav class="locales-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-ru-tab" data-bs-toggle="tab" data-bs-target="#nav-ru"
+                    type="button" role="tab" aria-controls="nav-ru" aria-selected="true">Русский
+                </button>
+    
+                <button class="nav-link" id="nav-tj-tab" data-bs-toggle="tab" data-bs-target="#nav-tj"
+                    type="button" role="tab" aria-controls="nav-tj" aria-selected="false">Таджикский
+                </button>
 
-    <div class="form-group">
-        <label class="label">Приоритет <span class="required">*</span></label>
-        <input class="input" name="priority" type="number"
-            value="{{old('priority') == '' ? $dropdown->priority : old('priority') }}" required>
-    </div>
+                <button class="nav-link" id="nav-en-tab" data-bs-toggle="tab" data-bs-target="#nav-en"
+                    type="button" role="tab" aria-controls="nav-en" aria-selected="false">Английский
+                </button>
+            </div>
+        </nav> {{-- Tab Navs end --}}
 
-    <div class="form-group">
-        <label class="label">Ссылка <span class="required">*</span></label>
-        <input class="input" name="url" type="text" value="{{old('url') == '' ? $dropdown->url : old('url') }}"
-            required>
-    </div>
+        {{-- Tab Content start --}}
+        <div class="tab-content locales-tab__content" id="nav-tabContent">
+            {{-- RU Tab Content start --}}
+            <div class="tab-pane fade show active" id="nav-ru" role="tabpanel" aria-labelledby="nav-ru-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок<span class="required">*</span></label>
+                    <input class="input" name="ruTitle" type="text" value="{{old('ruTitle') == '' ? $dropdown->ruTitle : old('ruTitle') }}">
+                </div>
 
-    <div class="form-group switch-container">
-        <label for="may_have_childs">Может иметь дочерных страниц</label>
-        <label class="switch">
-            <input class="switch__input" type="checkbox" name="may_have_childs" id="may_have_childs"
-                @if(old("may_have_childs")=="on" ) checked @elseif(old('may_have_childs')=='' &&
-                !$dropdown->may_have_childs)
-            ''
-            @elseif(old('may_have_childs') == '' && $dropdown->may_have_childs)
-            checked
-            @endif
-            ">
-            <span class="switch__slider"></span>
-        </label>
-    </div>
+                <div class="form-group">
+                    <label class="label">Приоритет <span class="required">*</span></label>
+                    <input class="input" name="priority" type="number"
+                        value="{{old('priority') == '' ? $dropdown->priority : old('priority') }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Ссылка <span class="required">*</span></label>
+                    <input class="input" name="url" type="text" value="{{old('url') == '' ? $dropdown->url : old('url') }}"
+                        required>
+                </div>
+
+                <div class="form-group switch-container">
+                    <label for="may_have_childs">Может иметь дочерных страниц</label>
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox" name="may_have_childs" id="may_have_childs"
+                            @if(old("may_have_childs")=="on" ) checked @elseif(old('may_have_childs')=='' &&
+                            !$dropdown->may_have_childs)
+                        ''
+                        @elseif(old('may_have_childs') == '' && $dropdown->may_have_childs)
+                        checked
+                        @endif
+                        ">
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+            </div> {{-- RU Tab Content end --}}
+
+            {{-- TJ Tab Content start --}}
+            <div class="tab-pane fade" id="nav-tj" role="tabpanel" aria-labelledby="nav-tj-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок</label>
+                    <input class="input" name="tjTitle" type="text" value="{{old('tjTitle') == '' ? $dropdown->tjTitle : old('tjTitle') }}">
+                </div>
+            </div> {{-- TJ Tab Content end --}}
+
+            {{-- EN Tab Content start --}}
+            <div class="tab-pane fade" id="nav-en" role="tabpanel" aria-labelledby="nav-en-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок</label>
+                    <input class="input" name="enTitle" type="text" value="{{old('enTitle') == '' ? $dropdown->enTitle : old('enTitle') }}">
+                </div>
+            </div> {{-- EN Tab Content end --}}
+
+        </div> {{-- Tab Content end --}}
+    </div> {{-- Tab end --}}
+
 
     <div class="main-form__controls">
         <button class="button button--iconed button--success main-form__controls-button" type="submit"><span

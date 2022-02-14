@@ -7,60 +7,133 @@
 
     <input type="hidden" name="id" value="{{$page->id}}">
 
-    <div class="form-group">
-        <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{ old('title') == '' ? $page->title : old('title') }}"
-            required>
-    </div>
+    <div class="locales-tab">
+        {{-- Tab Navs start --}}
+        <nav class="locales-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-ru-tab" data-bs-toggle="tab" data-bs-target="#nav-ru"
+                    type="button" role="tab" aria-controls="nav-ru" aria-selected="true">Русский
+                </button>
+    
+                <button class="nav-link" id="nav-tj-tab" data-bs-toggle="tab" data-bs-target="#nav-tj"
+                    type="button" role="tab" aria-controls="nav-tj" aria-selected="false">Таджикский
+                </button>
 
-    <div class="form-group">
-        <label class="label">Приоритет <span class="required">*</span></label>
-        <input class="input" name="priority" type="number"
-            value="{{ old('priority') == '' ? $page->priority : old('priority') }}" required>
-    </div>
+                <button class="nav-link" id="nav-en-tab" data-bs-toggle="tab" data-bs-target="#nav-en"
+                    type="button" role="tab" aria-controls="nav-en" aria-selected="false">Английский
+                </button>
+            </div>
+        </nav> {{-- Tab Navs end --}}
 
-    <div class="form-group">
-        <label class="label">Ссылка <span class="required">*</span></label>
-        <input class="input" name="url" type="text" value="{{ old('url') == '' ? $page->url : old('url') }}" required>
-    </div>
+        {{-- Tab Content start --}}
+        <div class="tab-content locales-tab__content" id="nav-tabContent">
+            {{-- RU Tab Content start --}}
+            <div class="tab-pane fade show active" id="nav-ru" role="tabpanel" aria-labelledby="nav-ru-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок <span class="required">*</span></label>
+                    <input class="input" name="ruTitle" type="text" value="{{ old('ruTitle') == '' ? $page->ruTitle : old('ruTitle') }}"
+                        required>
+                </div>
 
-    <div class="form-group switch-container">
-        <label for="default_template">Имеет стандартный шаблон. Страницы нестандартным шаблоном
-            добавляются / редактируются программистами !</label>
-        <label class="switch">
-            <input class="switch__input" type="checkbox" disabled name="default_template" id="default_template" {{$page->default_template ? "checked" : ''}}>
-            <span class="switch__slider"></span>
-        </label>
-    </div>
+                <div class="form-group">
+                    <label class="label">Приоритет <span class="required">*</span></label>
+                    <input class="input" name="priority" type="number"
+                        value="{{ old('priority') == '' ? $page->priority : old('priority') }}" required>
+                </div>
 
-    <div class="form-group">
-        <label class="label">Изображение <span class="required">*</span></label>
-        {{-- Archive with id = 1 --}}
-        <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
-            data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
-        @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
-        <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
+                <div class="form-group">
+                    <label class="label">Ссылка <span class="required">*</span></label>
+                    <input class="input" name="url" type="text" value="{{ old('url') == '' ? $page->url : old('url') }}" required>
+                </div>
 
-        <a class="form-group__image-container" href="{{ asset('img/archive/' . $page->image)}}" target="_blank">
-            <img class="form-group__image" src="{{ asset('img/archive/medium/' . $page->image)}}">
-            <span class="form-group__image-filename">{{$page->image}}</span>
-        </a>
-    </div>
+                <div class="form-group switch-container">
+                    <label for="default_template">Имеет стандартный шаблон. Страницы нестандартным шаблоном
+                        добавляются / редактируются программистами !</label>
+                    <label class="switch">
+                        <input class="switch__input" type="checkbox" disabled name="default_template" id="default_template" {{$page->default_template ? "checked" : ''}}>
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
 
-    <div class="form-group">
-        <label class="label">Основной текст <span class="required">*</span></label>
-        <textarea class="simditor-wysiwyg" name="main_text" required>{{ old("main_text") == "" ? $page->main_text : old("main_text") }}</textarea>
-    </div>
+                <div class="form-group">
+                    <label class="label">Изображение <span class="required">*</span></label>
+                    {{-- Archive with id = 1 --}}
+                    <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
+                        data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
+                    @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
+                    <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
 
-    <div class="form-group">
-        <label class="label">Заголовок дополнительного текста</label>
-        <input class="input" name="additional_text_title" type="text" value="{{ old('additional_text_title') == '' ? $page->additional_text_title : old('additional_text_title') }}">
-    </div>
+                    <a class="form-group__image-container" href="{{ asset('img/archive/' . $page->image)}}" target="_blank">
+                        <img class="form-group__image" src="{{ asset('img/archive/medium/' . $page->image)}}">
+                        <span class="form-group__image-filename">{{$page->image}}</span>
+                    </a>
+                </div>
 
-    <div class="form-group">
-        <label class="label">Дополнительный текст</label>
-        <textarea class="simditor-wysiwyg" name="additional_text_body">{{ old("additional_text_body") == "" ? $page->additional_text_body : old("additional_text_body") }}</textarea>
-    </div>
+                <div class="form-group">
+                    <label class="label">Основной текст <span class="required">*</span></label>
+                    <textarea class="simditor-wysiwyg" name="ruMainText" required>{{ old("ruMainText") == "" ? $page->ruMainText : old("ruMainText") }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Заголовок дополнительного текста</label>
+                    <input class="input" name="ruAdditionalTextTitle" type="text" value="{{ old('ruAdditionalTextTitle') == '' ? $page->ruAdditionalTextTitle : old('ruAdditionalTextTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Дополнительный текст</label>
+                    <textarea class="simditor-wysiwyg" name="ruAdditionalTextBody">{{ old("ruAdditionalTextBody") == "" ? $page->ruAdditionalTextBody : old("ruAdditionalTextBody") }}</textarea>
+                </div>
+            </div> {{-- RU Tab Content end --}}
+
+            {{-- TJ Tab Content start --}}
+            <div class="tab-pane fade" id="nav-tj" role="tabpanel" aria-labelledby="nav-tj-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок на таджикском</label>
+                    <input class="input" name="tjTitle" type="text" value="{{old('tjTitle') == '' ? $page->tjTitle : old('tjTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Основной текст</label>
+                    <textarea class="simditor-wysiwyg" name="tjMainText">{{ old("tjMainText") == "" ? $page->tjMainText : old("tjMainText") }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Заголовок дополнительного текста</label>
+                    <input class="input" name="tjAdditionalTextTitle" type="text" value="{{ old('tjAdditionalTextTitle') == '' ? $page->tjAdditionalTextTitle : old('tjAdditionalTextTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Дополнительный текст</label>
+                    <textarea class="simditor-wysiwyg" name="tjAdditionalTextBody">{{ old("tjAdditionalTextBody") == "" ? $page->tjAdditionalTextBody : old("tjAdditionalTextBody") }}</textarea>
+                </div>
+            </div> {{-- TJ Tab Content end --}}
+
+            {{-- EN Tab Content start --}}
+            <div class="tab-pane fade" id="nav-en" role="tabpanel" aria-labelledby="nav-en-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок на английском</label>
+                    <input class="input" name="enTitle" type="text" value="{{old('enTitle') == '' ? $page->enTitle : old('enTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Основной текст</label>
+                    <textarea class="simditor-wysiwyg" name="enMainText">{{ old("enMainText") == "" ? $page->enMainText : old("enMainText") }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Заголовок дополнительного текста</label>
+                    <input class="input" name="enAdditionalTextTitle" type="text" value="{{ old('enAdditionalTextTitle') == '' ? $page->enAdditionalTextTitle : old('enAdditionalTextTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Дополнительный текст</label>
+                    <textarea class="simditor-wysiwyg" name="enAdditionalTextBody">{{ old("enAdditionalTextBody") == "" ? $page->enAdditionalTextBody : old("enAdditionalTextBody") }}</textarea>
+                </div>
+            </div> {{-- EN Tab Content end --}}
+
+        </div> {{-- Tab Content end --}}
+    </div> {{-- Tab end --}}
+
 
     <div class="main-form__controls">
         <button class="button button--iconed button--success main-form__controls-button" type="submit"><span

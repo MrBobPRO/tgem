@@ -2,13 +2,23 @@
 
 namespace App\Helpers;
 
+use App\Models\Locale;
 use Image;
 
 class Helper {
 
-    public static function getLocales()
+    public static function getDefaultLocale()
     {
-        return rand(10, 20);
+        $locale = Locale::where('primary', true)->first();
+
+        return $locale->value;
+    }
+
+    public static function getSecondaryLocales()
+    {
+        $locales = Locale::where('primary', false)->pluck('value')->toArray();
+
+        return $locales;
     }
 
     public static function transliterate_into_latin($string)
@@ -82,6 +92,32 @@ class Helper {
         $original->save($archive_path . "/small/" . $filename);
 
         return true;
+    }
+
+
+    /**
+     * Filling fields for the Default locale are required! 
+     * Unfilled fields of Secondary locales will automatically be filled with data from the Default locale!
+     * 
+     * @param \Http\Request $request
+     * @param \Eloquent\Model $item
+     * @param array $fields
+     * @return void
+     */
+    public static function fillMultiLanguageFields($request, $item, $fields)
+    {
+        $defaultLocale = Helper::getDefaultLocale();
+        $secondaryLocales = Helper::getSecondaryLocales();
+
+        foreach ($fields as $field) {
+            $item[$defaultLocale . $field] = $request[$defaultLocale . $field];
+
+            foreach ($secondaryLocales as $secLoc) {
+                $item[$secLoc . $field] = $request[$secLoc . $field] ? $request[$secLoc . $field] : $request[$defaultLocale . $field];
+            }
+        }
+
+        return;
     }
 
 }

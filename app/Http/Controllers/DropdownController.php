@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Dropdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,19 +17,20 @@ class DropdownController extends Controller
     public function store(Request $request)
     {
         $validation_rules = [
-            "title" => "unique:dropdowns",
+            "ruTitle" => "unique:dropdowns",
             "url" => "unique:dropdowns"
         ];
 
         $validation_messages = [
-            "title.unique" => "Выпадающй список с таким заголовком уже существует !",
+            "ruTitle.unique" => "Выпадающй список с таким заголовком уже существует !",
             "url.unique" => "Выпадающй список с такой ссылкой уже существует !",
         ];
 
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
 
         $dropdown = new Dropdown();
-        $dropdown->title = $request->title;
+        $multiLanguageFields = ['Title'];
+        Helper::fillMultiLanguageFields($request, $dropdown, $multiLanguageFields);
         $dropdown->priority = $request->priority;
         $dropdown->url = $request->url;
         $dropdown->may_have_childs = $request->may_have_childs ? true : false;
@@ -38,7 +40,7 @@ class DropdownController extends Controller
     }
 
     public function dashboard_single($id)
-    {
+    {   
         $dropdown = Dropdown::find($id);
 
         return view("dashboard.dropdowns.single", compact("dropdown"));
@@ -49,8 +51,8 @@ class DropdownController extends Controller
         $dropdown = Dropdown::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if ($request->title != $dropdown->title) {
-            $duplicate = Dropdown::where("title", $request->title)->first();
+        if ($request->ruTitle != $dropdown->ruTitle) {
+            $duplicate = Dropdown::where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Выпадающй список с таким заголовком уже существует !");
         }
         if ($request->url != $dropdown->url) {
@@ -60,7 +62,9 @@ class DropdownController extends Controller
 
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $dropdown->title = $request->title;
+        $multiLanguageFields = ['Title'];
+        Helper::fillMultiLanguageFields($request, $dropdown, $multiLanguageFields);
+
         $dropdown->priority = $request->priority;
         $dropdown->url = $request->url;
         $dropdown->may_have_childs = $request->may_have_childs ? true : false;

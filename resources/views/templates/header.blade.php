@@ -38,18 +38,18 @@
             @foreach($dropdowns as $dropdown)
             @if(!$dropdown->may_have_childs)
             <li class="navbar__item secondary-navbar__item">
-                <a class="navbar__link secondary-navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
+                <a class="navbar__link secondary-navbar__link" href="{{$dropdown->url}}">{{$dropdown[$locale . 'Title']}}</a>
             </li>
             @else
             <li class="dropdown navbar__dropdown">
                 <a href="javascript::void(0)"
-                    class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">{{$dropdown->title}}</a>
+                    class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">{{$dropdown[$locale . 'Title']}}</a>
 
                 <ul class="dropdown__list navbar__dropdown-list">
                     @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
                     <li class="dropdown__item navbar__dropdown-item">
                         <a class="dropdown__link navbar__dropdown-link"
-                            href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg->title}}</a>
+                            href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg[$locale . 'Title']}}</a>
                     </li>
                     @endforeach
                 </ul>
@@ -103,17 +103,17 @@
                 @foreach($dropdowns as $dropdown)
                 @if(!$dropdown->may_have_childs)
                 <li class="navbar__item">
-                    <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
+                    <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown[$locale . 'Title']}}</a>
                 </li>
                 @else
                 <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn">{{$dropdown->title}}</a>
+                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn">{{$dropdown[$locale . 'Title']}}</a>
 
                     <ul class="dropdown__list navbar__dropdown-list">
                         @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
                         <li class="dropdown__item navbar__dropdown-item">
                             <a class="dropdown__link navbar__dropdown-link"
-                                href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg->title}}</a>
+                                href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg[$locale . 'Title']}}</a>
                         </li>
                         @endforeach
                     </ul>
@@ -170,17 +170,17 @@
                 @foreach($dropdowns as $dropdown)
                 @if(!$dropdown->may_have_childs)
                 <li class="navbar__item">
-                    <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown->title}}</a>
+                    <a class="navbar__link" href="{{$dropdown->url}}">{{$dropdown[$locale . 'Title']}}</a>
                 </li>
                 @else
                 <li class="dropdown navbar__dropdown">
-                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn">{{$dropdown->title}}</a>
+                    <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn">{{$dropdown[$locale . 'Title']}}</a>
 
                     <ul class="dropdown__list navbar__dropdown-list">
                         @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
                         <li class="dropdown__item navbar__dropdown-item">
                             <a class="dropdown__link navbar__dropdown-link"
-                                href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg->title}}</a>
+                                href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{$dp_pg[$locale . 'Title']}}</a>
                         </li>
                         @endforeach
                     </ul>
@@ -252,17 +252,17 @@
                 @foreach($dropdowns as $dropdown)
                 @if(!$dropdown->may_have_childs)
                 <li class="mobile-menu__item">
-                    <a class="mobile-dropdown__link" href="{{ $dropdown->url }}">{{ $dropdown->title }}</a>
+                    <a class="mobile-dropdown__link" href="{{ $dropdown->url }}">{{ $dropdown[$locale . 'Title'] }}</a>
                 </li>
                 @else
                 <div class="mobile-dropdown">
-                    <button class="mobile-dropdown__toggler">{{ $dropdown->title }}<span
+                    <button class="mobile-dropdown__toggler">{{ $dropdown[$locale . 'Title'] }}<span
                             class="material-icons-outlined mobile-dropdown__icon">expand_more</span></button>
                     <ul class="mobile-dropdown__list">
                         @foreach($dropdown->pages()->orderBy("priority", "asc")->get(); as $dp_pg)
                         <li class="mobile-dropdown__item">
                             <a class="mobile-dropdown__link"
-                                href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{ $dp_pg->title
+                                href="{{route('home') . '/' . $dropdown->url . '/' . $dp_pg->url }}">{{ $dp_pg[$locale . 'Title']
                                 }}</a>
                         </li>
                         @endforeach

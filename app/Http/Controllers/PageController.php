@@ -44,7 +44,7 @@ class PageController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Page::where("dropdown_id", $dropdown->id)->orderBy("title", "asc")->get();
+        $all_items = Page::where("dropdown_id", $dropdown->id)->orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.pages.index", compact("pages", "all_items", "items_count", "dropdown", "order_by", "order_type", "active_page"));
@@ -65,9 +65,9 @@ class PageController extends Controller
         if(!$request->file('image') && !$request->image_from_archive)
             array_push($validation_errors, "Изображение не выбрано. Выберите изображение из архива или добавьте новый!");
 
-        $duplicate = $dropdown->pages()->where("title", $request->title)->first();
+        $duplicate = $dropdown->pages()->where("ruTitle", $request->ruTitle)->first();
         if ($duplicate)
-            array_push($validation_errors, "Выпадающй список с таким именем уже существует !");
+            array_push($validation_errors, "Страница с таким заголовком уже уже существует !");
 
         $duplicate = $dropdown->pages()->where("url", $request->url)->first();
         if ($duplicate)
@@ -76,15 +76,14 @@ class PageController extends Controller
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
         $page = new Page();
-        $page->title = $request->title;
+        $multiLanguageFields = ['Title', 'MainText', 'AdditionalTextTitle', 'AdditionalTextBody'];
+        Helper::fillMultiLanguageFields($request, $page, $multiLanguageFields);
+
         $page->priority = $request->priority;
         $page->url = $request->url;
         $page->dropdown_id = $request->dropdown_id;
         $page->image = $request->image_from_archive ? $request->image_from_archive : "error"; 
         $page->default_template = true;
-        $page->main_text = $request->main_text;
-        $page->additional_text_title = $request->additional_text_title;
-        $page->additional_text_body = $request->additional_text_body;
         $page->save();
 
         //resize image and store in archive
@@ -111,8 +110,8 @@ class PageController extends Controller
         $page = Page::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if($request->title != $page->title) {
-            $duplicate = Page::where("dropdown_id", $page->dropdown_id)->where("title", $request->title)->first();
+        if($request->ruTitle != $page->ruTitle) {
+            $duplicate = Page::where("dropdown_id", $page->dropdown_id)->where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Страница с таким заголовком в текущем выпадающем списке уже существует!");
         }
         if($request->url != $page->url) {
@@ -122,13 +121,12 @@ class PageController extends Controller
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $page->title = $request->title;
+        $multiLanguageFields = ['Title', 'MainText', 'AdditionalTextTitle', 'AdditionalTextBody'];
+        Helper::fillMultiLanguageFields($request, $page, $multiLanguageFields);
+
         $page->priority = $request->priority;
         $page->url = $request->url;
         $page->image = $request->image_from_archive ? $request->image_from_archive : $page->image; 
-        $page->main_text = $request->main_text;
-        $page->additional_text_title = $request->additional_text_title;
-        $page->additional_text_body = $request->additional_text_body;
         $page->save();
 
         //resize image and store in archive

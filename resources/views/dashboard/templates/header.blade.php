@@ -9,7 +9,7 @@
         @break
 
         @case('dashboard.dropdowns.single')
-        Меню / {{$dropdown->title}}
+        Меню / {{$dropdown->ruTitle}}
         @break
 
         @case('dashboard.dropdowns.create')
@@ -17,15 +17,15 @@
         @break
 
         @case('dashboard.pages.index')
-        Меню / {{$dropdown->title}}
+        Меню / {{$dropdown->ruTitle}}
         @break
 
         @case('dashboard.pages.create')
-        Меню / {{$dropdown->title}} / Добавить страницу
+        Меню / {{$dropdown->ruTitle}} / Добавить страницу
         @break
 
         @case('dashboard.pages.single')
-        Меню / {{$page->dropdown->title}} / {{$page->title}}
+        Меню / {{$page->dropdown->ruTitle}} / {{$page->ruTitle}}
         @break
 
         @case('dashboard.slider.index')
@@ -37,7 +37,7 @@
         @break
 
         @case('dashboard.slider.single')
-        Слайдер / {{$slide->title}}
+        Слайдер / {{$slide->ruTitle}}
         @break
 
         @case('dashboard.projects.index')
@@ -49,7 +49,7 @@
         @break
 
         @case('dashboard.projects.single')
-        Проекты / {{$project->title}}
+        Проекты / {{$project->ruTitle}}
         @break
 
         @case('dashboard.projects.groups.index')
@@ -61,7 +61,7 @@
         @break
 
         @case('dashboard.projects.groups.single')
-        Проекты / Группы / {{$group->title}}
+        Проекты / Группы / {{$group->ruTitle}}
         @break
 
         @case('dashboard.news.index')
@@ -73,7 +73,7 @@
         @break
 
         @case('dashboard.news.single')
-        Новости / {{$new->title}}
+        Новости / {{$new->ruTitle}}
         @break
 
         @case('dashboard.vacancies.index')
@@ -85,7 +85,7 @@
         @break
 
         @case('dashboard.vacancies.single')
-        Вакансии / {{$vacancy->title}}
+        Вакансии / {{$vacancy->ruTitle}}
         @break
 
         @case('dashboard.galleries.index')
@@ -97,7 +97,7 @@
         @break
 
         @case('dashboard.galleries.single')
-        Галерея / {{$gallery->title}}
+        Галерея / {{$gallery->ruTitle}}
         @break
 
         @endswitch

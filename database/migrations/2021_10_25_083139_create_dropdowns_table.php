@@ -15,7 +15,9 @@ class CreateDropdownsTable extends Migration
     {
         Schema::create('dropdowns', function (Blueprint $table) {
             $table->id();
-            $table->string("title")->unique();
+            $table->string("ruTitle")->unique();
+            $table->string("tjTitle");
+            $table->string("enTitle");
             $table->string("url")->unique();
             $table->integer("priority");
             $table->boolean("may_have_childs");

@@ -421,12 +421,14 @@ input[type="file"]:after {
 .main-form {
     max-width: 880px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     color: #212529;
 }
 .form-group {
     background: white;
     padding: 15px 20px 30px;
-    margin-bottom: 30px;
 }
 .label {
     width: 100%;
@@ -997,3 +999,20 @@ input[type="file"]:after {
         padding: 4px 15px;
     }
 }
+
+
+/* locales Tab start */
+.locales-nav .nav-link {
+    color: black;
+    font-style: italic;
+    padding: 8px 30px;
+}
+.locales-nav .nav-link.active {
+    font-weight: bold;
+    color: var(--danger-color);
+}
+.locales-tab__content {
+    padding-top: 12px;
+    background: white;
+}
+/* locales Tab end */
