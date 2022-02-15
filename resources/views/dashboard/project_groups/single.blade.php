@@ -8,9 +8,19 @@
     <input type="hidden" name="id" value="{{$group->id}}">
 
     <div class="form-group">
-        <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{ old('title') == '' ? $group->title : old('title') }}"
+        <label class="label">Заголовок на русском<span class="required">*</span></label>
+        <input class="input" name="ruTitle" type="text" value="{{ old('ruTitle') == '' ? $group->ruTitle : old('ruTitle') }}"
             required>
+    </div>
+
+    <div class="form-group">
+        <label class="label">Заголовок на таджикском</label>
+        <input class="input" name="tjTitle" type="text" value="{{ old('tjTitle') == '' ? $group->tjTitle : old('tjTitle') }}">
+    </div>
+
+    <div class="form-group">
+        <label class="label">Заголовок на английском</label>
+        <input class="input" name="enTitle" type="text" value="{{ old('enTitle') == '' ? $group->enTitle : old('enTitle') }}">
     </div>
 
     <div class="main-form__controls">

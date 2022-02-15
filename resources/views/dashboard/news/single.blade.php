@@ -7,53 +7,105 @@
 
     <input type="hidden" name="id" value="{{$new->id}}">
 
-    <div class="form-group">
-        <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{ old('title') == '' ? $new->title : old('title') }}"
-            required>
-    </div>
+    <div class="locales-tab">
+        {{-- Tab Navs start --}}
+        <nav class="locales-nav">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-ru-tab" data-bs-toggle="tab" data-bs-target="#nav-ru"
+                    type="button" role="tab" aria-controls="nav-ru" aria-selected="true">Русский
+                </button>
+    
+                <button class="nav-link" id="nav-tj-tab" data-bs-toggle="tab" data-bs-target="#nav-tj"
+                    type="button" role="tab" aria-controls="nav-tj" aria-selected="false">Таджикский
+                </button>
 
-    <div class="form-group">
-        <label class="label">Текст <span class="required">*</span></label>
-        <textarea class="simditor-wysiwyg" name="body" required>{{ old("body") == '' ? $new->body : old("body") }}</textarea>
-    </div>
+                <button class="nav-link" id="nav-en-tab" data-bs-toggle="tab" data-bs-target="#nav-en"
+                    type="button" role="tab" aria-controls="nav-en" aria-selected="false">Английский
+                </button>
+            </div>
+        </nav> {{-- Tab Navs end --}}
 
-    <div class="form-group">
-        <label class="label">Тип <span class="required">*</span></label>
-        <div class="select2_single_container form-group__select2-single">
-            <select class="select2_single" data-dropdown-css-class="select2_single_dropdown" name="inner">
-                <option value="1" 
-                @if(old('inner') != '')
-                    {{ old('inner') == 1 ? 'selected' : '' }}
-                @else
-                    {{ $new->inner == 1 ? 'selected' : ''}}
-                @endif
-                >Новости компании</option>
+        {{-- Tab Content start --}}
+        <div class="tab-content locales-tab__content" id="nav-tabContent">
+            {{-- RU Tab Content start --}}
+            <div class="tab-pane fade show active" id="nav-ru" role="tabpanel" aria-labelledby="nav-ru-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок <span class="required">*</span></label>
+                    <input class="input" name="ruTitle" type="text" value="{{ old('ruTitle') == '' ? $new->ruTitle : old('ruTitle') }}"
+                        required>
+                </div>
 
-                <option value="0" 
-                @if(old('inner') != '')
-                    {{ old('inner') == 0 ? 'selected' : '' }}
-                @else
-                    {{ $new->inner == 0 ? 'selected' : ''}}
-                @endif
-                >Отраслевые новости</option>
-            </select>
-        </div>
-    </div>
+                <div class="form-group">
+                    <label class="label">Текст <span class="required">*</span></label>
+                    <textarea class="simditor-wysiwyg" name="ruBody" required>{{ old("ruBody") == '' ? $new->ruBody : old("ruBody") }}</textarea>
+                </div>
 
-    <div class="form-group">
-        <label class="label">Изображение <span class="required">*</span></label>
-        {{-- Archive with id = 1 --}}
-        <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
-            data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
-        @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
-        <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
+                <div class="form-group">
+                    <label class="label">Тип <span class="required">*</span></label>
+                    <div class="select2_single_container form-group__select2-single">
+                        <select class="select2_single" data-dropdown-css-class="select2_single_dropdown" name="inner">
+                            <option value="1" 
+                            @if(old('inner') != '')
+                                {{ old('inner') == 1 ? 'selected' : '' }}
+                            @else
+                                {{ $new->inner == 1 ? 'selected' : ''}}
+                            @endif
+                            >Новости компании</option>
 
-        <a class="form-group__image-container" href="{{ asset('img/archive/' . $new->image)}}" target="_blank">
-            <img class="form-group__image" src="{{ asset('img/archive/medium/' . $new->image)}}">
-            <span class="form-group__image-filename">{{$new->image}}</span>
-        </a>
-    </div>
+                            <option value="0" 
+                            @if(old('inner') != '')
+                                {{ old('inner') == 0 ? 'selected' : '' }}
+                            @else
+                                {{ $new->inner == 0 ? 'selected' : ''}}
+                            @endif
+                            >Отраслевые новости</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Изображение <span class="required">*</span></label>
+                    {{-- Archive with id = 1 --}}
+                    <input class="input" name="image" type="file" accept=".png, .jpg, .jpeg" data-action="nullify-archive-input"
+                        data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>
+                    @include("dashboard.templates.archives.images_show_button", ["archive_id" => '1'])
+                    <input class="input input--readonly" readonly type="text" name="image_from_archive" id="image_archive1_input">
+
+                    <a class="form-group__image-container" href="{{ asset('img/archive/' . $new->image)}}" target="_blank">
+                        <img class="form-group__image" src="{{ asset('img/archive/medium/' . $new->image)}}">
+                        <span class="form-group__image-filename">{{$new->image}}</span>
+                    </a>
+                </div>
+            </div> {{-- RU Tab Content end --}}
+
+            {{-- TJ Tab Content start --}}
+            <div class="tab-pane fade" id="nav-tj" role="tabpanel" aria-labelledby="nav-tj-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок</label>
+                    <input class="input" name="tjTitle" type="text" value="{{old('tjTitle') == '' ? $new->tjTitle : old('tjTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Текст</label>
+                    <textarea class="simditor-wysiwyg" name="tjBody">{{ old("tjBody") == '' ? $new->tjBody : old("tjBody") }}</textarea>
+                </div>
+            </div> {{-- TJ Tab Content end --}}
+
+            {{-- EN Tab Content start --}}
+            <div class="tab-pane fade" id="nav-en" role="tabpanel" aria-labelledby="nav-en-tab">
+                <div class="form-group">
+                    <label class="label">Заголовок</label>
+                    <input class="input" name="enTitle" type="text" value="{{old('enTitle') == '' ? $new->enTitle : old('enTitle') }}">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">Текст</label>
+                    <textarea class="simditor-wysiwyg" name="enBody">{{ old("enBody") == '' ? $new->enBody : old("enBody") }}</textarea>
+                </div>
+            </div> {{-- EN Tab Content end --}}
+
+        </div> {{-- Tab Content end --}}
+    </div> {{-- Tab end --}}
 
     <div class="main-form__controls">
         <button class="button button--iconed button--success main-form__controls-button" type="submit"><span

@@ -6,8 +6,19 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-        <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{ old('title') }}" required>
+        <label class="label">Заголовок на русском<span class="required">*</span></label>
+        <input class="input" name="ruTitle" type="text" value="{{ old('ruTitle') }}"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label class="label">Заголовок на таджикском</label>
+        <input class="input" name="tjTitle" type="text" value="{{ old('tjTitle') }}">
+    </div>
+
+    <div class="form-group">
+        <label class="label">Заголовок на английском</label>
+        <input class="input" name="enTitle" type="text" value="{{ old('enTitle') }}">
     </div>
 
     <div class="main-form__controls">

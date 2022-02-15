@@ -27,7 +27,7 @@
                     <a href="{{ route('news.single', $fn->url) }}" class="footer__news-item">
                         <img src="{{ asset('img/archive/small/' . $fn->image) }}" class="footer__news-image" alt="{{$fn->title}}">
                         <div class="footer__news-desc">
-                            <h4 class="footer__news-title" title="{{$fn->title}}">{{$fn->title}}</h4>
+                            <h4 class="footer__news-title" title="{{$fn[$locale . 'Title']}}">{{$fn[$locale . 'Title']}}</h4>
                             @php
                                 $formatted = Carbon\Carbon::create($fn->created_at)->locale("ru");
                             @endphp

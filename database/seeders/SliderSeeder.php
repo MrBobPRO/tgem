@@ -24,9 +24,15 @@ class SliderSeeder extends Seeder
 
         for ($i = 0; $i < count($title); $i++) {
             $slider = new Slider();
-            $slider->crumb = $crumb[$i];
-            $slider->title = $title[$i];
-            $slider->description = $description[$i];
+            $slider->ruCrumb = $crumb[$i];
+            $slider->tjCrumb = $crumb[$i];
+            $slider->enCrumb = $crumb[$i];
+            $slider->ruTitle = $title[$i];
+            $slider->tjTitle = $title[$i];
+            $slider->enTitle = $title[$i];
+            $slider->ruDescription = $description[$i];
+            $slider->tjDescription = $description[$i];
+            $slider->enDescription = $description[$i];
             $slider->image = $image[$i];
             $slider->link = $link[$i];
             $slider->video = $video[$i];

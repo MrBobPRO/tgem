@@ -8,7 +8,7 @@
             data-dropdown-css-class="select2_single_dropdown">
             <option></option>
             @foreach($all_items as $item)
-            <option value="{{ route('dashboard.projects.single', $item->id)}}">{{$item->title}}</option>
+            <option value="{{ route('dashboard.projects.single', $item->id)}}">{{$item->ruTitle}}</option>
             @endforeach
         </select>
     </div>
@@ -20,19 +20,19 @@
     {{-- Titles start --}}
     <div class="titles">
         <div class="titles__item width-20">
-            @if($order_by != "title")
+            @if($order_by != "ruTitle")
             <a class="titles__link"
-                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=ruTitle&order_type=asc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon">arrow_upward</span>
             </a>
-            @elseif($order_by == "title" && $order_type == "asc")
+            @elseif($order_by == "ruTitle" && $order_type == "asc")
             <a class="titles__link"
-                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=title&order_type=desc' }}">Заголовок
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=ruTitle&order_type=desc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_upward</span>
             </a>
-            @elseif($order_by == "title" && $order_type == "desc")
+            @elseif($order_by == "ruTitle" && $order_type == "desc")
             <a class="titles__link"
-                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=title&order_type=asc' }}">Заголовок
+                href="{{ route('dashboard.projects.index') . '?page=' . $active_page . '&order_by=ruTitle&order_type=asc' }}">Заголовок
                 <span class="material-icons-outlined titles__icon titles__icon--active">arrow_downward</span>
             </a>
             @endif
@@ -135,7 +135,7 @@
                 </label>
             </div>
 
-            <div class="list__item-div width-20">{{$project->title}}</div>
+            <div class="list__item-div width-20">{{$project->ruTitle}}</div>
             <div class="list__item-div width-20">{{$project->completed ? "Выполненный" : "Текущий"}}</div>
             <div class="list__item-div width-20">{{$project->group->title}}</div>
             <div class="list__item-div width-20">{{$project->images_count}}</div>

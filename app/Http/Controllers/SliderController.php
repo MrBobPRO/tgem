@@ -25,7 +25,7 @@ class SliderController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Slider::orderBy("title", "asc")->get();
+        $all_items = Slider::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.slider.index", compact("slides", "all_items", "items_count", "order_by", "order_type", "active_page"));
@@ -45,11 +45,10 @@ class SliderController extends Controller
 
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-
         $slide = new Slider();
-        $slide->title = $request->title;
-        $slide->crumb = $request->crumb;
-        $slide->description = $request->description;
+        $multiLanguageFields = ['Title', 'Crumb', 'Description'];
+        Helper::fillMultiLanguageFields($request, $slide, $multiLanguageFields);
+        
         $slide->link = $request->link;
         $slide->video = $request->video;
         $slide->priority = $request->priority;
@@ -78,9 +77,9 @@ class SliderController extends Controller
     public function update(Request $request)
     {
         $slide = Slider::find($request->id);
-        $slide->title = $request->title;
-        $slide->crumb = $request->crumb;
-        $slide->description = $request->description;
+        $multiLanguageFields = ['Title', 'Crumb', 'Description'];
+        Helper::fillMultiLanguageFields($request, $slide, $multiLanguageFields);
+
         $slide->link = $request->link;
         $slide->video = $request->video;
         $slide->priority = $request->priority;

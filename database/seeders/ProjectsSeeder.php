@@ -21,7 +21,9 @@ class ProjectsSeeder extends Seeder
         $group_titles = ["Строительные проекты", "Энергетические проекты"];
         foreach ($group_titles as $title) {
             $project_group = new ProjectGroup();
-            $project_group->title = $title;
+            $project_group->ruTitle = $title;
+            $project_group->tjTitle = $title;
+            $project_group->enTitle = $title;
             $project_group->save();
         }
 
@@ -209,8 +211,12 @@ class ProjectsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $project = new Project();
-            $project->title = $titles[$i];
-            $project->body = $bodies[$i];
+            $project->ruTitle = $titles[$i];
+            $project->tjTitle = $titles[$i];
+            $project->enTitle = $titles[$i];
+            $project->ruBody = $bodies[$i];
+            $project->tjBody = $bodies[$i];
+            $project->enBody = $bodies[$i];
             $project->image = $images[$i];
             $project->created_at = $created_at[$i];
             $project->completed = 1;
@@ -320,8 +326,12 @@ class ProjectsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $project = new Project();
-            $project->title = $titles[$i];
-            $project->body = $bodies[$i];
+            $project->ruTitle = $titles[$i];
+            $project->tjTitle = $titles[$i];
+            $project->enTitle = $titles[$i];
+            $project->ruBody = $bodies[$i];
+            $project->tjBody = $bodies[$i];
+            $project->enBody = $bodies[$i];
             $project->image = $images[$i];
             $project->created_at = $created_at[$i];
             $project->completed = 0;

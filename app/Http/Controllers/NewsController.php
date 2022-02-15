@@ -12,7 +12,7 @@ class NewsController extends Controller
     public function company()
     {
         $news = News::where("inner", true)->latest()->paginate(9);
-        $page_title = "Новости компании";
+        $page_title = __("Новости компании");
 
         return view("news.index", compact("news", "page_title"));
     }
@@ -20,7 +20,7 @@ class NewsController extends Controller
     public function industry()
     {
         $news = News::where("inner", false)->latest()->paginate(9);
-        $page_title = "Отраслевые новости";
+        $page_title = __("Отраслевые новости");
 
         return view("news.index", compact("news", "page_title"));
     }
@@ -50,7 +50,7 @@ class NewsController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = News::orderBy("title", "asc")->get();
+        $all_items = News::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.news.index", compact("news", "all_items", "items_count", "order_by", "order_type", "active_page"));
@@ -71,20 +71,21 @@ class NewsController extends Controller
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
         $validation_rules = [
-            "title" => "unique:news"
+            "ruTitle" => "unique:news"
         ];
 
         $validation_messages = [
-            "title.unique" => "Новость с таким заголовком уже существует !",
+            "ruTitle.unique" => "Новость с таким заголовком уже существует !",
         ];
 
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
 
         $new = new News();
-        $new->title = $request->title;
-        $new->body = $request->body;
+        $multiLanguageFields = ['Title', 'Body'];
+        Helper::fillMultiLanguageFields($request, $new, $multiLanguageFields);
+
         $new->inner = $request->inner;
-        $new->url = Helper::transliterate_into_latin($request->title);
+        $new->url = Helper::transliterate_into_latin($request->ruTitle);
         $new->image = $request->image_from_archive ? $request->image_from_archive : "error"; 
         $new->save();
 
@@ -112,17 +113,18 @@ class NewsController extends Controller
         $new = News::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if($request->title != $new->title) {
-            $duplicate = News::where("title", $request->title)->first();
+        if($request->ruTitle != $new->ruTitle) {
+            $duplicate = News::where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Новость с таким заголовком уже существует!");
         }
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $new->title = $request->title;
-        $new->body = $request->body;
+        $multiLanguageFields = ['Title', 'Body'];
+        Helper::fillMultiLanguageFields($request, $new, $multiLanguageFields);
+
         $new->inner = $request->inner;
-        $new->url = Helper::transliterate_into_latin($request->title);
+        $new->url = Helper::transliterate_into_latin($request->ruTitle);
         $new->image = $request->image_from_archive ? $request->image_from_archive : $new->image; 
         $new->save();
 

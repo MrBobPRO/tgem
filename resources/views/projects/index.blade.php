@@ -12,11 +12,11 @@
             @foreach ($projects as $project)
                 <a class="projects-list__item" href="{{ route('projects.single', $project->url) }}">
                     <div class="project-list__image-container">
-                        <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}" alt="{{$project->title}}">
+                        <img class="projects-list__image" src="{{ asset('img/archive/medium/' . $project->image) }}" alt="{{$project[$locale . 'Title']}}">
                     </div>
                     <div class="projects-list__desc" href="{{ route('projects.single', $project->url) }}">
-                        <p class="projects-list__group">{{$project->group->title}}</p>
-                        <h3 class="projects-list__title">{{$project->title}}</h3>
+                        <p class="projects-list__group">{{$project->group[$locale . 'Title']}}</p>
+                        <h3 class="projects-list__title">{{$project[$locale . 'Title']}}</h3>
                     </div>
                 </a>
             @endforeach

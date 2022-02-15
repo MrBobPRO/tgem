@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Project;
 use App\Models\ProjectGroup;
 use Illuminate\Http\Request;
@@ -11,10 +12,10 @@ class ProjectGroupController extends Controller
 {
     public function dashboard_index(Request $request)
     {
-        $groups = ProjectGroup::orderBy("title", "asc")->withCount("projects")->paginate(30);
+        $groups = ProjectGroup::orderBy("ruTitle", "asc")->withCount("projects")->paginate(30);
 
         //used in search & counting
-        $all_items = ProjectGroup::orderBy("title", "asc")->get();
+        $all_items = ProjectGroup::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.project_groups.index", compact("groups", "all_items", "items_count"));
@@ -28,17 +29,18 @@ class ProjectGroupController extends Controller
     public function store(Request $request)
     {
         $validation_rules = [
-            "title" => "unique:project_groups"
+            "ruTitle" => "unique:project_groups"
         ];
 
         $validation_messages = [
-            "title.unique" => "Группа с таким заголовком уже существует !",
+            "ruTitle.unique" => "Группа с таким заголовком уже существует !",
         ];
 
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
 
         $group = new ProjectGroup();
-        $group->title = $request->title;
+        $multiLanguageFields = ['Title'];
+        Helper::fillMultiLanguageFields($request, $group, $multiLanguageFields);
         $group->save();
 
         return redirect()->route("dashboard.projects.groups.index");
@@ -56,14 +58,15 @@ class ProjectGroupController extends Controller
         $group = ProjectGroup::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if($request->title != $group->title) {
-            $duplicate = ProjectGroup::where("title", $request->title)->first();
+        if($request->ruTitle != $group->ruTitle) {
+            $duplicate = ProjectGroup::where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Группа с таким заголовком уже существует!");
         }
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $group->title = $request->title;
+        $multiLanguageFields = ['Title'];
+        Helper::fillMultiLanguageFields($request, $group, $multiLanguageFields);
         $group->save();
 
         return redirect()->back();

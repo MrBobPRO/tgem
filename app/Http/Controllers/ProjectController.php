@@ -13,7 +13,7 @@ class ProjectController extends Controller
     public function completed()
     {
         $projects = Project::where("completed", true)->latest()->paginate(9);
-        $page_title = "Выполненные Проекты";
+        $page_title = __("Выполненные Проекты");
 
         return view("projects.index", compact("projects", "page_title"));
     }
@@ -21,7 +21,7 @@ class ProjectController extends Controller
     public function current()
     {
         $projects = Project::where("completed", false)->latest()->paginate(9);
-        $page_title = "Текущие Проекты";
+        $page_title = __("Текущие Проекты");
 
         return view("projects.index", compact("projects", "page_title"));
     }
@@ -51,7 +51,7 @@ class ProjectController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Project::orderBy("title", "asc")->get();
+        $all_items = Project::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.projects.index", compact("projects", "all_items", "items_count", "order_by", "order_type", "active_page"));
@@ -84,11 +84,12 @@ class ProjectController extends Controller
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
 
         $project = new Project();
-        $project->title = $request->title;
-        $project->body = $request->body;
+        $multiLanguageFields = ['Title', 'Body'];
+        Helper::fillMultiLanguageFields($request, $project, $multiLanguageFields);
+
         $project->completed = $request->completed;
         $project->project_group_id = $request->project_group_id;
-        $project->url = Helper::transliterate_into_latin($request->title);
+        $project->url = Helper::transliterate_into_latin($request->ruTitle);
         $project->image = $request->image_from_archive ? $request->image_from_archive : "error"; 
         $project->save();
 
@@ -117,18 +118,19 @@ class ProjectController extends Controller
         $project = Project::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if($request->title != $project->title) {
-            $duplicate = Project::where("title", $request->title)->first();
+        if($request->ruTitle != $project->ruTitle) {
+            $duplicate = Project::where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Проект с таким заголовком уже существует!");
         }
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $project->title = $request->title;
-        $project->body = $request->body;
+        $multiLanguageFields = ['Title', 'Body'];
+        Helper::fillMultiLanguageFields($request, $project, $multiLanguageFields);
+
         $project->completed = $request->completed;
         $project->project_group_id = $request->project_group_id;
-        $project->url = Helper::transliterate_into_latin($request->title);
+        $project->url = Helper::transliterate_into_latin($request->ruTitle);
         $project->image = $request->image_from_archive ? $request->image_from_archive : $project->image; 
         $project->save();
 

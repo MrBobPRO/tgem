@@ -8,7 +8,7 @@
             data-dropdown-css-class="select2_single_dropdown">
             <option></option>
             @foreach($all_items as $item)
-            <option value="{{ route('dashboard.projects.single', $item->id)}}">{{$item->title}}</option>
+            <option value="{{ route('dashboard.projects.groups.single', $item->id)}}">{{$item->ruTitle}}</option>
             @endforeach
         </select>
     </div>
@@ -39,7 +39,7 @@
                 </label>
             </div>
 
-            <div class="list__item-div width-50">{{$group->title}}</div>
+            <div class="list__item-div width-50">{{$group->ruTitle}}</div>
             <div class="list__item-div width-50">{{$group->projects_count}}</div>
 
             {{-- Item Controls start --}}

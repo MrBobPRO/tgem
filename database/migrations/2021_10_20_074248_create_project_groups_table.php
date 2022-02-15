@@ -15,7 +15,9 @@ class CreateProjectGroupsTable extends Migration
     {
         Schema::create('project_groups', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
+            $table->string('ruTitle')->unique();
+            $table->string('tjTitle');
+            $table->string('enTitle');
         });
     }
 

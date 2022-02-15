@@ -15,8 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 300)->unique();
-            $table->text('body');
+            $table->string('ruTitle', 300)->unique();
+            $table->string('tjTitle', 300)->unique();
+            $table->string('enTitle', 300)->unique();
+            $table->text('ruBody');
+            $table->text('tjBody');
+            $table->text('enBody');
             $table->string('image');
             $table->boolean('completed');
             $table->integer('project_group_id');

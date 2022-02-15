@@ -20,7 +20,7 @@
                     @endif
                 " data-wow-delay="0ms" data-wow-duration="1500ms" href="{{ route('news.single', $new->url) }}">
                     <div class="news-list__image-container">
-                        <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new->title}}">
+                        <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new[$locale . 'Title']}}">
                         @php 
                             $formatted = Carbon\Carbon::create($new->created_at)->locale("ru");
                         @endphp
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="news-list__desc">
-                        <h3 class="news-list__title">{{$new->title}}</h3>
+                        <h3 class="news-list__title">{{$new[$locale . 'Title']}}</h3>
                         <button class="button secondary-btn news-list__button">Полробнее</button>
                     </div>
                 </a>

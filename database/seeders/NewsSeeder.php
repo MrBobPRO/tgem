@@ -74,8 +74,12 @@ class NewsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $news = new News();
-            $news->title = $titles[$i];
-            $news->body = $bodies[$i];
+            $news->ruTitle = $titles[$i];
+            $news->tjTitle = $titles[$i];
+            $news->enTitle = $titles[$i];
+            $news->ruBody = $bodies[$i];
+            $news->tjBody = $bodies[$i];
+            $news->enBody = $bodies[$i];
             $news->image = $images[$i];
             $news->inner = true;
             $news->url = Helper::transliterate_into_latin($titles[$i]);
@@ -213,8 +217,12 @@ class NewsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $news = new News();
-            $news->title = $titles[$i];
-            $news->body = $bodies[$i];
+            $news->ruTitle = $titles[$i];
+            $news->tjTitle = $titles[$i];
+            $news->enTitle = $titles[$i];
+            $news->ruBody = $bodies[$i];
+            $news->tjBody = $bodies[$i];
+            $news->enBody = $bodies[$i];
             $news->image = $images[$i];
             $news->inner = false;
             $news->url = Helper::transliterate_into_latin($titles[$i]);
@@ -312,8 +320,12 @@ class NewsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $news = new News();
-            $news->title = $titles[$i];
-            $news->body = $bodies[$i];
+            $news->ruTitle = $titles[$i];
+            $news->tjTitle = $titles[$i];
+            $news->enTitle = $titles[$i];
+            $news->ruBody = $bodies[$i];
+            $news->tjBody = $bodies[$i];
+            $news->enBody = $bodies[$i];
             $news->image = $images[$i];
             $news->inner = true;
             $news->url = Helper::transliterate_into_latin($titles[$i]);
@@ -419,8 +431,12 @@ class NewsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $news = new News();
-            $news->title = $titles[$i];
-            $news->body = $bodies[$i];
+            $news->ruTitle = $titles[$i];
+            $news->tjTitle = $titles[$i];
+            $news->enTitle = $titles[$i];
+            $news->ruBody = $bodies[$i];
+            $news->tjBody = $bodies[$i];
+            $news->enBody = $bodies[$i];
             $news->image = $images[$i];
             $news->inner = true;
             $news->url = Helper::transliterate_into_latin($titles[$i]);
@@ -538,8 +554,12 @@ class NewsSeeder extends Seeder
 
         for ($i = 0; $i < count($titles); $i++) {
             $news = new News();
-            $news->title = $titles[$i];
-            $news->body = $bodies[$i];
+            $news->ruTitle = $titles[$i];
+            $news->tjTitle = $titles[$i];
+            $news->enTitle = $titles[$i];
+            $news->ruBody = $bodies[$i];
+            $news->tjBody = $bodies[$i];
+            $news->enBody = $bodies[$i];
             $news->image = $images[$i];
             $news->inner = true;
             $news->url = Helper::transliterate_into_latin($titles[$i]);
