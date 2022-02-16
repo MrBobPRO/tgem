@@ -11,8 +11,8 @@ class VacancyController extends Controller
 {
     public function index()
     {
-        $vacancies = Vacancy::orderBy("title", "asc")->get();
-        $page_title = 'Вакансии';
+        $vacancies = Vacancy::orderBy("ruTitle", "asc")->get();
+        $page_title = __('Вакансии');
 
         return view("vacancies.index", compact("vacancies", "page_title"));
     }
@@ -41,7 +41,7 @@ class VacancyController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Vacancy::orderBy("title", "asc")->get();
+        $all_items = Vacancy::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.vacancies.index", compact("vacancies", "all_items", "items_count", "order_by", "order_type", "active_page"));
@@ -62,19 +62,20 @@ class VacancyController extends Controller
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
         $validation_rules = [
-            "title" => "unique:vacancies"
+            "ruTitle" => "unique:vacancies"
         ];
 
         $validation_messages = [
-            "title.unique" => "Вакансия с таким заголовком уже существует !",
+            "ruTitle.unique" => "Вакансия с таким заголовком уже существует !",
         ];
 
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
 
         $vacancy = new Vacancy();
-        $vacancy->title = $request->title;
-        $vacancy->body = $request->body;
-        $vacancy->url = Helper::transliterate_into_latin($request->title);
+        $multiLanguageFields = ['Title', 'Body'];
+        Helper::fillMultiLanguageFields($request, $vacancy, $multiLanguageFields);
+
+        $vacancy->url = Helper::transliterate_into_latin($request->ruTitle);
         $vacancy->image = $request->image_from_archive ? $request->image_from_archive : "error"; 
         $vacancy->save();
 
@@ -102,16 +103,17 @@ class VacancyController extends Controller
         $vacancy = Vacancy::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if($request->title != $vacancy->title) {
-            $duplicate = Vacancy::where("title", $request->title)->first();
+        if($request->ruTitle != $vacancy->ruTitle) {
+            $duplicate = Vacancy::where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Вакансия с таким заголовком уже существует!");
         }
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $vacancy->title = $request->title;
-        $vacancy->body = $request->body;
-        $vacancy->url = Helper::transliterate_into_latin($request->title);
+        $multiLanguageFields = ['Title', 'Body'];
+        Helper::fillMultiLanguageFields($request, $vacancy, $multiLanguageFields);
+
+        $vacancy->url = Helper::transliterate_into_latin($request->ruTitle);
         $vacancy->image = $request->image_from_archive ? $request->image_from_archive : $vacancy->image; 
         $vacancy->save();
 

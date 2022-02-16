@@ -137,7 +137,7 @@
 
             <div class="list__item-div width-20">{{$project->ruTitle}}</div>
             <div class="list__item-div width-20">{{$project->completed ? "Выполненный" : "Текущий"}}</div>
-            <div class="list__item-div width-20">{{$project->group->title}}</div>
+            <div class="list__item-div width-20">{{$project->group->ruTitle}}</div>
             <div class="list__item-div width-20">{{$project->images_count}}</div>
             @php
                 $formatted = Carbon\Carbon::create($project->created_at)->locale("ru");

@@ -59,7 +59,7 @@ class ProjectController extends Controller
 
     public function dashboard_create()
     {
-        $groups = ProjectGroup::orderBy("title", "asc")->get();
+        $groups = ProjectGroup::orderBy("ruTitle", "asc")->get();
 
         return view("dashboard.projects.create", compact("groups"));
     }
@@ -108,7 +108,7 @@ class ProjectController extends Controller
     public function dashboard_single($id)
     {
         $project = Project::find($id);
-        $groups = ProjectGroup::orderBy("title", "asc")->get();
+        $groups = ProjectGroup::orderBy("ruTitle", "asc")->get();
 
         return view("dashboard.projects.single", compact("project", "groups"));
     }

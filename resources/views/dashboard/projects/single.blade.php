@@ -51,7 +51,7 @@
                                 @else
                                     {{ $project->project_group_id == $group->id ? 'selected' : ''}}
                                 @endif
-                                    >{{$group->title}}
+                                    >{{$group->ruTitle}}
                             </option>
                             @endforeach
                         </select>

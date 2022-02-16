@@ -8,13 +8,23 @@
     <input type="hidden" name="id" value="{{$gallery->id}}">
 
     <div class="form-group">
-        <label class="label">Заголовок <span class="required">*</span></label>
-        <input class="input" name="title" type="text" value="{{ old('title') == '' ? $gallery->title : old('title') }}"
+        <label class="label">Заголовок на русском<span class="required">*</span></label>
+        <input class="input" name="ruTitle" type="text" value="{{ old('ruTitle') == '' ? $gallery->ruTitle : old('ruTitle') }}"
             required>
     </div>
 
     <div class="form-group">
-        <label class="label">Изображение <span class="required">*</span></label>
+        <label class="label">Заголовок на таджикском</label>
+        <input class="input" name="tjTitle" type="text" value="{{ old('tjTitle') == '' ? $gallery->tjTitle : old('tjTitle') }}">
+    </div>
+
+    <div class="form-group">
+        <label class="label">Заголовок на английском</label>
+        <input class="input" name="enTitle" type="text" value="{{ old('enTitle') == '' ? $gallery->enTitle : old('enTitle') }}">
+    </div>
+
+    <div class="form-group">
+        <label class="label">Миниатюрное изображение <span class="required">*</span></label>
         {{-- Archive with id = 1 --}}
         <input class="input" name="thumbnail" type="file" data-action="nullify-archive-input"
             data-archive-input-id="image_archive1_input" id="image_archive1_mirror_input"/>

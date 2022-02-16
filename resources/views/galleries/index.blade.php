@@ -12,7 +12,7 @@
             @foreach ($galleries as $gallery)
                 <a class="galleries-list__item" href="{{ route('galleries.single', $gallery->url) }}">
                     <div class="galleries-list__image-container">
-                        <img class="galleries-list__image" src="{{ asset('img/archive/medium/' . $gallery->thumbnail) }}" alt="{{$gallery->title}}">
+                        <img class="galleries-list__image" src="{{ asset('img/archive/medium/' . $gallery->thumbnail) }}" alt="{{$gallery[$locale . 'Title']}}">
                         @php
                             $formatted = Carbon\Carbon::create($gallery->created_at)->locale("ru"); 
                         @endphp   
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="galleries-list__desc">
-                        <h3 class="galleries-list__title">{{$gallery->title}}</h3>
+                        <h3 class="galleries-list__title">{{$gallery[$locale . 'Title']}}</h3>
                     </div>
                 </a>
             @endforeach

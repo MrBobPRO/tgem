@@ -18,7 +18,9 @@ class GallerySeeder extends Seeder
     {
 
         $gallery = new Gallery();
-        $gallery->title = "Открытие подстанции 110/20/10 кВ и ЛЭП 04 кВ в селе Ромит города Вахдат";
+        $gallery->ruTitle = "Открытие подстанции 110/20/10 кВ и ЛЭП 04 кВ в селе Ромит города Вахдат";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "ПС 110-20-10 Ромит.jpg";
         $gallery->url = Helper::transliterate_into_latin("Открытие подстанции 110/20/10 кВ и ЛЭП 04 кВ в селе Ромит города Вахдат");
         $gallery->save();
@@ -36,7 +38,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Сдача в эксплуатацию электрической подстанции «Равшан» 220/110/35/10 кВ в городе Турсунзода";
+        $gallery->ruTitle = "Сдача в эксплуатацию электрической подстанции «Равшан» 220/110/35/10 кВ в городе Турсунзода";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Сдача в эксплуатацию Равшан 220-110-35-10.jpg";
         $gallery->url = Helper::transliterate_into_latin("Сдача в эксплуатацию электрической подстанции «Равшан» 220/110/35/10 кВ в городе Турсунзода");
         $gallery->save();
@@ -54,7 +58,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Подписание контракта по проекту Управления водными ресурсами в бассейне реки Пяндж";
+        $gallery->ruTitle = "Подписание контракта по проекту Управления водными ресурсами в бассейне реки Пяндж";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Подписание контракта реки Пяндж.jpg";
         $gallery->url = Helper::transliterate_into_latin("Подписание контракта по проекту Управления водными ресурсами в бассейне реки Пяндж");
         $gallery->save();
@@ -72,7 +78,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "ОАО «ТГЭМ» повторно оказала гуманитарную помощь управлению здравоохранения города Душанбе";
+        $gallery->ruTitle = "ОАО «ТГЭМ» повторно оказала гуманитарную помощь управлению здравоохранения города Душанбе";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Гуманитарная помощь здравоохранению Душанбе.jpg";
         $gallery->url = Helper::transliterate_into_latin("ОАО «ТГЭМ» повторно оказала гуманитарную помощь управлению здравоохранения города Душанбе");
         $gallery->save();
@@ -90,7 +98,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Управлению здравоохранения Душанбе предоставлено 20 тыс. тестов для определения коронавируса";
+        $gallery->ruTitle = "Управлению здравоохранения Душанбе предоставлено 20 тыс. тестов для определения коронавируса";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "20 тыс. тестов для определения коронавируса.jpg";
         $gallery->url = Helper::transliterate_into_latin("Управлению здравоохранения Душанбе предоставлено 20 тыс. тестов для определения коронавируса");
         $gallery->save();
@@ -108,7 +118,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Подписания контракта по проекту “Реконструкция Нурекской ГЭС”";
+        $gallery->ruTitle = "Подписания контракта по проекту “Реконструкция Нурекской ГЭС”";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Водные ресурсы Пяндж.jpg";
         $gallery->url = Helper::transliterate_into_latin("Подписания контракта по проекту “Реконструкция Нурекской ГЭС”");
         $gallery->save();
@@ -126,7 +138,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "JICA сдаст в эксплуатацию 2 подстанции в Душанбе";
+        $gallery->ruTitle = "JICA сдаст в эксплуатацию 2 подстанции в Душанбе";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "JICA эксплуатация подстанции.jpg";
         $gallery->url = Helper::transliterate_into_latin("JICA сдаст в эксплуатацию 2 подстанции в Душанбе");
         $gallery->save();
@@ -145,7 +159,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Церемония ввода в действие второго агрегата Рогунской гидроэлектростанции";
+        $gallery->ruTitle = "Церемония ввода в действие второго агрегата Рогунской гидроэлектростанции";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Церемония ввода в действие второго агрегата Рогунской гидроэлектростанции.jpg";
         $gallery->url = Helper::transliterate_into_latin("Церемония ввода в действие второго агрегата Рогунской гидроэлектростанции");
         $gallery->save();
@@ -164,7 +180,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Открытие ПС “Темурмалик”";
+        $gallery->ruTitle = "Открытие ПС “Темурмалик”";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Открытие ПС Темурмалик.jpg";
         $gallery->url = Helper::transliterate_into_latin("Открытие ПС “Темурмалик”");
         $gallery->save();
@@ -184,7 +202,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Турнир по мини-футболу «КОИНОТИ НАВ 2018»";
+        $gallery->ruTitle = "Турнир по мини-футболу «КОИНОТИ НАВ 2018»";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Турнир по мини-футболу КОИНОТИ НАВ 2018.jpg";
         $gallery->url = Helper::transliterate_into_latin("Турнир по мини-футболу «КОИНОТИ НАВ 2018»");
         $gallery->save();
@@ -203,7 +223,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Техника";
+        $gallery->ruTitle = "Техника";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Техника.jpg";
         $gallery->url = Helper::transliterate_into_latin("Техника");
         $gallery->save();
@@ -221,7 +243,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Тренинг в ТТУ";
+        $gallery->ruTitle = "Тренинг в ТТУ";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Тренинги для выпускников ТТУ.jpg";
         $gallery->url = Helper::transliterate_into_latin("Тренинг в ТТУ");
         $gallery->save();
@@ -239,7 +263,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Официальный запуск проекта “Энергоснабжение сельского джамоата Ромит”";
+        $gallery->ruTitle = "Официальный запуск проекта “Энергоснабжение сельского джамоата Ромит”";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "Энергоснабжение сельского джамоата Ромит.jpg";
         $gallery->url = Helper::transliterate_into_latin("Официальный запуск проекта “Энергоснабжение сельского джамоата Ромит”");
         $gallery->save();
@@ -257,7 +283,9 @@ class GallerySeeder extends Seeder
 
 
         $gallery = new Gallery();
-        $gallery->title = "Открытие ПС 110/10 «Вахдат»";
+        $gallery->ruTitle = "Открытие ПС 110/10 «Вахдат»";
+        $gallery->tjTitle = $gallery->ruTitle;
+        $gallery->enTitle = $gallery->ruTitle;
         $gallery->thumbnail = "ПС 110-10 Вахдат.jpg";
         $gallery->url = Helper::transliterate_into_latin("Открытие ПС 110/10 «Вахдат»");
         $gallery->save();

@@ -37,7 +37,7 @@ class ProjectGroupController extends Controller
         ];
 
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
-
+        
         $group = new ProjectGroup();
         $multiLanguageFields = ['Title'];
         Helper::fillMultiLanguageFields($request, $group, $multiLanguageFields);

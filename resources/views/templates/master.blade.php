@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>
-        @hasSection ('title')
-            @yield('title') – ТГЭМ
-        @else
-            ТГЭМ – Открытое акционерное общество
-        @endif
-    </title>
+    <title>@hasSection ('title')@yield('title') – ТГЭМ@else{{ __('ТГЭМ – Открытое акционерное общество') }}@endif</title>
 
     {{-----------Meta tags start--------- --}}
     {{-- Same metas for all routes --}}

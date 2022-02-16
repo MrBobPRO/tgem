@@ -10,7 +10,7 @@
         <div class="vacancies-list">
             @foreach ($vacancies as $vacancy)
                 <a class="vacancies-list__item" href="{{ route('vacancies.single', $vacancy->url) }}">
-                    <img class="vacancies-list__image" src="{{ asset('img/archive/medium/' . $vacancy->image) }}" alt="{{ $vacancy->title }}">
+                    <img class="vacancies-list__image" src="{{ asset('img/archive/medium/' . $vacancy->image) }}" alt="{{ $vacancy[$locale . 'Title'] }}">
                 </a>
             @endforeach
         </div>

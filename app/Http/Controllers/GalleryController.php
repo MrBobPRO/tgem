@@ -42,7 +42,7 @@ class GalleryController extends Controller
             ->appends($request->except("page"));
 
         //used in search & counting
-        $all_items = Gallery::orderBy("title", "asc")->get();
+        $all_items = Gallery::orderBy("ruTitle", "asc")->get();
         $items_count = count($all_items);
 
         return view("dashboard.galleries.index", compact("galleries", "all_items", "items_count", "order_by", "order_type", "active_page"));
@@ -63,18 +63,19 @@ class GalleryController extends Controller
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
         $validation_rules = [
-            "title" => "unique:galleries"
+            "ruTitle" => "unique:galleries"
         ];
 
         $validation_messages = [
-            "title.unique" => "Галерея с таким заголовком уже существует !",
+            "ruTitle.unique" => "Галерея с таким заголовком уже существует !",
         ];
 
         Validator::make($request->all(), $validation_rules, $validation_messages)->validate();
 
         $gallery = new Gallery();
-        $gallery->title = $request->title;
-        $gallery->url = Helper::transliterate_into_latin($request->title);
+        $multiLanguageFields = ['Title'];
+        Helper::fillMultiLanguageFields($request, $gallery, $multiLanguageFields);
+        $gallery->url = Helper::transliterate_into_latin($request->ruTitle);
         $gallery->thumbnail = $request->thumbnail_from_archive ? $request->thumbnail_from_archive : "error"; 
         $gallery->save();
 
@@ -102,15 +103,16 @@ class GalleryController extends Controller
         $gallery = Gallery::find($request->id);
         // Validate uique filends
         $validation_errors = [];
-        if($request->title != $gallery->title) {
-            $duplicate = Gallery::where("title", $request->title)->first();
+        if($request->ruTitle != $gallery->ruTitle) {
+            $duplicate = Gallery::where("ruTitle", $request->ruTitle)->first();
             if ($duplicate) array_push($validation_errors, "Галерея с таким заголовком уже существует!");
         }
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $gallery->title = $request->title;
-        $gallery->url = Helper::transliterate_into_latin($request->title);
+        $multiLanguageFields = ['Title'];
+        Helper::fillMultiLanguageFields($request, $gallery, $multiLanguageFields);
+        $gallery->url = Helper::transliterate_into_latin($request->ruTitle);
         $gallery->thumbnail = $request->thumbnail_from_archive ? $request->thumbnail_from_archive : $gallery->thumbnail; 
         $gallery->save();
 

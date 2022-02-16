@@ -42,7 +42,7 @@
                     <div class="select2_single_container form-group__select2-single">
                         <select class="select2_single" data-dropdown-css-class="select2_single_dropdown" name="project_group_id">
                             @foreach($groups as $group)
-                            <option value="{{$group->id}}" {{ old('project_group_id') == $group->id ? 'selected' : '' }}>{{$group->title}}</option>
+                            <option value="{{$group->id}}" {{ old('project_group_id') == $group->id ? 'selected' : '' }}>{{$group->ruTitle}}</option>
                             @endforeach
                         </select>
                     </div>
