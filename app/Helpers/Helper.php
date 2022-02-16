@@ -21,6 +21,25 @@ class Helper {
         return $locales;
     }
 
+    /**
+     * remove tags, slice body, replace many spaces by one, remove first whitespace
+     * and return clean text
+     * used while sharing in socials/messangers
+     * 
+     * @param string $string
+     * @return string
+     */
+    public static function cleanShareText($string)
+    {
+        $cleaned = preg_replace('#<[^>]+>#', ' ', $string);
+        $cleaned = str_replace('&nbsp;', ' ', $cleaned);
+        $cleaned = mb_strlen($cleaned) < 170 ? $cleaned : mb_substr($cleaned, 0, 166) . '...';
+        $cleaned = preg_replace('!\s+!', ' ', $cleaned);
+        $cleaned = trim($cleaned);
+
+        return $cleaned;
+    }
+
     public static function transliterate_into_latin($string)
     {
         $cyr = [

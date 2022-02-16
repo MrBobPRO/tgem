@@ -5,7 +5,7 @@
 @section('content')
 
 <main class="default-page">
-    @include("templates.crumbs", ["main_title" => "Главная", "main_link" => route("home"), "page_title" => $page[$locale . 'Title']])
+    @include("templates.crumbs", ["main_title" => __("Главная"), "main_link" => route("home"), "page_title" => $page[$locale . 'Title']])
 
     @if($page[$locale . 'MainText'] != '')
     <section class="main-container default-page__main">

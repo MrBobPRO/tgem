@@ -4,12 +4,10 @@
 
 @section("meta-tags")
     @php
-        //remove tags and slice body
-        $share_text = preg_replace('#<[^>]+>#', ' ', $news[$locale . 'Body']);
-        $share_text = mb_strlen($share_text) < 170 ? $share_text : mb_substr($share_text, 0, 166) . '...'    
+        $shareText = App\Helpers\Helper::cleanShareText($news[$locale . 'Body']);
     @endphp
-    <meta name="description" content="{{ $share_text }}">
-    <meta property="og:description" content="{{ $share_text }}">
+    <meta name="description" content="{{ $shareText }}">
+    <meta property="og:description" content="{{ $shareText }}">
     <meta property="og:title" content="{{ $news[$locale . 'Title'] }}" />
     <meta property="og:image" content="{{ asset('img/archive/medium/' . $news->image) }}">
     <meta property="og:image:alt" content="{{ $news[$locale . 'Title'] }}">

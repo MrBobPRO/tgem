@@ -4,11 +4,11 @@
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
-                    <span class="page-link" aria-hidden="true">&laquo; <span class="page-link__text">Пред</span></span>
+                    <span class="page-link" aria-hidden="true">&laquo; <span class="page-link__text">{{ __('Пред') }}</span></span>
                 </li>
             @else
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&laquo; <span class="page-link__text">Пред</span></a>
+                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&laquo; <span class="page-link__text">{{ __('Пред') }}</span></a>
                 </li>
             @endif
 
@@ -34,11 +34,11 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"><span class="page-link__text">След</span> &raquo; </a>
+                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"><span class="page-link__text">{{ __('След') }}</span> &raquo; </a>
                 </li>
             @else
                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-                    <span class="page-link" aria-hidden="true"><span class="page-link__text">След</span> &raquo; </span>
+                    <span class="page-link" aria-hidden="true"><span class="page-link__text">{{ __('След') }}</span> &raquo; </span>
                 </li>
             @endif
         </ul>

@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>@hasSection ('title')@yield('title') – ТГЭМ@else{{ __('ТГЭМ – Открытое акционерное общество') }}@endif</title>
+    <title>@hasSection ('title')@yield('title') – {{__('ТГЭМ')}}@else{{ __('ТГЭМ – Открытое акционерное общество') }}@endif</title>
 
     {{-----------Meta tags start--------- --}}
     {{-- Same metas for all routes --}}
     <meta name="keywords" content="ТГЭМ, TGEM, Точикгидроэлектромонтаж, Строительство, Проективароние, Монтаж, Гидроэнергетика, Энергетика"/>
-    <meta property="og:site_name" content="ТГЭМ">
+    <meta property="og:site_name" content="{{ __('ТГЭМ') }}">
     <meta property="og:type" content="object" />
     <meta name="twitter:card" content="summary_large_image">
 
     @hasSection ('meta-tags')
         @yield('meta-tags')
     @else
-        <meta name="description" content="ТГЭМ – строим будущее вместе">
-        <meta property="og:description" content="ТГЭМ – строим будущее вместе">
-        <meta property="og:title" content="ТГЭМ" />
+        <meta name="description" content="{{ __('ТГЭМ – строим будущее вместе') }}">
+        <meta property="og:description" content="{{ __('ТГЭМ – строим будущее вместе') }}">
+        <meta property="og:title" content="{{ __('ТГЭМ') }}" />
         <meta property="og:image" content="{{ asset('img/archive/logo-share.png') }}">
         <meta property="og:image:alt" content="ТГЕМ – Лого">
-        <meta name="twitter:title" content="ТГЭМ">
+        <meta name="twitter:title" content="{{ __('ТГЭМ') }}">
         <meta name="twitter:image" content="{{ asset('img/archive/logo-share.png') }}">
     @endif
     {{----------- Meta tags end-----------}}

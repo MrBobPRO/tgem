@@ -4,10 +4,10 @@
 
 @section("meta-tags")
     @php
-        $share_text = "ТГЭМ – строим будущее вместе";
+        $shareText = __("ТГЭМ – строим будущее вместе");
     @endphp
-    <meta name="description" content="{{ $share_text }}">
-    <meta property="og:description" content="{{ $share_text }}">
+    <meta name="description" content="{{ $shareText }}">
+    <meta property="og:description" content="{{ $shareText }}">
     <meta property="og:title" content="{{ $gallery[$locale . 'Title'] }}" />
     <meta property="og:image" content="{{ asset('img/archive/medium/' . $gallery->thumbnail) }}">
     <meta property="og:image:alt" content="{{ $gallery[$locale . 'Title'] }}">
@@ -18,10 +18,9 @@
 @section('content')
 
 <main class="single-gallery-page">
-    @include("templates.crumbs", ["main_title" => "Галерея", "main_link" => route("galleries.index"), "page_title" => $gallery[$locale . 'Title']])
+    @include("templates.crumbs", ["main_title" => __("Галерея"), "main_link" => route("galleries.index"), "page_title" => $gallery[$locale . 'Title']])
 
     @include("templates.gallery", ["gallery_class" => "", "query" => $gallery])
-
 </main>
 
 @endsection

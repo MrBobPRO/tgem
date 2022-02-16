@@ -5,7 +5,7 @@
 @section('content')
 
 <main class="news-page">
-    @include("templates.crumbs", ["main_title" => "Главная", "main_link" => route("home"), "page_title" => $page_title])
+    @include("templates.crumbs", ["main_title" => __("Главная"), "main_link" => route("home"), "page_title" => $page_title])
     
     <div class="main-container news-page__inner">
         <div class="news-list">

@@ -979,6 +979,9 @@ button {
 
 
 /* --------------------------Projects start-------------------------- */
+.projects-page .pagination {
+    margin-top: 46px;
+}
 .projects-page__inner {
     padding-top: 100px;
     padding-bottom: 100px;

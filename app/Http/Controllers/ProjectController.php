@@ -13,7 +13,7 @@ class ProjectController extends Controller
     public function completed()
     {
         $projects = Project::where("completed", true)->latest()->paginate(9);
-        $page_title = __("Выполненные Проекты");
+        $page_title = __("Выполненные проекты");
 
         return view("projects.index", compact("projects", "page_title"));
     }
