@@ -15,7 +15,7 @@ class LocaleSeeder extends Seeder
     public function run()
     {
         $value = ['ru', 'tj', 'en'];
-        $name = ['Русский', 'Таджикский', 'Английский'];
+        $name = ['Русский', 'Тоҷикӣ', 'English'];
         $shortname = ['ru', 'tj', 'en'];
         $primary = [1, 0, 0];
         $logo = ['logo-ru.png', 'logo-tj.png', 'logo-en.png'];

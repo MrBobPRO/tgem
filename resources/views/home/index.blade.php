@@ -12,12 +12,12 @@
                         <h1 class="home__carousel-title">{{ $slide[$locale . 'Title'] }}</h1>
                         <p class="home__carousel-desc">{{ $slide[$locale . 'Description'] }}</p>
                         <div class="home__carousel-actions">
-                            <a href="{{ $slide->link }}" class="home__carousel-more"><span class="home__carousel-more-text">Подробнее</span></a>
+                            <a href="{{ $slide->link }}" class="home__carousel-more"><span class="home__carousel-more-text">{{ __("Подробнее") }}</span></a>
                             <a href="{{ $slide->video }}" target="_blank" class="home__carousel-play">
                                 <div class="ripple-container">
                                     <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
                                 </div>
-                                Посмотреть видео
+                                {{ __("Посмотреть видео") }}
                             </a>
                         </div>
                     </div>
@@ -31,14 +31,14 @@
     <section class="home__about-wrapper">
         <div class="main-container home__about">
             <div class="home__about-text" style="background-image: url('{{ asset('img/archive/home-pattern.png') }}')">
-                <h2 class="title--styled title--styled-left"><span class="seperator--left"></span>О компании</h2>
-                <h1 class="main-title home__about-title">Строительство  <br>и гидроэнергетика</h1>
+                <h2 class="title--styled title--styled-left"><span class="seperator--left"></span>{{ __("О компании") }}</h2>
+                <h1 class="main-title home__about-title">{{ __("Строительство") }}  <br>{{ __("и") }} {{ __("гидроэнергетика") }}</h1>
                 <p class="home__about-desc">
                     ТГЭМ – ведущая компания по строительству гидроэнергетических и инфраструктурных объектов.<br><br>
                     За более чем полувековую историю своего существования наша компания выполнила и продолжает выполнять строительные, электромонтажные и пусконаладочные работы на большинстве крупных объектах Республики Таджикистан и за ее пределами.
                 </p>
                 <div class="home__about-more">
-                    <a href="about/about_us" class="button main-btn"><span class="main-btn__text">Подробнее</span></a>
+                    <a href="about/about_us" class="button main-btn"><span class="main-btn__text">{{ __("Подробнее") }}</span></a>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                 <div class="experience-box">
                     <div class="experience-box__inner">
                         <p class="experience-box__counter count-box"><span class="count-text"  data-speed="3500" data-stop="60"></span>+</p>
-                        <p class="experience-box__txt" class="">лет <br> опыта</p>
+                        <p class="experience-box__txt" class="">{{ __("лет") }} <br> {{ __("опыта") }}</p>
                     </div>
                 </div>
             </div>
@@ -57,8 +57,8 @@
     {{-- Services start --}}
     <section class="home__services-wrapper">
         <div class="main-container home__services">
-            <h2 class="title--styled title--styled-left"><span class="seperator--left"></span>Наши услуги</h2>
-            <h1 class="main-title home__services-title">Строительство,  <br>проективароние, монтаж</h1>
+            <h2 class="title--styled title--styled-left"><span class="seperator--left"></span>{{ __("Наши услуги") }}</h2>
+            <h1 class="main-title home__services-title">{{ __("Строительство") }},  <br>{{ __("проектирование") }}, {{ __("монтаж") }}</h1>
 
             <div class="owl-carousel-container services-carousel">
                 <div class="owl-carousel services__carousel" id="services__carousel">
@@ -66,10 +66,10 @@
                         <div class="services-carousel__item-inner">
                             <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
-                                Строительство <br>гидротехнических <br>Сооружений
+                                {{ __("Строительство") }} <br>{{ __("гидротехнических") }} <br>{{ __("Сооружений") }}
                             </p>
                             <img class="services-carousel__icon" src="{{ asset('img/archive/excavator.png') }}" alt="excavator">
-                            <a href="#" class="button secondary-btn services-carousel__button">Подробнее</a>
+                            <a href="#" class="button secondary-btn services-carousel__button">{{ __("Подробнее") }}</a>
                         </div>
                     </div>
 
@@ -77,10 +77,10 @@
                         <div class="services-carousel__item-inner">
                             <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
-                                Строительство <br>промышленных <br>Комплексов
+                                {{ __("Строительство") }} <br>{{ __("промышленных") }} <br>{{ __("Комплексов") }}
                             </p>
                             <img class="services-carousel__icon" src="{{ asset('img/archive/building.png') }}" alt="building">
-                            <a href="#" class="button secondary-btn services-carousel__button">Подробнее</a>
+                            <a href="#" class="button secondary-btn services-carousel__button">{{ __("Подробнее") }}</a>
                         </div>
                     </div>
 
@@ -88,10 +88,10 @@
                         <div class="services-carousel__item-inner">
                             <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
-                                Монтаж <br>электрооборудования <br>до 500 кВ включительно
+                                {{ __("Монтаж") }} <br>{{ __("электрооборудования") }} <br>{{ __("до 500 кВ включительно") }}
                             </p>
                             <img class="services-carousel__icon" src="{{ asset('img/archive/welding.png') }}" alt="welding">
-                            <a href="#" class="button secondary-btn services-carousel__button">Подробнее</a>
+                            <a href="#" class="button secondary-btn services-carousel__button">{{ __("Подробнее") }}</a>
                         </div>
                     </div>
                 </div>
@@ -104,14 +104,14 @@
     {{-- Statistics start --}}
     <section class="statistics" style="background-image: url('{{ asset('img/archive/statistics-bg.jpg') }}')">
         <div class="main-container statistics__inner">
-            <h2 class="title--styled title--styled-left title--styled-right"><span class="seperator--left seperator--light"></span>Статистика<span class="seperator--right seperator--light"></span></h2>
-            <h1 class="main-title statistics__secondary-title">У Нас</h1>
+            <h2 class="title--styled title--styled-left title--styled-right"><span class="seperator--left seperator--light"></span>{{ __("Статистика") }}<span class="seperator--right seperator--light"></span></h2>
+            <h1 class="main-title statistics__secondary-title">{{ __("У Нас") }}</h1>
 
             <div class="statistics__list">
                 <div class="statistics__item wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <img class="statistics__item-icon" src="{{ asset('img/archive/earth.png') }}" alt="earth">
                     <div class="statistics__item-content">
-                        <p class="statistics__item-key">Выполненные проекты</p>
+                        <p class="statistics__item-key">{{ __("Выполненные проекты") }}</p>
                         <p class="statistics__item-value count-box"><span class="count-text" data-speed="3500" data-stop="150"></span>+</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 <div class="statistics__item wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <img class="statistics__item-icon" src="{{ asset('img/archive/managment.png') }}" alt="managment">
                     <div class="statistics__item-content">
-                        <p class="statistics__item-key">Активные проекты</p>
+                        <p class="statistics__item-key">{{ __("Активные проекты") }}</p>
                         <p class="statistics__item-value count-box"><span class="count-text"  data-speed="3500" data-stop="23"></span></p>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="statistics__item wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <img class="statistics__item-icon" src="{{ asset('img/archive/engineer.png') }}" alt="engineer">
                     <div class="statistics__item-content">
-                        <p class="statistics__item-key">Число сотрудников</p>
+                        <p class="statistics__item-key">{{ __("Число сотрудников") }}</p>
                         <p class="statistics__item-value count-box"><span class="count-text"  data-speed="3500" data-stop="5000"></span>+</p>
                     </div>
                 </div>
@@ -139,10 +139,10 @@
     {{-- Projects start --}}
     <section class="home__projects">
         <div class="main-container home__projects-inner">
-            <h2 class="title--styled title--styled-left title--styled-right home__projects-title"><span class="seperator--left"></span>Наши проекты<span class="seperator--right"></span></h2>
+            <h2 class="title--styled title--styled-left title--styled-right home__projects-title"><span class="seperator--left"></span>{{ __("Наши проекты") }}<span class="seperator--right"></span></h2>
 
             <div class="horizontal-tab home__projects-tab" data-content="projects-tab-content">
-                <button class="horizontal-tab__button horizontal-tab__button--active home__projects-tab-button" data-pane="pj-content0">Все проекты</button>
+                <button class="horizontal-tab__button horizontal-tab__button--active home__projects-tab-button" data-pane="pj-content0">{{ __("Все проекты") }}</button>
                 @foreach ($project_groups as $group)
                     <button class="horizontal-tab__button home__projects-tab-button" data-pane="pj-content{{$group->id}}">{{$group[$locale . 'Title']}}</button>
                 @endforeach
@@ -184,7 +184,7 @@
                 @endforeach
             </div>
 
-            <a href="{{ route('projects.completed') }}" class="button main-btn home__projects-btn"><span class="main-btn__text">Посмотреть все проекты</span></a>
+            <a href="{{ route('projects.completed') }}" class="button main-btn home__projects-btn"><span class="main-btn__text">{{ __("Посмотреть все проекты") }}</span></a>
             <img class="home__projects-aside-img" src="{{ asset('img/archive/projects-aside.png') }}" alt="architect">
         </div>
     </section>  {{-- Projects end --}}
@@ -194,8 +194,8 @@
     <section class="home__news" style="background-image: url('{{ asset('img/archive/news-bg.png') }}')">
         {{-- News inner start --}}
         <div class="main-container home__news-inner"> 
-            <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>Последние новости<span class="seperator--right"></span></h2>
-            <h1 class="main-title home__news-desc">Следите За Нашими<br>Последними Новостями</h1>
+            <h2 class="title--styled title--styled-left title--styled-right home__news-title"><span class="seperator--left"></span>{{ __("Последние новости") }}<span class="seperator--right"></span></h2>
+            <h1 class="main-title home__news-desc">{{ __("Следите За Нашими") }}<br>{{ __("Последними Новостями") }}</h1>
 
             <div class="news-list">
                 @foreach ($news as $new)
@@ -211,7 +211,7 @@
                         <div class="news-list__image-container">
                             <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new[$locale . 'Title']}}">
                             @php 
-                                $formatted = Carbon\Carbon::create($new->created_at)->locale("ru");
+                                $formatted = Carbon\Carbon::create($new->created_at)->locale($locale == 'tj' ? 'ru' : $locale);
                             @endphp
                             <div class="news-list__date">{{$formatted->isoFormat('DD')}}<span class="news-list__date-span">
                                 {{$formatted->isoFormat("MMM")}}/{{$formatted->isoFormat("YY")}}
@@ -220,7 +220,7 @@
 
                         <div class="news-list__desc">
                             <h3 class="news-list__title">{{$new[$locale . 'Title']}}</h3>
-                            <button class="button secondary-btn news-list__button">Полробнее</button>
+                            <button class="button secondary-btn news-list__button">{{ __("Подробнее") }}</button>
                         </div>
                     </a>
                 @endforeach

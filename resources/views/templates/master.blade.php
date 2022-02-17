@@ -64,7 +64,7 @@
     @include('templates.header')
     <div class="content">
         @yield('content')
-        <div class="scroll-top" id="scroll_top">Вверх</div>
+        <div class="scroll-top" id="scroll_top">{{ __("Вверх") }}</div>
     </div>
     @include('templates.footer')
     

@@ -13,12 +13,12 @@
             </a>
 
             <div class="header__contacts-item">
-                <p class="header__contacts-title">Телефон:</p>
+                <p class="header__contacts-title">{{ __('Телефон') }}:</p>
                 <a href="tel:+9922381111" class="header__contacts-link">(+992 37) 238 1111, 238 1313</a>
             </div>
 
             <div class="header__contacts-item header__contacts-item--seperator">
-                <p class="header__contacts-title">ПН - ПТ:</p>
+                <p class="header__contacts-title">{{ __('ПН - ПТ') }}:</p>
                 <a class="header__contacts-link">08:00 - 18:00</a>
             </div>
 
@@ -205,10 +205,10 @@
         <div class="aside__widget">
             <button class="aside__widget-hide-btn" data-action="hide-aside">X</button>
             <img class="logo aside__widget-logo" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого">
-            <h1 class="aside__widget-title">О компании</h1>
+            <h1 class="aside__widget-title">{{ __("О компании") }}</h1>
             <p class="aside__widget-desc">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и
                 инфраструктурных объектов</p>
-            <h1 class="aside__widget-title">Контакты</h1>
+            <h1 class="aside__widget-title">{{ __("Контакты") }}</h1>
 
             <ul class="aside__widget-list">
                 <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">home</span> 734060
@@ -218,7 +218,7 @@
                 <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">email</span>
                     info@tgem.tj</li>
                 <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">schedule</span>
-                    Будние дни: 09.00 - 18.00 Воскресенье: Закрыто</li>
+                    {{ __("Будние дни") }}: 09.00 - 18.00 <br>{{ __("Воскресенье") }}: {{ __("Закрыто") }}</li>
             </ul>
         </div>
     </aside>
@@ -232,7 +232,7 @@
         </button>
 
         <form action="{{ route('search') }}" method="GET" class="search-popup__form">
-            <input type="text" name="keyword" placeholder="Поиск..." class="search-popup__input" required minlength="3">
+            <input type="text" name="keyword" placeholder="{{ __("Поиск") }}..." class="search-popup__input" required minlength="3">
             <button type="submit" class="search-popup__form-btn">
                 <span class="material-icons-outlined">search</span>
             </button>

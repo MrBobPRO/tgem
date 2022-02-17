@@ -8,14 +8,14 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $page_title = "Контакты";
+        $page_title = __("Контакты");
 
         return view("contacts.index", compact("page_title"));
     }
 
     public function booking()
     {
-        $page_title = "Онлайн Запись";
+        $page_title = __("Онлайн Запись");
 
         return view("contacts.booking", compact("page_title"));
     }

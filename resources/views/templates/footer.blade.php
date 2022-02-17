@@ -3,24 +3,24 @@
     <div class="main-container footer__inner @if($route == 'home') footer__inner--home @endif">
         {{-- Footer contacts start --}}
         <div class="footer__inner-item">
-            <h4 class="main-title footer__inner-title">Контакты</h4>
+            <h4 class="main-title footer__inner-title">{{ __("Контакты") }}</h4>
 
             <a class="footer__link--iconed" href="/contacts/our_contacts">
                 <span class="material-icons footer__link-icon">home</span> 734060 г. Душанбе, ул. Н. Хувайдуллоева 377/1
             </a>
 
             <a class="footer__link--iconed" href="mailto:info@tgem.tj">
-                <span class="material-icons footer__link-icon">email</span> Почта : info@tgem.tj
+                <span class="material-icons footer__link-icon">email</span> {{ __("Почта") }} : info@tgem.tj
             </a>
 
             <a class="footer__link--iconed" href="tel:+9922381111">
-                <span class="material-icons footer__link-icon">phone</span> Телефон : (+992 37) 238 1111, 238 1313
+                <span class="material-icons footer__link-icon">phone</span> {{ __("Телефон") }} : (+992 37) 238 1111, 238 1313
             </a>
         </div>  {{-- Footer contacts end --}}
 
         {{-- Footer news start --}}
         <div class="footer__inner-item">
-            <h4 class="main-title footer__inner-title">Новости</h4>
+            <h4 class="main-title footer__inner-title">{{ __("Новости") }}</h4>
             
             <div class="footer__news">
                 @foreach ($footer_news as $fn)
@@ -29,7 +29,7 @@
                         <div class="footer__news-desc">
                             <h4 class="footer__news-title" title="{{$fn[$locale . 'Title']}}">{{$fn[$locale . 'Title']}}</h4>
                             @php
-                                $formatted = Carbon\Carbon::create($fn->created_at)->locale("ru");
+                                $formatted = Carbon\Carbon::create($fn->created_at)->locale($locale == 'tj' ? 'ru' : $locale);
                             @endphp
                             <p class="footer__news-date">{{$formatted->isoFormat("MMMM DD, YYYY")}}</p>
                         </div>
@@ -39,23 +39,23 @@
         </div>  {{-- Footer news end --}}
 
         <div class="footer__inner-item">
-            <h4 class="main-title footer__inner-title">Деятельность</h4>
+            <h4 class="main-title footer__inner-title">{{ __("Деятельность") }}</h4>
             
             <a class="footer__link--iconed" href="/activity/construction">
-                <span class="material-icons footer__link-icon">task_alt</span> Строительство
+                <span class="material-icons footer__link-icon">task_alt</span> {{ __("Строительство") }}
             </a>
 
             <a class="footer__link--iconed" href="/activity/energy">
-                <span class="material-icons footer__link-icon">task_alt</span> Энергетика
+                <span class="material-icons footer__link-icon">task_alt</span> {{ __("Энергетика") }}
             </a>
         </div>
 
         @if($route == "home")
             <div class="footer__inner-item">
-                <h4 class="main-title footer__inner-title">Онлайн запись</h4>
-                <p>Онлайн-приемная Генерального директора</p>
+                <h4 class="main-title footer__inner-title">{{ __("Онлайн запись") }}</h4>
+                <p>{{ __("Онлайн-приемная Генерального директора") }}</p>
 
-                <a href="/contacts/online_booking" class="button main-btn footer__button"><span class="main-btn__text footer__button-text">Записатсья</span></a>
+                <a href="/contacts/online_booking" class="button main-btn footer__button"><span class="main-btn__text footer__button-text">{{ __("Записатсья") }}</span></a>
             </div>
         @else
             <div class="footer__inner-item footer__inner-about">
@@ -70,6 +70,6 @@
     </div>
 
     <div class="footer__copyright">
-        <div class="main-container">© {{date('Y')}} ОАО <b>«Точикгидроэлектромонтаж»</b>. Все права защищены.</div>
+        <div class="main-container">© {{date('Y')}} {{ __("ОАО") }}&nbsp;<b>«{{ __("Точикгидроэлектромонтаж") }}»</b>. {{ __("Все права защищены") }}.</div>
     </div>
 </footer>

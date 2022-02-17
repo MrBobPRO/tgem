@@ -4,7 +4,6 @@
 
 @section("meta-tags")
     @php
-        //remove tags, slice body, replace many spaces by one, remove first whitespace
         $shareText = App\Helpers\Helper::cleanShareText($vacancy[$locale . 'Body']);
     @endphp
 
@@ -20,7 +19,7 @@
 @section('content')
 
 <main class="single-vacancy">
-    @include("templates.crumbs", ["main_title" => "Вакансии", "main_link" => route("vacancies.index"), "page_title" => $vacancy[$locale . 'Title']])
+    @include("templates.crumbs", ["main_title" => __("Вакансии"), "main_link" => route("vacancies.index"), "page_title" => $vacancy[$locale . 'Title']])
     
     <div class="main-container single-vacancy__inner">
         <div class="share-container">
