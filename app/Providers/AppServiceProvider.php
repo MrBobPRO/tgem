@@ -2,14 +2,12 @@
 
 namespace App\Providers;
 
-use App\Models\Booking;
 use App\Models\Dropdown;
 use App\Models\Locale;
 use App\Models\News;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -37,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function ($view) {
             $view->with('locale', App::currentLocale() )
-                ->with('localedValue', App::currentLocale() . '_value' );
+                ->with('localedValue', App::currentLocale() . 'Value' );
         }); 
 
         View::composer(["templates.master", "dashboard.templates.master"], function ($view) {

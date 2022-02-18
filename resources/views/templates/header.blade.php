@@ -23,8 +23,10 @@
             </div>
 
             <div class="header__contacts-item">
-                <p class="header__contacts-title">Ул. Н. Хувайдуллоева 377/1</p>
-                <a href="/contacts/our_contacts" class="header__contacts-link">734060 Г. Душанбе</a>
+                @php $formatted = App\Models\Option::where('tag', 'address-street')->first(); @endphp
+                <p class="header__contacts-title">{{$formatted[$localedValue]}}</p>
+                @php $formatted = App\Models\Option::where('tag', 'address-city')->first(); @endphp
+                <a href="/contacts/our_contacts" class="header__contacts-link">{{$formatted[$localedValue]}}</a>
             </div>
         </div>
     </div> {{-- Header contacts end --}}
@@ -206,13 +208,16 @@
             <button class="aside__widget-hide-btn" data-action="hide-aside">X</button>
             <img class="logo aside__widget-logo" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого">
             <h1 class="aside__widget-title">{{ __("О компании") }}</h1>
-            <p class="aside__widget-desc">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и
-                инфраструктурных объектов</p>
+            @php $formatted = App\Models\Option::where('tag', 'about-company-short')->first(); @endphp
+            <p class="aside__widget-desc">{{ $formatted[$localedValue] }}</p>
             <h1 class="aside__widget-title">{{ __("Контакты") }}</h1>
 
             <ul class="aside__widget-list">
-                <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">home</span> 734060
-                    г. Душанбе, ул. Н. Хувайдуллоева 377/1</li>
+                @php $formatted = App\Models\Option::where('tag', 'address-street')->first(); @endphp
+                @php $formatted2 = App\Models\Option::where('tag', 'address-city')->first(); @endphp
+                <li class="aside__widget-list-item">
+                    <span class="material-icons aside__widget-icon">home</span> {{ $formatted2[$localedValue] }}, <br>{{ $formatted[$localedValue] }}
+                </li>
                 <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">phone</span> (+992
                     37) 2381111, 2381313</li>
                 <li class="aside__widget-list-item"><span class="material-icons aside__widget-icon">email</span>

@@ -23,7 +23,7 @@
     
     <div class="main-container single-vacancy__inner">
         <div class="share-container">
-            <p class="share-container__text">Поделитсья :</p> 
+            <p class="share-container__text">{{ __("Поделится") }} :</p> 
             <div class="ya-share2" data-curtain data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,skype"></div>
         </div>
         {!! $vacancy[$locale . 'Body'] !!}

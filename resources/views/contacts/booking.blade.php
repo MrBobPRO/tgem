@@ -16,7 +16,8 @@
 
             <div class="online-booking__form-about">
                 <h1 class="online-booking__form-title">{{ __("Онлайн-приемная") }} <br> {{ __("генерального директора") }}</h1>
-                <p class="online-booking__form-text">{{ __("На данной странице вы можете обратиться к генеральному директору ОАО «ТГЭМ» Сафарову Икболу Давлатовичу") }}</p>
+                @php $formatted = App\Models\Option::where('tag', 'online-booking-text')->first(); @endphp
+                <p class="online-booking__form-text">{{ $formatted[$localedValue] }}</p>
             </div>
 
             <div class="online-booking__form-body">
@@ -29,7 +30,7 @@
     
                 <div class="online-booking__form-right">
                     <input class="input-text online-booking__input" type="email" name="email" placeholder="E-mail">
-                    <textarea class="textarea" name="body" rows="6" placeholder="Текст сообщение *" required></textarea>
+                    <textarea class="textarea" name="body" rows="6" placeholder="{{ __("Текст сообщение") }} *" required></textarea>
                     <button type="submit" class="button main-btn online-booking__button"><span class="main-btn__text">{{ __("Отправить") }}</span></a>
                 </div>
             </div>

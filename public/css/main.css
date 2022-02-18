@@ -40,6 +40,9 @@ ul {
     -ms-user-select: none; 
     user-select: none;
 }
+.wrap-whitespace {
+    white-space: pre-wrap;
+}
 .input-text, .textarea {
     font-size: 15px;
     padding: 8px 22px;

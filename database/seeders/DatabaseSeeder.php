@@ -29,5 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VacanciesSeeder::class);
         $this->call(GallerySeeder::class);
         $this->call(SliderSeeder::class);
+        $this->call(OptionSeeder::class);
     }
 }

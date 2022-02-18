@@ -11,7 +11,8 @@
         <div class="main-container contacts__list">
             <div class="contacts__list-item">
                 <h2 class="contacts__list-title">{{ __("Адрес") }}:</h2>
-                <p class="contacts__list-text">734060, Республика Таджикистан, г.Душанбе, ул. Н. Хувайдуллаева 377/1</p>
+                @php $formatted = App\Models\Option::where('tag', 'address-full')->first(); @endphp
+                <p class="contacts__list-text">{{ $formatted[$localedValue] }}</p>
             </div>
 
             <div class="contacts__list-item">

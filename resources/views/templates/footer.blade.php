@@ -6,7 +6,9 @@
             <h4 class="main-title footer__inner-title">{{ __("Контакты") }}</h4>
 
             <a class="footer__link--iconed" href="/contacts/our_contacts">
-                <span class="material-icons footer__link-icon">home</span> 734060 г. Душанбе, ул. Н. Хувайдуллоева 377/1
+                @php $formatted = App\Models\Option::where('tag', 'address-street')->first(); @endphp
+                @php $formatted2 = App\Models\Option::where('tag', 'address-city')->first(); @endphp
+                <span class="material-icons footer__link-icon">home</span> {{ $formatted[$localedValue] }}, {{ $formatted2[$localedValue] }}
             </a>
 
             <a class="footer__link--iconed" href="mailto:info@tgem.tj">
@@ -63,7 +65,8 @@
                     <img class="logo__img" src="{{ asset('img/archive/logo-white.png') }}" alt="ТГЕМ лого">
                 </a>
 
-                <p class="footer__inner-about-text">ТГЭМ – ведущая таджикская компания по строительству гидроэнергетических и инфраструктурных объектов.</p>
+                @php $formatted = App\Models\Option::where('tag', 'about-company-short')->first(); @endphp
+                <p class="footer__inner-about-text">{{ $formatted[$localedValue] }}</p>
             </div>
         @endif
 

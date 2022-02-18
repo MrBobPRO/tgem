@@ -120,6 +120,11 @@ Route::group(["middleware" => "auth"], function() {
     Route::post("/galleries/remove", "GalleryController@remove")->name("galleries.remove");
     Route::post("/galleries/remove_multiple", "GalleryController@remove_multiple")->name("galleries.remove_multiple");
 
+    //options
+    Route::get('/dashboard/options', "OptionController@dashboard_index")->name('dashboard.options.index');
+    Route::get('/dashboard/options/{id}', "OptionController@dashboard_single")->name('dashboard.options.single');
+    Route::post('/options/update', "OptionController@update")->name('options.update');
+
     //images
     Route::post("/images/store", "ImageController@store")->name("images.store");
     Route::post("/images/update", "ImageController@update")->name("images.update");

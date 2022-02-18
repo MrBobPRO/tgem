@@ -100,6 +100,14 @@
         Галерея / {{$gallery->ruTitle}}
         @break
 
+        @case('dashboard.options.index')
+        Тексты
+        @break
+
+        @case('dashboard.options.single')
+        Тексты / {{$option->key}}
+        @break
+
         @endswitch
     </h1> {{-- Header Title end --}}
 
@@ -162,6 +170,10 @@
         <a class="header__actions-link" href="{{route('dashboard.galleries.create')}}">Добавить галерею</a>
         <button class="header__actions-button" type="button" data-bs-toggle="modal"
             data-bs-target="#remove_multiple_modal">Удалить отмеченные</button>
+        @break
+
+        @case('dashboard.galleries.index')
+        <span class="header__actions-span">Элементов : {{$items_count}}</span>
         @break
 
         @endswitch

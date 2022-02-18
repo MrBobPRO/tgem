@@ -14,7 +14,7 @@
                     <div class="galleries-list__image-container">
                         <img class="galleries-list__image" src="{{ asset('img/archive/medium/' . $gallery->thumbnail) }}" alt="{{$gallery[$locale . 'Title']}}">
                         @php
-                            $formatted = Carbon\Carbon::create($gallery->created_at)->locale("ru"); 
+                            $formatted = Carbon\Carbon::create($gallery->created_at)->locale($locale == 'tj' ? 'ru' : $locale);
                         @endphp   
                         <div class="galleries-list__date">{{$formatted->isoFormat('DD')}}<span class="galleries-list__date-span">
                             {{$formatted->isoFormat("MMM")}}/{{$formatted->isoFormat("YY")}}

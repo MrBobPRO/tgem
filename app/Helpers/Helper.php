@@ -21,6 +21,11 @@ class Helper {
         return $locales;
     }
 
+    public static function inl2br($string)
+    {
+        return str_ireplace(array("\\r\\n", "\\r", "\\n"), "<br />", $string);
+    }
+
     /**
      * remove tags, slice body, replace many spaces by one, remove first whitespace
      * and return clean text

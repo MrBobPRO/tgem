@@ -33,10 +33,8 @@
             <div class="home__about-text" style="background-image: url('{{ asset('img/archive/home-pattern.png') }}')">
                 <h2 class="title--styled title--styled-left"><span class="seperator--left"></span>{{ __("О компании") }}</h2>
                 <h1 class="main-title home__about-title">{{ __("Строительство") }}  <br>{{ __("и") }} {{ __("гидроэнергетика") }}</h1>
-                <p class="home__about-desc">
-                    ТГЭМ – ведущая компания по строительству гидроэнергетических и инфраструктурных объектов.<br><br>
-                    За более чем полувековую историю своего существования наша компания выполнила и продолжает выполнять строительные, электромонтажные и пусконаладочные работы на большинстве крупных объектах Республики Таджикистан и за ее пределами.
-                </p>
+                @php $formatted = App\Models\Option::where('tag', 'about-company')->first(); @endphp
+                <p class="home__about-desc wrap-whitespace">{{$formatted[$localedValue]}}</p>
                 <div class="home__about-more">
                     <a href="about/about_us" class="button main-btn"><span class="main-btn__text">{{ __("Подробнее") }}</span></a>
                 </div>

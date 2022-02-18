@@ -22,7 +22,7 @@
                     <div class="news-list__image-container">
                         <img class="news-list__image" src="{{ asset('img/archive/medium/' . $new->image) }}" alt="{{$new[$locale . 'Title']}}">
                         @php 
-                            $formatted = Carbon\Carbon::create($new->created_at)->locale("ru");
+                            $formatted = Carbon\Carbon::create($new->created_at)->locale($locale == 'tj' ? 'ru' : $locale);
                         @endphp
                         <div class="news-list__date">{{$formatted->isoFormat('DD')}}<span class="news-list__date-span">
                             {{$formatted->isoFormat("MMM")}}/{{$formatted->isoFormat("YY")}}
@@ -31,7 +31,7 @@
 
                     <div class="news-list__desc">
                         <h3 class="news-list__title">{{$new[$locale . 'Title']}}</h3>
-                        <button class="button secondary-btn news-list__button">Полробнее</button>
+                        <button class="button secondary-btn news-list__button">{{ __("Подробнее") }}</button>
                     </div>
                 </a>
             @endforeach
