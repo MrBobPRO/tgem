@@ -14,6 +14,7 @@
     "Отраслевые новости": "Industry news",
     "Галерея": "Gallery",
     "Вакансии": "Vacancies",
+    "Поделится": "Share",
     "Контакты": "Contacts",
     "Онлайн Запись": "Online booking",
 
@@ -71,5 +72,6 @@
     "Отправить": "Submit",
     "Ваше имя": "Your name",
     "Организация": "Organization",
+    "Текст сообщение": "Your message",
     "Город": "City"
 }
