@@ -15,7 +15,7 @@ class ContactController extends Controller
 
     public function booking()
     {
-        $page_title = __("Онлайн Запись");
+        $page_title = __("Онлайн запись");
 
         return view("contacts.booking", compact("page_title"));
     }

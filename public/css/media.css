@@ -80,6 +80,9 @@
 
 
 @media screen and (max-width: 991px) {
+    .mobile-locale-dropdown {
+        display: block;
+    }
     .page-link__text {
         display: none;
     }

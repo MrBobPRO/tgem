@@ -201,6 +201,11 @@ button {
     color: var(--secondary-color);
     font-weight: 500;
 }
+.dropdown__btn:focus + .dropdown__list {
+    visibility: visible;
+    opacity: 1;
+    left: 0;
+} 
 .dropdown__list {
     border-radius: 10px;
 }
@@ -532,6 +537,13 @@ button {
     background-color: var(--main-color);
     transition: all 500ms ease;
     transform: scale(0.5,1);
+}
+.mobile-locale-dropdown {
+    margin-left: 20px;
+    display: none;
+}
+.mobile-locale-dropdown .dropdown__list {
+    width: 180px;
 }
 .locale-dropdown .dropdown__btn {
     display: flex;
@@ -867,7 +879,7 @@ button {
     color: white;
     margin-bottom: 25px;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 23px;
     line-height: 1.3;
 }
 .footer__link--iconed {

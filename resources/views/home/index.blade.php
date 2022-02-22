@@ -64,7 +64,7 @@
                         <div class="services-carousel__item-inner">
                             <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
-                                {{ __("Строительство") }} <br>{{ __("гидротехнических") }} <br>{{ __("Сооружений") }}
+                                {{ __("Строительство гидротехнических Сооружений") }}
                             </p>
                             <img class="services-carousel__icon" src="{{ asset('img/archive/excavator.png') }}" alt="excavator">
                             <a href="#" class="button secondary-btn services-carousel__button">{{ __("Подробнее") }}</a>
@@ -75,7 +75,7 @@
                         <div class="services-carousel__item-inner">
                             <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
-                                {{ __("Строительство") }} <br>{{ __("промышленных") }} <br>{{ __("Комплексов") }}
+                                {{ __("Строительство промышленных Комплексов") }}
                             </p>
                             <img class="services-carousel__icon" src="{{ asset('img/archive/building.png') }}" alt="building">
                             <a href="#" class="button secondary-btn services-carousel__button">{{ __("Подробнее") }}</a>
@@ -86,7 +86,7 @@
                         <div class="services-carousel__item-inner">
                             <div class="services-carousel__pattern" style="background-image: url('{{ asset('img/archive/services-pattern.png') }}')"></div>
                             <p class="services-carousel__title">
-                                {{ __("Монтаж") }} <br>{{ __("электрооборудования") }} <br>{{ __("до 500 кВ включительно") }}
+                                {{ __("Монтаж электрооборудования до 500 кВ включительно") }}
                             </p>
                             <img class="services-carousel__icon" src="{{ asset('img/archive/welding.png') }}" alt="welding">
                             <a href="#" class="button secondary-btn services-carousel__button">{{ __("Подробнее") }}</a>

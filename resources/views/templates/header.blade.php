@@ -87,6 +87,29 @@
             <span class="material-icons search-toggler__icon">search</span>
         </div>
 
+        {{-- Mobile Locale switcher start --}}
+        <li class="dropdown navbar__dropdown locale-dropdown mobile-locale-dropdown">
+            <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">
+                <img src="{{ asset('img/archive/' . $curLocale->image) }}">
+                {{$curLocale->shortname}}
+            </a>
+
+            <ul class="dropdown__list navbar__dropdown-list">
+                @foreach($locales as $loc)
+                <li class="dropdown__item navbar__dropdown-item">
+                    <form action="{{ route('locale.switch') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="locale" value="{{ $loc->value }}">
+                        <button class="dropdown__link navbar__dropdown-link" href="#">
+                            <img src="{{ asset('img/archive/' . $loc->image) }}">
+                            {{$loc->name}}
+                        </button>
+                    </form>
+                </li>
+                @endforeach
+            </ul>
+        </li> {{-- Mobile Locale switcher end --}}
+
         <span class="material-icons mobile-menu-toggler">menu</span>
     </nav> {{-- Home Secondary Navbar end --}}
 
@@ -152,6 +175,29 @@
             <div class="search-toggler">
                 <span class="material-icons search-toggler__icon">search</span>
             </div>
+
+            {{-- Mobile Locale switcher start --}}
+            <li class="dropdown navbar__dropdown locale-dropdown mobile-locale-dropdown">
+                <a href="javascript::void(0)" class="dropdown__btn navbar__dropdown-btn secondary-navbar__dropdown-btn">
+                    <img src="{{ asset('img/archive/' . $curLocale->image) }}">
+                    {{$curLocale->shortname}}
+                </a>
+
+                <ul class="dropdown__list navbar__dropdown-list">
+                    @foreach($locales as $loc)
+                    <li class="dropdown__item navbar__dropdown-item">
+                        <form action="{{ route('locale.switch') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="locale" value="{{ $loc->value }}">
+                            <button class="dropdown__link navbar__dropdown-link" href="#">
+                                <img src="{{ asset('img/archive/' . $loc->image) }}">
+                                {{$loc->name}}
+                            </button>
+                        </form>
+                    </li>
+                    @endforeach
+                </ul>
+            </li> {{-- Mobile Locale switcher end --}}
 
             <span class="material-icons mobile-menu-toggler">menu</span>
         </nav> {{-- Main navbar end --}}
