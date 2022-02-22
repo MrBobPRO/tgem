@@ -54,9 +54,10 @@
     {{-- Animate.css library --}}
     <link rel="stylesheet" href="{{ asset('css/animate/animate.css') }}">
     
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/minified/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/media.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/media.css') }}"> --}}
 
 </head>
 <body>
