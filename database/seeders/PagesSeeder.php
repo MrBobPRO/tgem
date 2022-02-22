@@ -370,6 +370,26 @@ class PagesSeeder extends Seeder
         $page->tjAdditionalTextBody = $page->ruAdditionalTextBody;
         $page->enAdditionalTextBody = $page->ruAdditionalTextBody;
         $page->save();
+
+
+        $pages = Page::all();
+        foreach($pages as $page) {
+            $cleaned = preg_replace('!\s+!', ' ', $page->ruMainText);
+            $cleaned = trim($cleaned); 
+            $page->ruMainText = $cleaned;
+            $page->tjMainText = $cleaned;
+            $page->enMainText = $cleaned;
+
+            $cleaned = preg_replace('!\s+!', ' ', $page->ruAdditionalTextBody);
+            $cleaned = trim($cleaned); 
+            $page->ruAdditionalTextBody = $cleaned;
+            $page->tjAdditionalTextBody = $cleaned;
+            $page->enAdditionalTextBody = $cleaned;
+
+            $page->save();
+        }
+
         //--------------------Pages Text end--------------------
+        
     }
 }

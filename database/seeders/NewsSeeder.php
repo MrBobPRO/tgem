@@ -567,5 +567,17 @@ class NewsSeeder extends Seeder
             $news->save();
         }
 
+
+        $allNews = News::all();
+        foreach($allNews as $news) {
+            $cleaned = preg_replace('!\s+!', ' ', $news->ruBody);
+            $cleaned = trim($cleaned); 
+            $news->ruBody = $cleaned;
+            $news->tjBody = $cleaned;
+            $news->enBody = $cleaned;
+            
+            $news->save();
+        }
+
     }
 }

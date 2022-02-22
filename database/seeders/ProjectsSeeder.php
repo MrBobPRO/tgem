@@ -339,5 +339,17 @@ class ProjectsSeeder extends Seeder
             $project->url = Helper::transliterate_into_latin($titles[$i]);
             $project->save();
         }
+
+        $projects = Project::all();
+        foreach($projects as $project) {
+            $cleaned = preg_replace('!\s+!', ' ', $project->ruBody);
+            $cleaned = trim($cleaned); 
+            $project->ruBody = $cleaned;
+            $project->tjBody = $cleaned;
+            $project->enBody = $cleaned;
+            
+            $project->save();
+        }
+
     }
 }

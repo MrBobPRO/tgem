@@ -36,11 +36,11 @@ class Helper {
      */
     public static function cleanShareText($string)
     {
-        $cleaned = preg_replace('#<[^>]+>#', ' ', $string);
-        $cleaned = str_replace('&nbsp;', ' ', $cleaned);
-        $cleaned = mb_strlen($cleaned) < 170 ? $cleaned : mb_substr($cleaned, 0, 166) . '...';
-        $cleaned = preg_replace('!\s+!', ' ', $cleaned);
-        $cleaned = trim($cleaned);
+        $cleaned = preg_replace('#<[^>]+>#', ' ', $string); //remove tags
+        $cleaned = str_replace('&nbsp;', ' ', $cleaned); //decode space
+        $cleaned = mb_strlen($cleaned) < 170 ? $cleaned : mb_substr($cleaned, 0, 166) . '...'; //cut length
+        $cleaned = preg_replace('!\s+!', ' ', $cleaned); //many spaces into one
+        $cleaned = trim($cleaned); //remove whitespaces
 
         return $cleaned;
     }
