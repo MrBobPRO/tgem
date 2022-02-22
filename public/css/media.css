@@ -204,6 +204,7 @@
     .home__about {
         flex-wrap: wrap;
         gap: 20px;
+        overflow: hidden;
     }
     .home__about-text {
         width: 100%;
