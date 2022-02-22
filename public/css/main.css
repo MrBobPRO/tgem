@@ -350,6 +350,7 @@ button {
 .header__contacts-title {
     margin: 0;
     color: var(--secondary-color);
+    text-transform: capitalize;
 }
 .header__contacts-link {
     color: var(--secondary-color);

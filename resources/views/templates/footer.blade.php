@@ -8,7 +8,7 @@
             <a class="footer__link--iconed" href="/contacts/our_contacts">
                 @php $formatted = App\Models\Option::where('tag', 'address-street')->first(); @endphp
                 @php $formatted2 = App\Models\Option::where('tag', 'address-city')->first(); @endphp
-                <span class="material-icons footer__link-icon">home</span> {{ $formatted[$localedValue] }}, {{ $formatted2[$localedValue] }}
+                <span class="material-icons footer__link-icon">home</span> {{ $formatted2[$localedValue] }}, {{ $formatted[$localedValue] }}
             </a>
 
             <a class="footer__link--iconed" href="mailto:info@tgem.tj">

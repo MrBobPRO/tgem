@@ -38,7 +38,7 @@ For more than half a century of its existence, our company has performed and con
 
         $option = new Option();
         $option->key = 'Адресс - улица';
-        $option->ruValue = 'Ул. Н. Хувайдуллоева 377/1';
+        $option->ruValue = 'ул. Н. Хувайдуллоева 377/1';
         $option->enValue = 'Khuvaydulloeva 377 st.';
         $option->tjValue = $option->ruValue;
         $option->tag = 'address-street';
@@ -46,7 +46,7 @@ For more than half a century of its existence, our company has performed and con
 
         $option = new Option();
         $option->key = 'Адресс - индекс & город';
-        $option->ruValue = '734060 Г. Душанбе';
+        $option->ruValue = '734060 г. Душанбе';
         $option->enValue = '734060 Dushanbe';
         $option->tjValue = $option->ruValue;
         $option->tag = 'address-city';
