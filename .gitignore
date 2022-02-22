@@ -17,5 +17,5 @@ yarn-error.log
 .htaccess
 /public/img/archive/*
 /public/.htaccess
-/resources/lang/tj.json
-/resources/lang/en.json
+resources/lang/tj.json
+resources/lang/en.json
