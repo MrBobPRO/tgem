@@ -52,8 +52,8 @@
         width: 180px;
     }
     .secondary-navbar__link, .secondary-navbar__dropdown-btn {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     .home__carousel-item {
         height: calc(100vh - 140px);
@@ -128,8 +128,8 @@
         margin-right: 25px;
     }
     .navbar-container {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
     .navbar-container--fixed .logo {
         display: flex;
@@ -177,6 +177,9 @@
     /* Footer end */
 
     /* Home start */
+    .home__carousel-item {
+        height: 100vh;
+    }
     .home__carousel-crumb {
         font-size: 16px;
         margin-bottom: 15px;

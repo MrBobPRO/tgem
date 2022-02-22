@@ -324,8 +324,11 @@ button {
 .mobile-logo {
     display: none;
     justify-content: center;
-    padding: 10px 15px;
+    padding: 8px 12px;
     border-bottom: 1px solid #dddddd;
+}
+.mobile-logo__img {
+    max-width: 50%;
 }
 .header__contacts-wrapper {
     border-top: 6px solid var(--secondary-color);

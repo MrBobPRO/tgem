@@ -1,8 +1,8 @@
 <header class="header">
 
-    <div class="mobile-logo">
+    <a class="mobile-logo" href="{{ route('home') }}">
         <img class="mobile-logo__img" src="{{ asset('img/archive/logo.png') }}" alt="ТГЕМ лого">
-    </div>
+    </a>
 
     @if($route == "home")
     {{-- Header contacts start --}}
