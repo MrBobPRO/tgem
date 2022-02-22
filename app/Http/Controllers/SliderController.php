@@ -37,7 +37,7 @@ class SliderController extends Controller
     }
 
     public function store(Request $request)
-    {   dd($request->ruDescription);
+    {   
         // Validate uique fields
         $validation_errors = [];
         if(!$request->file('image') && !$request->image_from_archive)

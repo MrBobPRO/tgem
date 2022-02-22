@@ -108,6 +108,14 @@
         Тексты / {{$option->key}}
         @break
 
+        @case('dashboard.translations.index')
+        Переводы
+        @break
+
+        @case('dashboard.translations.single')
+        Переводы / {{$locale_value}}
+        @break
+
         @endswitch
     </h1> {{-- Header Title end --}}
 

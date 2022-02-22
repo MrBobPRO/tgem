@@ -244,3 +244,44 @@ if (document.getElementById("common_gallery_remove_image_modal")) {
     });
 }
 // -------------------Delete Common Galleries Images end-------------------
+
+
+
+// initialize JSON Formatter
+function getJson() {
+    if (document.getElementById('json-input')) {
+        try {
+            return JSON.parse($('#json-input').val());
+        } catch (ex) {
+            console.log('Wrong JSON Format: ' + ex);
+        }
+    }
+}
+
+if ($('#json-display')) {
+    let editor = new JsonEditor('#json-display', getJson());
+    editor.load(getJson());
+}
+
+// validate json input before form submit
+function validate_json_input(event) {
+    let json_display = document.getElementById('json-display');
+    let json_input = document.getElementById('json-input');
+
+    if(isValidJson(json_display.textContent)) {
+        json_input.value = json_display.textContent;
+    } else {
+        event.preventDefault();
+        alert('Пожалуйста, исправьте ошибки прежде чем сохранить файл!');
+    }
+}
+
+function isValidJson(str) {
+    try {
+        if (typeof str != 'string') return false;
+        JSON.parse(str);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
