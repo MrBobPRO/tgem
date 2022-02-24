@@ -960,16 +960,55 @@ input[type="file"]:after {
 /*-------------------------Select2 multiple end-------------------------*/
 
 
-@media screen and (max-width: 1500px) {
+/* locales Tab start */
+.locales-nav .nav-link {
+    color: black;
+    font-style: italic;
+    padding: 8px 30px;
+}
+.locales-nav .nav-link.active {
+    font-weight: bold;
+    color: var(--danger-color);
+}
+.locales-tab__content {
+    padding-top: 12px;
+    background: white;
+}
+/* locales Tab end */
+
+
+@media screen and (max-width: 1600px) {
+    body {
+        font-size: 14px;
+    }
+    .aside {
+        max-width: 170px;
+    }
+    .aside__logo {
+        padding: 5px 25px;
+    }
+    .aside__nav-link {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    .main {
+        padding: 52px 0 50px 170px
+    }
+    .header {
+        left: 170px;
+        height: 52px;
+        padding: 0 16px;
+    }
     .header__title {
-        font-size: 17px;
+        font-size: 16px;
         margin: 0 0 0 15px;
     }
     .header__actions-span, .header__actions-link, .header__actions-button {
-        font-size: 15px;
+        font-size: 14px;
     }
     .titles {
         font-size: 14px;
+        padding: 8px 10px 8px 40px;
     }
     .titles__link {
         gap: 0;
@@ -983,6 +1022,7 @@ input[type="file"]:after {
         min-width: 110px;
     }
     .list__item {
+        padding: 8px 10px;
         font-size: 14px;
     }
     .list__item-controls {
@@ -1001,21 +1041,90 @@ input[type="file"]:after {
         font-size: 14px;
         padding: 4px 15px;
     }
+    .select2_single_container .select2-container--default {
+        font-size: 14px;
+    }
+    .select2_single_dropdown {
+        font-size: 14px;
+    }
+    .locales-nav .nav-link {
+        padding: 8px 20px;
+    }
+    .form-group {
+        padding: 12px 16px 20px;
+    }
+    .label {
+        font-size: 14px;
+    }
+    .input, .textarea {
+        font-size: 14px;
+    }
+    .simditor .simditor-body {
+        padding: 20px 12px 20px;
+    }
+    .simditor .simditor-body, .editor-style {
+        font-size: 14px;
+    }
+    .show-archive-button {
+        font-size: 14px;
+    }
+    .form-group__image-filename {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+    .common-gallery__title {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    .common-gallery__form-title {
+        font-size: 16px;
+    }
+    .button {
+        font-size: 14px;
+    }
+    .archive-modal .modal-header {
+        padding: 8px 20px
+    }
+    .archive-modal .modal-title {
+        font-size: 14px;
+    }
+    .archive-modal .modal-header button {
+        display: flex;
+    }
+    .archive__search-input {
+        font-size: 14px;
+    }
+    .archive__list {
+        gap: 16px 14px;
+    }
+    .archive__list-item {
+        width: calc(14.2% - 12px);
+    }
+    .archive__list-filename {
+        padding: 6px;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+    .archive-modal .modal-title span {
+        font-size: 18px;
+    }
+    .archive__search-icon {
+        padding: 4px 6px;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+    }
+    .main-form {
+        gap: 20px;
+    }
+    .index-page-alert {
+        padding: 8px 20px;
+    }
+    .single-page-alert {
+        padding: 8px 20px;
+    }
 }
 
 
-/* locales Tab start */
-.locales-nav .nav-link {
-    color: black;
-    font-style: italic;
-    padding: 8px 30px;
-}
-.locales-nav .nav-link.active {
-    font-weight: bold;
-    color: var(--danger-color);
-}
-.locales-tab__content {
-    padding-top: 12px;
-    background: white;
-}
-/* locales Tab end */
+
+
