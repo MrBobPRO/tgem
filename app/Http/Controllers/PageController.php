@@ -121,21 +121,32 @@ class PageController extends Controller
 
         if(count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
-        $multiLanguageFields = ['Title', 'MainText', 'AdditionalTextTitle', 'AdditionalTextBody'];
-        Helper::fillMultiLanguageFields($request, $page, $multiLanguageFields);
-
-        $page->priority = $request->priority;
-        $page->url = $request->url;
-        $page->image = $request->image_from_archive ? $request->image_from_archive : $page->image; 
-        $page->save();
-
-        //resize image and store in archive
-        if($request->file("image")) {
-            $image = $request->file("image");
-            $filename = Helper::rename_file_if_exists("img/archive/", $image);
-            $page->image = $filename;
+        // if page has default template
+        if($page->default_template) {
+            $multiLanguageFields = ['Title', 'MainText', 'AdditionalTextTitle', 'AdditionalTextBody'];
+            Helper::fillMultiLanguageFields($request, $page, $multiLanguageFields);
+    
+            $page->priority = $request->priority;
+            $page->url = $request->url;
+            $page->image = $request->image_from_archive ? $request->image_from_archive : $page->image; 
             $page->save();
-            Helper::store_image_into_archive($image, $filename);
+    
+            //resize image and store in archive
+            if($request->file("image")) {
+                $image = $request->file("image");
+                $filename = Helper::rename_file_if_exists("img/archive/", $image);
+                $page->image = $filename;
+                $page->save();
+                Helper::store_image_into_archive($image, $filename);
+            }
+        }
+
+        //else if page doenst have default template
+        else {
+            $multiLanguageFields = ['Title'];
+            Helper::fillMultiLanguageFields($request, $page, $multiLanguageFields);
+
+            $page->save();
         }
 
         return redirect()->back();

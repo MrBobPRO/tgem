@@ -158,10 +158,10 @@
                     target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Посмотреть"><span
                         class="material-icons">visibility</span></a>
                 {{-- You cant edit/delete pages without default template from dashboard     --}}
-                @if($page->default_template)
                 <a class="control-button" href="{{route('dashboard.pages.single', $page->id)}}" data-bs-toggle="tooltip"
                     data-bs-placement="bottom" title="Редактировать"><span class="material-icons">edit</span></a>
 
+                @if($page->default_template)
                 <button class="control-button control-button--red" type="button" data-action="show_single_remove_modal"
                     data-item-id="{{$page->id}}" data-bs-toggle="tooltip" data-bs-placement="bottom"
                     title="Удалить"><span class="material-icons">delete</span></button>
