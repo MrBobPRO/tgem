@@ -88,5 +88,6 @@
 
     <script src="{{ asset('js/main.js') }}"></script>
 
+    @include('templates.analytics')
 </body>
 </html>
