@@ -105,7 +105,7 @@ if (home__carousel[0])
         margin: 0,
         autoplay: true,
         autoplaySpeed: 2000,
-        autoplayTimeout: 6000,
+        autoplayTimeout: 9000,
         nav: false,
         items: 1,
         dots: false
