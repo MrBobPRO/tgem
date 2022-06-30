@@ -178,17 +178,6 @@ if (map) {
 // --------------Google Maps end----------------
 
 
-// --------------Gallery plugin start----------------
-lc_lightbox('.gallery__element', {
-    wrap_class: 'lcl_fade_oc',
-    gallery: true,
-    thumb_attr: 'data-lcl-thumb',
-    skin: 'dark',
-    // more options here
-});
-// --------------Gallery plugin end----------------
-
-
 // --------------Counter start----------------
 if ($('.count-box').length) {
     $('.count-box').appear(function () {

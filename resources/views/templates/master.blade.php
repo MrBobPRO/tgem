@@ -49,8 +49,7 @@
     {{-- Simple components library --}}
     <link rel="stylesheet" href="{{ asset('js/components-library/styles.css') }}">
     {{-- Lightbox Gallery --}}
-    <link rel="stylesheet" href="{{ asset('js/lc-lightbox-lite/css/lc_lightbox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/lc-lightbox-lite/skins/dark.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/lightbox/lightboxed.css') }}">
     {{-- Animate.css library --}}
     <link rel="stylesheet" href="{{ asset('css/animate/animate.css') }}">
     
@@ -78,7 +77,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAneCOkP0fjY3gOXV9DYFTdA59yWXDvNLw&callback=initMap" async defer></script>
     @endif
     {{-- Lightbox Gallery --}}
-    <script src="{{ asset('js/lc-lightbox-lite/js/lc_lightbox.lite.min.js') }}"></script>
+    <script src="{{ asset('js/lightbox/lightboxed.js') }}"></script>
     {{-- Simple components library --}}
     <script src="{{ asset('js/components-library/scripts.js') }}"></script>
     {{-- Wow animation library --}}

@@ -1296,20 +1296,20 @@ button {
 /* Single Gallery start */
 .gallery {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     padding-top: 100px;
     padding-bottom: 100px;
     flex-wrap: wrap;
 }
 .gallery__element {
     display: flex;
-    width: calc(25% - 30px);
+    width: calc(25% - 15px);
     cursor: zoom-in;
     flex-direction: column;
 }
 .gallery__element-image {
     width: 100%;
-    height: 250px;
+    height: 220px;
     object-fit: cover;
     border-radius: 10px;
 }
