@@ -16,23 +16,6 @@
     color: white;
     padding-bottom: 10px;
 }
-.home__carousel-crumb {
-    font-size: 18px;
-    padding-left: 40px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    position: relative;
-}
-.home__carousel-crumb::before {
-    position: absolute;
-    content: '';
-    left: 0px;
-    top: 11px;
-    width: 30px;
-    height: 7px;
-    border-top: 2px solid var(--main-color);
-    border-bottom: 2px solid var(--main-color);
-}
 .home__carousel-title {
     margin-bottom: 22px;
     font-size: 72px;

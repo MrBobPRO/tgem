@@ -8,7 +8,6 @@
             <div class="home__carousel-item" style="background-image: url('{{ asset('img/archive/' . $slide->image) }}')">
                 <div class="home__carousel-overlay">
                     <div class="main-container home__carousel-text">
-                        <span class="home__carousel-crumb">{{ $slide[$locale . 'Crumb'] }}</span>
                         <h1 class="home__carousel-title">{{ $slide[$locale . 'Title'] }}</h1>
                         <p class="home__carousel-desc">{{ $slide[$locale . 'Description'] }}</p>
                         <div class="home__carousel-actions">

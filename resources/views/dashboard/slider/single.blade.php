@@ -30,12 +30,6 @@
             {{-- RU Tab Content start --}}
             <div class="tab-pane fade show active" id="nav-ru" role="tabpanel" aria-labelledby="nav-ru-tab">
                 <div class="form-group">
-                    <label class="label">Текст над заголовоком <span class="required">*</span></label>
-                    <input class="input" name="ruCrumb" type="text" value="{{ old('ruCrumb') == '' ? $slide->ruCrumb : old('ruCrumb') }}"
-                        required>
-                </div>
-
-                <div class="form-group">
                     <label class="label">Заголовок <span class="required">*</span></label>
                     <input class="input" name="ruTitle" type="text" value="{{ old('ruTitle') == '' ? $slide->ruTitle : old('ruTitle') }}"
                         required>
@@ -78,12 +72,7 @@
             </div> {{-- RU Tab Content end --}}
 
             {{-- TJ Tab Content start --}}
-            <div class="tab-pane fade" id="nav-tj" role="tabpanel" aria-labelledby="nav-tj-tab">
-                <div class="form-group">
-                    <label class="label">Текст над заголовоком</label>
-                    <input class="input" name="tjCrumb" type="text" value="{{ old('tjCrumb') == '' ? $slide->tjCrumb : old('tjCrumb') }}">
-                </div>
-
+            <div class="tab-pane fade" id="nav-tj" role="tabpanel" aria-labelledby="nav-tj-tab">              
                 <div class="form-group">
                     <label class="label">Заголовок</label>
                     <input class="input" name="tjTitle" type="text" value="{{old('tjTitle') == '' ? $slide->tjTitle : old('tjTitle') }}">
@@ -97,11 +86,6 @@
 
             {{-- EN Tab Content start --}}
             <div class="tab-pane fade" id="nav-en" role="tabpanel" aria-labelledby="nav-en-tab">
-                <div class="form-group">
-                    <label class="label">Текст над заголовоком</label>
-                    <input class="input" name="enCrumb" type="text" value="{{ old('enCrumb') == '' ? $slide->enCrumb : old('enCrumb') }}">
-                </div>
-
                 <div class="form-group">
                     <label class="label">Заголовок</label>
                     <input class="input" name="enTitle" type="text" value="{{old('enTitle') == '' ? $slide->enTitle : old('enTitle') }}">

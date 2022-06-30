@@ -46,7 +46,7 @@ class SliderController extends Controller
         if (count($validation_errors) > 0) return back()->withInput()->withErrors($validation_errors);
 
         $slide = new Slider();
-        $multiLanguageFields = ['Title', 'Crumb', 'Description'];
+        $multiLanguageFields = ['Title', 'Description'];
         Helper::fillMultiLanguageFields($request, $slide, $multiLanguageFields);
         
         $slide->link = $request->link;
@@ -77,7 +77,7 @@ class SliderController extends Controller
     public function update(Request $request)
     {
         $slide = Slider::find($request->id);
-        $multiLanguageFields = ['Title', 'Crumb', 'Description'];
+        $multiLanguageFields = ['Title', 'Description'];
         Helper::fillMultiLanguageFields($request, $slide, $multiLanguageFields);
 
         $slide->link = $request->link;
