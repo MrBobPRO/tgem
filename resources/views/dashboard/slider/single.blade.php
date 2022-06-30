@@ -67,13 +67,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="label">Ссылка кнопки <span class="required">*</span>. Включая http или https. Пример : https://somon.tj</label>
-                    <input type="text" class="input" name="link" required value="{{ old("link") == '' ? $slide->link : old("link") }}">
+                    <label class="label">Ссылка кнопки. Включая http или https. Пример : https://somon.tj. Можно оставить пустым!</label>
+                    <input type="text" class="input" name="link" value="{{ old("link") == '' ? $slide->link : old("link") }}">
                 </div>
 
                 <div class="form-group">
-                    <label class="label">Ссылка на видео <span class="required">*</span>. Включая http или https. Пример : https://somon.tj</label>
-                    <input type="text" class="input" name="video" required value="{{ old("video") == '' ? $slide->video : old("video") }}">
+                    <label class="label">Ссылка на видео. Включая http или https. Пример : https://somon.tj. Можно оставить пустым!</label>
+                    <input type="text" class="input" name="video" value="{{ old("video") == '' ? $slide->video : old("video") }}">
                 </div>
             </div> {{-- RU Tab Content end --}}
 

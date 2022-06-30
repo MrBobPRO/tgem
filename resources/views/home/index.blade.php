@@ -12,13 +12,18 @@
                         <h1 class="home__carousel-title">{{ $slide[$locale . 'Title'] }}</h1>
                         <p class="home__carousel-desc">{{ $slide[$locale . 'Description'] }}</p>
                         <div class="home__carousel-actions">
-                            <a href="{{ $slide->link }}" class="home__carousel-more"><span class="home__carousel-more-text">{{ __("Подробнее") }}</span></a>
-                            <a href="{{ $slide->video }}" target="_blank" class="home__carousel-play">
-                                <div class="ripple-container">
-                                    <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
-                                </div>
-                                {{ __("Посмотреть видео") }}
-                            </a>
+                            @if($slide->link)
+                                <a href="{{ $slide->link }}" class="home__carousel-more"><span class="home__carousel-more-text">{{ __("Подробнее") }}</span></a>
+                            @endif
+
+                            @if($slide->video)
+                                <a href="{{ $slide->video }}" target="_blank" class="home__carousel-play">
+                                    <div class="ripple-container">
+                                        <span class="material-icons ripple home__carousel-play-icon">play_arrow</span> 
+                                    </div>
+                                    {{ __("Посмотреть видео") }}
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
